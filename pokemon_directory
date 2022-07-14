@@ -1,0 +1,4 @@
+import random
+from pokemon_functions import Battle, Pokemon, Bag
+
+battle = Battle()
