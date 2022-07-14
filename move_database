@@ -1,0 +1,356 @@
+move_list = {
+    "protect": {"name": "protect", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100, "stat change": {},
+                "priority": 4, "heal": 0},
+    "tackle": {"name": "tackle", "power": 40, "c_type": "physical", "type": "normal", "accuracy": 100,
+               "stat change": {}, "priority": 0, "heal": 0},
+    "pound": {"name": "pound", "power": 40, "c_type": "physical", "type": "normal", "accuracy": 100, "stat change": {},
+              "priority": 0, "heal": 0},
+    "scratch": {"name": "scratch", "power": 40, "c_type": "physical", "type": "normal", "accuracy": 100,
+                "stat change": {}, "priority": 0, "heal": 0},
+    "quick attack": {"name": "quick attack", "power": 40, "c_type": "physical", "type": "normal", "accuracy": 100,
+                     "stat change": {}, "priority": 1, "heal": 0},
+    "extreme speed": {"name": "extreme speed", "power": 80, "c_type": "physical", "type": "normal", "accuracy": 100,
+                      "stat change": {}, "priority": 2, "heal": 0},
+    "swords dance": {"name": "swords dance", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100,
+                     "stat change": {"attack": 2}, "priority": 0, "heal": 0},
+    "growl": {"name": "growl", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100,
+              "stat change": {"Oattack": -1}, "priority": 0, "heal": 0},
+    "work up": {"name": "work up", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100,
+                "stat change": {"attack": 1, "s_attack": 1}, "priority": 0, "heal": 0},
+    "double team": {"name": "double team", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100,
+                    "stat change": {"evasion": 1}, "priority": 0, "heal": 0},
+    "belly drum": {"name": "belly drum", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100,
+                   "stat change": {"attack": 6}, "priority": 0, "heal": -45},
+    "explosion": {"name": "explosion", "power": 250, "c_type": "physical", "type": "normal", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": -1000},
+    "confide": {"name": "confide", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100,
+                "stat change": {"Os_attack": -1}, "priority": 0, "heal": 0},
+    "recover": {"name": "recover", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100, "stat change": {},
+                "priority": 0, "heal": 60},
+    "baton pass": {"name": "baton pass", "power": 0, "c_type": "status", "type": "normal", "accuracy": 100,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "vine whip": {"name": "vine whip", "power": 45, "c_type": "physical", "type": "grass", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "frenzy plant": {"name": "frenzy plant", "power": 150, "c_type": "special", "type": "grass", "accuracy": 90,
+                     "stat change": {}, "priority": 0, "heal": 0},
+    "energy ball": {"name": "energy ball", "power": 90, "c_type": "special", "type": "grass", "accuracy": 100,
+                    "stat change": {"O_s_defense": -0.1}, "priority": 0, "heal": 0},
+    "leaf storm": {"name": "leaf storm", "power": 130, "c_type": "special", "type": "grass", "accuracy": 90,
+                   "stat change": {"s_attack": -2}, "priority": 0, "heal": 0},
+    "giga drain": {"name": "giga drain", "power": 75, "c_type": "special", "type": "grass", "accuracy": 100,
+                   "stat change": {}, "priority": 0, "heal": 30},
+    "grassy terrain": {"name": "grassy terrain", "power": 0, "c_type": "status", "type": "electric", "accuracy": 100,
+                       "stat change": {}, "priority": 0, "heal": 0},
+    "cotton guard": {"name": "cotton guard", "power": 0, "c_type": "status", "type": "grass", "accuracy": 100,
+                     "stat change": {"defense": 3}, "priority": 0, "heal": 0},
+    "ember": {"name": "ember", "power": 40, "c_type": "special", "type": "fire", "accuracy": 100, "stat change": {},
+              "priority": 0, "heal": 0, "status condition": {"burn": 0.1}},
+    "fire punch": {"name": "fire punch", "power": 75, "c_type": "physical", "type": "fire", "accuracy": 100,
+                   "stat change": {}, "priority": 0, "heal": 0, "status condition": {"burn": 0.1}},
+    "blast burn": {"name": "blast burn", "power": 150, "c_type": "special", "type": "fire", "accuracy": 90,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "overheat": {"name": "overheat", "power": 130, "c_type": "special", "type": "fire", "accuracy": 90,
+                 "stat change": {"s_attack": -2}, "priority": 0, "heal": 0},
+    "heat wave": {"name": "heat wave", "power": 95, "c_type": "special", "type": "fire", "accuracy": 90,
+                  "stat change": {}, "priority": 0, "heal": 0, "status condition": {"burn": 0.1}},
+    "fire fang": {"name": "fire fang", "power": 65, "c_type": "physical", "type": "fire", "accuracy": 95,
+                  "stat change": {}, "priority": 0, "heal": 0, "status condition": {"burn": 0.1}},
+    "flame charge": {"name": "flame charge", "power": 50, "c_type": "physical", "type": "fire", "accuracy": 100,
+                     "stat change": {"speed": 1}, "priority": 0, "heal": 0},
+    "blaze kick": {"name": "blaze kick", "power": 85, "c_type": "physical", "type": "fire", "accuracy": 90,
+                   "stat change": {}, "priority": 0, "heal": 0, "status condition": {"burn": 0.1}},
+    "sunny day": {"name": "sunny day", "power": 0, "c_type": "status", "type": "fire", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "flare blitz": {"name": "flare blitz", "power": 120, "c_type": "physical", "type": "fire", "accuracy": 100,
+                    "stat change": {}, "priority": 0, "heal": -40},
+    "v create": {"name": "v create", "power": 180, "c_type": "physical", "type": "fire", "accuracy": 95,
+                 "stat change": {"defense": -1, "s_defense": -1, "speed": -1}, "priority": 0, "heal": 0},
+    "water gun": {"name": "water gun", "power": 40, "c_type": "special", "type": "water", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "hydro cannon": {"name": "hydro cannon", "power": 150, "c_type": "special", "type": "water", "accuracy": 90,
+                     "stat change": {}, "priority": 0, "heal": 0},
+    "surf": {"name": "surf", "power": 90, "c_type": "special", "type": "water", "accuracy": 90, "stat change": {},
+             "priority": 0, "heal": 0},
+    "hydro pump": {"name": "hydro pump", "power": 110, "c_type": "special", "type": "water", "accuracy": 80,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "origin pulse": {"name": "origin pulse", "power": 110, "c_type": "special", "type": "water", "accuracy": 85,
+                     "stat change": {}, "priority": 0, "heal": 0},
+    "rain dance": {"name": "rain dance", "power": 0, "c_type": "status", "type": "water", "accuracy": 100,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "thunder": {"name": "thunder", "power": 110, "c_type": "special", "type": "electric", "accuracy": 70,
+                "stat change": {}, "priority": 0, "heal": 0, "status condition": {"paralyze": 0.3}},
+    "thunder punch": {"name": "thunder punch", "power": 75, "c_type": "physical", "type": "electric", "accuracy": 100,
+                      "stat change": {}, "priority": 0, "heal": 0, "status condition": {"paralyze": 0.1}},
+    "thunder fang": {"name": "thunder fang", "power": 65, "c_type": "physical", "type": "electric", "accuracy": 95,
+                     "stat change": {}, "priority": 0, "heal": 0, "status condition": {"paralyze": 0.1}},
+    "charge beam": {"name": "charge beam", "power": 50, "c_type": "special", "type": "electric", "accuracy": 90,
+                    "stat change": {"s_attack": 0.7}, "priority": 0, "heal": 0},
+    "thunder wave": {"name": "thunder wave", "power": 0, "c_type": "status", "type": "electric", "accuracy": 100,
+                     "stat change": {}, "priority": 0, "heal": 0, "status condition": {"paralyze": 1}},
+    "electroweb": {"name": "electroweb", "power": 55, "c_type": "special", "type": "electric", "accuracy": 95,
+                   "stat change": {"Ospeed": -1}, "priority": 0, "heal": 0},
+    "thunderbolt": {"name": "thunderbolt", "power": 90, "c_type": "special", "type": "electric", "accuracy": 100,
+                    "stat change": {}, "priority": 0, "heal": 0, "status condition": {"paralyze": 0.1}},
+    "eerie impulse": {"name": "eerie impulse", "power": 0, "c_type": "status", "type": "electric", "accuracy": 100,
+                      "stat change": {"Os_attack": -2}, "priority": 0, "heal": 0},
+    "electric terrain": {"name": "electric terrain", "power": 0, "c_type": "status", "type": "electric",
+                         "accuracy": 100, "stat change": {}, "priority": 0, "heal": 0},
+    "hurricane": {"name": "hurricane", "power": 110, "c_type": "special", "type": "flying", "accuracy": 70,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "air slash": {"name": "air slash", "power": 75, "c_type": "special", "type": "flying", "accuracy": 95,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "peck": {"name": "peck", "power": 35, "c_type": "physical", "type": "flying", "accuracy": 100, "stat change": {},
+             "priority": 0, "heal": 0},
+    "dragon ascent": {"name": "dragon ascent", "power": 120, "c_type": "physical", "type": "flying", "accuracy": 100,
+                      "stat change": {"defense": -1, "s_defense": -1}, "priority": 0, "heal": 0},
+    "feather dance": {"name": "feather dance", "power": 0, "c_type": "status", "type": "flying", "accuracy": 100,
+                      "stat change": {"Oattack": -2}, "priority": 0, "heal": 0},
+    "air cutter": {"name": "air cutter", "power": 60, "c_type": "physical", "type": "flying", "accuracy": 95,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "brave bird": {"name": "brave bird", "power": 120, "c_type": "physical", "type": "flying", "accuracy": 100,
+                   "stat change": {}, "priority": 0, "heal": -40},
+    "earthquake": {"name": "earthquake", "power": 100, "c_type": "physical", "type": "ground", "accuracy": 100,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "mud slap": {"name": "mud slap", "power": 20, "c_type": "special", "type": "ground", "accuracy": 100,
+                 "stat change": {"Oaccuracy": -1}, "priority": 0, "heal": 0},
+    "precipice blades": {"name": "brecipice blades", "power": 120, "c_type": "physical", "type": "ground",
+                         "accuracy": 100, "stat change": {}, "priority": 0, "heal": 0},
+    "rock slide": {"name": "rock slide", "power": 75, "c_type": "physical", "type": "rock", "accuracy": 90,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "ancient power": {"name": "ancient power", "power": 60, "c_type": "special", "type": "rock", "accuracy": 100,
+                      "stat change": {"attack": 0.1, "defense": 0.1, "s_attack": 1, "s_defense": 0.1, "speed": 0.1},
+                      "priority": 0, "heal": 0},
+    "rock tomb": {"name": "rock tomb", "power": 60, "c_type": "physical", "type": "rock", "accuracy": 95,
+                  "stat change": {"Ospeed": -1}, "priority": 0, "heal": 0},
+    "rock polish": {"name": "rock polish", "power": 0, "c_type": "status", "type": "rock", "accuracy": 100,
+                    "stat change": {"speed": 2}, "priority": 0, "heal": 0},
+    "accelerock": {"name": "accelerock", "power": 40, "c_type": "physical", "type": "rock", "accuracy": 100,
+                   "stat change": {}, "priority": 1, "heal": 0},
+    "sandstorm": {"name": "sandstorm", "power": 40, "c_type": "status", "type": "rock", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "stone edge": {"name": "stone edge", "power": 100, "c_type": "physical", "type": "rock", "accuracy": 80,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "ice punch": {"name": "ice punch", "power": 75, "c_type": "physical", "type": "ice", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "blizzard": {"name": "blizzard", "power": 110, "c_type": "special", "type": "ice", "accuracy": 70,
+                 "stat change": {}, "priority": 0, "heal": 0},
+    "hail": {"name": "hail", "power": 0, "c_type": "status", "type": "ice", "accuracy": 100, "stat change": {},
+             "priority": 0, "heal": 0},
+    "ice beam": {"name": "ice beam", "power": 90, "c_type": "special", "type": "ice", "accuracy": 100,
+                 "stat change": {"freeze": 0.1}, "priority": 0, "heal": 0},
+    "ice fang": {"name": "ice fang", "power": 65, "c_type": "physical", "type": "ice", "accuracy": 95,
+                 "stat change": {}, "priority": 0, "heal": 0},
+    "glacial lance": {"name": "glacial lance", "power": 130, "c_type": "physical", "type": "ice", "accuracy": 100,
+                      "stat change": {}, "priority": 0, "heal": 0},
+    "x scissor": {"name": "x scissor", "power": 80, "c_type": "physical", "type": "bug", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "megahorn": {"name": "megahorn", "power": 120, "c_type": "physical", "type": "bug", "accuracy": 85,
+                 "stat change": {}, "priority": 0, "heal": 0},
+    "venoshock": {"name": "venoshock", "power": 65, "c_type": "special", "type": "poison", "accuracy": 100,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "sludge": {"name": "sludge", "power": 65, "c_type": "special", "type": "poison", "accuracy": 100, "stat change": {},
+               "priority": 0, "heal": 0, "status condition": {"poison": 0.3}},
+    "steel wing": {"name": "steel wing", "power": 70, "c_type": "physical", "type": "steel", "accuracy": 90,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "iron tail": {"name": "iron tail", "power": 100, "c_type": "physical", "type": "steel", "accuracy": 75,
+                  "stat change": {}, "priority": 0, "heal": 0},
+    "meteor mash": {"name": "meteor mash", "power": 90, "c_type": "physical", "type": "steel", "accuracy": 90,
+                    "stat change": {"attack": 0.2}, "priority": 0, "heal": 0},
+    "iron defense": {"name": "iron defense", "power": 0, "c_type": "status", "type": "steel", "accuracy": 100,
+                     "stat change": {"defense": 2}, "priority": 0, "heal": 0},
+    "metal sound": {"name": "metal sound", "power": 0, "c_type": "status", "type": "steel", "accuracy": 100,
+                    "stat change": {"Os_defense": -2}, "priority": 0, "heal": 0},
+    "bullet punch": {"name": "bullet punch", "power": 40, "c_type": "physical", "type": "steel", "accuracy": 90,
+                     "stat change": {}, "priority": 1, "heal": 0},
+    "dragon rush": {"name": "dragon rush", "power": 100, "c_type": "physical", "type": "dragon", "accuracy": 75,
+                    "stat change": {}, "priority": 0, "heal": 0},
+    "dragon pulse": {"name": "dragon pulse", "power": 85, "c_type": "special", "type": "dragon", "accuracy": 100,
+                     "stat change": {}, "priority": 0, "heal": 0},
+    "draco meteor": {"name": "draco meteor", "power": 130, "c_type": "special", "type": "dragon", "accuracy": 90,
+                     "stat change": {"s_attack": -2}, "priority": 0, "heal": 0},
+    "dragon dance": {"name": "dragon dance", "power": 0, "c_type": "special", "type": "dragon", "accuracy": 100,
+                     "stat change": {"attack": 1, "speed": 1}, "priority": 0, "heal": 0},
+    "breaking swipe": {"name": "breaking swipe", "power": 60, "c_type": "physical", "type": "dragon", "accuracy": 100,
+                       "stat change": {"Oattack": -1}, "priority": 0, "heal": 0},
+    "charm": {"name": "charm", "power": 0, "c_type": "status", "type": "fairy", "accuracy": 100,
+              "stat change": {"Oattack": -2}, "priority": 0, "heal": 0},
+    "dazzling gleam": {"name": "dazzling gleam", "power": 80, "c_type": "special", "type": "fairy", "accuracy": 100,
+                       "stat change": {}, "priority": 0, "heal": 0},
+    "moonblast": {"name": "moonblast", "power": 95, "c_type": "special", "type": "fairy", "accuracy": 100,
+                  "stat change": {"Os_attack": -0.3}, "priority": 0, "heal": 0},
+    "play rough": {"name": "play rough", "power": 90, "c_type": "physical", "type": "fairy", "accuracy": 90,
+                   "stat change": {"O_attack": -0.1}, "priority": 0, "heal": 0},
+    "misty terrain": {"name": "misty terrain", "power": 0, "c_type": "status", "type": "electric", "accuracy": 100,
+                      "stat change": {}, "priority": 0, "heal": 0},
+    "bite": {"name": "bite", "power": 60, "c_type": "physical", "type": "dark", "accuracy": 100, "stat change": {},
+             "priority": 0, "heal": 0},
+    "nasty plot": {"name": "nasty plot", "power": 0, "c_type": "status", "type": "dark", "accuracy": 100,
+                   "stat change": {"s_sttack": 2}, "priority": 0, "heal": 0},
+    "fake tears": {"name": "fake tears", "power": 0, "c_type": "status", "type": "dark", "accuracy": 100,
+                   "stat change": {"Os_sttack": -2}, "priority": 0, "heal": 0},
+    "hone claws": {"name": "hone claws", "power": 0, "c_type": "status", "type": "dark", "accuracy": 100,
+                   "stat change": {"attack": 1, "accuracy": 1}, "priority": 0, "heal": 0},
+    "shadow ball": {"name": "shadow ball", "power": 80, "c_type": "special", "type": "ghost", "accuracy": 100,
+                    "stat change": {}, "priority": 0, "heal": 0},
+    "shadow claw": {"name": "shadow claw", "power": 70, "c_type": "physical", "type": "ghost", "accuracy": 100,
+                    "stat change": {}, "priority": 0, "heal": 0},
+    "astral barrage": {"name": "astral barrage", "power": 120, "c_type": "special", "type": "ghost", "accuracy": 100,
+                       "stat change": {}, "priority": 0, "heal": 0},
+    "psychic": {"name": "psychic", "power": 90, "c_type": "special", "type": "psychic", "accuracy": 100,
+                "stat change": {"Os_defense": -0.1}, "priority": 0, "heal": 0},
+    "psycho boost": {"name": "psycho boost", "power": 140, "c_type": "special", "type": "psychic", "accuracy": 90,
+                     "stat change": {"s_attack": -2}, "priority": 0, "heal": 0},
+    "calm mind": {"name": "calm mind", "power": 0, "c_type": "status", "type": "psychic", "accuracy": 100,
+                  "stat change": {"s_attack": 1, "s_defense": 1}, "priority": 0, "heal": 0},
+    "amnesia": {"name": "amnesia", "power": 0, "c_type": "status", "type": "psychic", "accuracy": 100,
+                "stat change": {"s_defense": 2}, "priority": 0, "heal": 0},
+    "cosmic power": {"name": "cosmic power", "power": 0, "c_type": "status", "type": "psychic", "accuracy": 100,
+                     "stat change": {"defense": 1, "s_defense": 1}, "priority": 0, "heal": 0},
+    "barrier": {"name": "barrier", "power": 0, "c_type": "status", "type": "psychic", "accuracy": 100,
+                "stat change": {"defense": 2}, "priority": 0, "heal": 0},
+    "reflect": {"name": "reflect", "power": 0, "c_type": "status", "type": "psychic", "accuracy": 100,
+                "stat change": {}, "priority": 0, "heal": 0},
+    "light screen": {"name": "light screen", "power": 0, "c_type": "status", "type": "psychic", "accuracy": 100,
+                     "stat change": {}, "priority": 0, "heal": 0},
+    "trick room": {"name": "trick room", "power": 0, "c_type": "status", "type": "psychic", "accuracy": 100,
+                   "stat change": {}, "priority": 0, "heal": 0},
+    "psychic terrain": {"name": "psychic terrain", "power": 0, "c_type": "status", "type": "electric", "accuracy": 100,
+                        "stat change": {}, "priority": 0, "heal": 0},
+    "double kick": {"name": "double kick", "power": 60, "c_type": "physical", "type": "fighting", "accuracy": 100,
+                    "stat change": {}, "priority": 0, "heal": 0},
+    "hammer arm": {"name": "hammer arm", "power": 100, "c_type": "physical", "type": "fighting", "accuracy": 90,
+                   "stat change": {"speed": -1}, "priority": 0, "heal": 0},
+    "power up punch": {"name": "power up punch", "power": 40, "c_type": "physical", "type": "fighting", "accuracy": 100,
+                       "stat change": {"attack": 1}, "priority": 0, "heal": 0},
+    "bulk up": {"name": "bulk up", "power": 0, "c_type": "status", "type": "fighting", "accuracy": 100,
+                "stat change": {"attack": 1, "defense": 1}, "priority": 0, "heal": 0},
+    "close combat": {"name": "close combat", "power": 100, "c_type": "physical", "type": "fighting", "accuracy": 100,
+                     "stat change": {"defense": -1, "s_defense": -1}, "priority": 0, "heal": 0},
+    "spikes": {"name": "spikes", "power": 0, "c_type": "status", "type": "ground", "accuracy": 100, "stat change": {},
+               "priority": 0, "heal": 0},
+    "toxic spikes": {"name": "toxic spikes", "power": 0, "c_type": "status", "type": "poison", "accuracy": 100,
+                     "stat change": {}, "priority": 0, "heal": 0},
+    "stealth rock": {"name": "stealth rock", "power": 0, "c_type": "status", "type": "rock", "accuracy": 100,
+                     "stat change": {}, "priority": 0, "heal": 0}}
+
+tm = {'protect': {'name': 'protect', 'learnable': ['venusaur', 'charizard', 'blastoise', 'pikachu', 'pidgeot', 'raichu', 'crobat', 'persian', 'poliwrath', 'alakazam', 'machamp', 'magneton', 'gengar', 'chansey', 'kingdra', 'blissey', 'scizor', 'vaporeon', 'jolteon', 'flareon', 'gyarados', 'lapras', 'snorlax', 'aerodactyl', 'zapdos', 'moltres', 'articuno', 'dragonite', 'mewtwo', 'mew', 'togekiss', 'espeon', 'umbreon', 'heracross', 'steelix', 'piloswine', 'skarmory', 'tyranitar', 'celebi', 'sceptile', 'blaziken', 'swampert', 'ludicolo', 'shiftry', 'gardevoir', 'aggron', 'manectric', 'sharedo', 'flygon', 'altaria', 'walrein', 'salamence', 'metagross', 'latios', 'latias', 'rayquaza', 'kyogre', 'groudon', 'deoxys', 'deoxys attack', 'deoxys defense', 'deoxys speed']},
+      'swords dance': {'name': 'swords dance', 'learnable': ['venusaur', 'blastoise', 'charizard', 'victreebel', 'exeggutor', 'pinsir', 'mew', 'scizor', 'heracross', 'skarmory', 'celebi', 'sceptile', 'blaziken', 'ludicolo', 'shiftry', 'walrein', 'groudon', 'rayquaza', 'lucario', 'toxicroak', 'weavile']}, 'nasty plot': {'name': 'nasty plot', 'learnable': ['pikachu', 'raichu', 'crobat', 'persian', 'gengar', 'alakazam', 'mightyena', 'mewtwo', 'mew', 'togekiss', 'shiftry', 'togekiss', 'lucario', 'weavile']}, 'bulk up': {'name': 'bulk up', 'learnable': ['poliwrath', 'machamp', 'pinsir', 'mewtwo', 'mew', 'heracross', 'blaziken', 'swampert', 'groudon', 'rayquaza']}, 'calm mind': {'name': 'calm mind', 'learnable': ['alakazam', 'exeggutor', 'mewtwo', 'mew', 'espeon', 'gardevoir', 'latias', 'latios', 'kyogre']}, 'amnesia': {'name': 'amnesia', 'learnable': ['venusaur', 'persian', 'snorlax', 'mewtwo', 'mew', 'piloswine', 'swampert', 'shiftry', 'togekiss']},
+      'double team': {'name': 'double team', 'learnable': ['pikachu', 'raichu', 'beedrill', 'gyarados', 'pidgeot', 'scizor', 'sceptile', 'gardevoir', 'metagross']}, 'charm': {'name': 'charm', 'learnable': ['venusaur', 'persian', 'pikachu', 'raichu', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'snorlax', 'mew', 'umbreon', 'espeon', 'blissey', 'gardevoir', 'latias', 'togekiss']},
+      'blast burn': {'name': 'blast burn', 'learnable': ['charizard', 'typhlosion', 'blaziken']}, 'frenzy plant': {'name': 'frenzy plant', 'learnable': ['venusaur', 'meganium', 'sceptile']}, 'hydro cannon': {'name': 'hydro cannon', 'learnable': ['blastoise', 'feraligatr', 'swampert']}, 'draco meteor': {'name': 'draco meteor', 'learnable': ['dragonite', 'kingdra', 'flygon', 'altaria', 'salamence', 'latias', 'latios', 'rayquaza']},
+      'dragon pulse': {'name': 'dragon pulse', 'learnable': ['charizard', 'blastoise', 'gyarados', 'lapras', 'aerodactyl', 'dragonite', 'mew', 'steelix', 'kingdra', 'tyranitar', 'sceptile', 'aggron', 'flygon', 'altaria', 'salamence', 'latias', 'latios', 'groudon', 'rayquaza']}, 'dragon dance': {'name': 'dragon dance', 'learnable': ['charizard', 'kingdra', 'gyarados', 'lapras', 'aerodactyl', 'dragonite', 'mew', 'steelix', 'kingdra', 'tyranitar', 'sceptile', 'flygon', 'altaria', 'salamence', 'latias', 'latios', 'rayquaza']},
+      'dragon ascent': {'name': 'dragon ascent', 'learnable': ['rayquaza']}, 'origin pulse': {'name': 'origin pulse', 'learnable': ['kyogre']}, 'precipice blades': {'name': 'precipice blades', 'learnable': ['groudon']}, 'shadow ball': {'name': 'shadow ball', 'learnable': ['gengar', 'crobat', 'persian', 'alakazam', 'mewtwo', 'mew', 'vaporeon', 'jolteon', 'flareon', 'snorlax', 'espeon', 'umbreon', 'celebi', 'gardevoir', 'shiftry', 'metagross', 'latios', 'latias', 'deoxys', 'deoxys attack', 'deoxys defense', 'deoxys speed']},
+      'ice beam': {'name': 'ice beam', 'learnable': ['blastoise', 'articuno', 'poliwrath', 'kingdra', 'gyarados', 'lapras', 'vaporeon', 'snorlax', 'dragonite', 'mewtwo', 'mew', 'piloswine', 'tyranitar', 'swampert', 'ludicolo', 'sharpedo', 'altaria', 'walrein', 'latios', 'latias', 'kyogre', 'rayquaza']}, 'psychic': {'name': 'psychic', 'learnable': ['poliwrath', 'alakazam', 'gengar', 'exeggutor', 'lapras', 'snorlax', 'mewtwo', 'mew', 'espeon', 'umbreon', 'celebi', 'gardevoir', 'metagross', 'latios', 'latias', 'deoxys', 'deoxys attack', 'deoxys defense', 'deoxys speed']},
+      'x scissor': {'name': 'x scissor', 'learnable': ['pinsir', 'scizor', 'mew', 'crobat', 'skarmory', 'sceptile', 'shiftry']}, 'bite': {'name': 'bite', 'learnable': ['blastoise', 'crobat', 'persian', 'gyarados', 'vaporeon', 'flareon', 'jolteon', 'aerodactyl', 'snorlax', 'espeon', 'umbreon', 'tyranitar', 'manectric', 'sharpedo', 'flygon', 'salamence']}, 'ancient power': {'name': 'ancient power', 'learnable': ['aerodactyl', 'articuno', 'moltres', 'zapdos', 'mewtwo', 'mew', 'celebi', 'piloswine', 'kyogre', 'groudon', 'rayquaza', 'togekiss']},
+      'earthquake': {'name': 'earthquake', 'learnable': ['venusaur', 'charizard', 'blastoise', 'poliwrath', 'machamp', 'pinsir', 'gyarados', 'aerodactyl', 'snorlax', 'mew', 'dragonite', 'mewtwo', 'heracross', 'piloswine', 'tyranitar', 'sceptile', 'blaziken', 'swampert', 'aggron', 'sharpedo', 'flygon', 'altaria', 'salamence', 'metagross', 'groudon', 'latios', 'latias', 'kyogre', 'rayquaza']}, 'steel wing': {'name': 'steel wing', 'learnable': ['charizard', 'pidgeot', 'crobat', 'skarmory', 'articuno', 'moltres', 'zapdos', 'dragonite', 'mew', 'scizor', 'flygon', 'altaria', 'salamence', 'latios', 'latias', 'togekiss']},
+      'stone edge': {'name': 'stone edge', 'learnable': ['machamp', 'steelix', 'gyarados', 'aerodactyl', 'dragonite', 'tyranitar', 'blaziken', 'mew', 'heracross', 'piloswine', 'aggron', 'salamence', 'groudon', 'rayquaza']}, 'flare blitz': {'name': 'flare blitz', 'learnable': ['charizard', 'flareon', 'moltres', 'mew', 'blaziken']}, 'close combat': {'name': 'close combat', 'learnable': ['poliwrath', 'machamp', 'pinsir', 'mew', 'heracross', 'blaziken', 'sharpedo']},
+      'hydro pump': {'name': 'close combat', 'learnable': ['blastoise', 'poliwrath', 'kingdra', 'gyarados', 'lapras', 'vaporeon', 'snorlax', 'dragonite', 'mew', 'tyranitar', 'swampert', 'ludicolo', 'aggron', 'sharpedo', 'walrein', 'salamence', 'kyogre', 'rayquaza']}, 'breaking swipe': {'name': 'breaking swipe', 'learnable': ['charizard', 'dragonite', 'mew', 'steelix', 'kingdra', 'tyranitar', 'sceptile', 'flygon', 'altaria', 'salamence', 'latias', 'latios', 'rayquaza']},
+      'extreme speed': {'name': 'extreme speed', 'learnable': ['dragonite', 'rayquaza', 'togekiss']}, 'feather dance': {'name': 'feather dance', 'learnable': ['blaziken']}, 'electroweb': {'name': 'electroweb', 'learnable': ['pikachu', 'raichu', 'magenton', 'mew']}, 'v create': {'name': 'v create', 'learnable': ['rayquaza']}, 'shadow claw': {'name': 'shadow claw', 'learnable': ['charizard', 'persian', 'gengar', 'mew', 'heracross', 'tyranitar', 'blaziken', 'aggron', 'salamence', 'latias', 'latios', 'groudon', 'rayquaza']},
+      'reflect': {'name': 'reflect', 'learnable': ['pikachu', 'raichu', 'alakazam', 'exeggutor', 'articuno', 'magneton', 'mewtwo', 'mew', 'espeon', 'piloswine', 'celebi', 'gardevoir', 'metagross', 'latios', 'latias', 'togekiss']},
+      'light screen': {'name': 'light screen', 'learnable': ['pikachu', 'raichu', 'magneton', 'chansey', 'blissey', 'zapdos', 'venusaur', 'alakazam', 'machamp', 'exeggutor', 'jolteon', 'zapdos', 'dragonite', 'mewtwo', 'mew', 'togekiss', 'espeon', 'scizor', 'piloswine', 'gardevoir', 'manectric', 'metagross', 'latias', 'latios']}, 'trick room': {'name': 'trick room', 'learnable': ['alakazam', 'gengar', 'exeggutor', 'mewtwo', 'mew', 'espeon', 'celebi', 'gardevoir', 'deoxys', 'deoxys speed', 'deoxys attack', 'deoxys defense']},
+      'sunny day': {'name': 'sunny day', 'learnable': ['venusaur', 'charizard', 'crobat', 'persian', 'alakazam', 'machamp', 'magneton', 'gengar', 'exeggutor', 'chansey', 'blissey', 'scizor', 'pinsir', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'espeon', 'umbreon', 'aerodactyl', 'snorlax', 'articuno', 'moltres', 'zapdos', 'dragonite', 'mewtwo', 'mew', 'togekiss', 'steelix', 'heracross', 'skarmory', 'tyranitar', 'sceptile', 'blaziken', 'ludicolo', 'shiftry', 'gardevoir', 'aggron', 'flygon', 'altaria', 'salamence', 'metagross', 'latias', 'latios', 'groudon', 'rayquaza']}, 'rain dance': {'name': 'rain dance', 'learnable': ['blastoise', 'pikachu', 'raichu', 'crobat', 'persian', 'poliwrath', 'alakazam', 'machamp', 'magneton', 'gengar', 'chansey', 'kingdra', 'blissey', 'scizor', 'pinsir', 'gyarados', 'lapras', 'aerodactyl', 'snorlax', 'articuno', 'moltres', 'zapdos', 'dragonite', 'mewtwo', 'mew', 'togekiss', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'espeon', 'umbreon', 'heracross', 'piloswine', 'tyranitar', 'celebi', 'swampert', 'ludicolo', 'gardevoir', 'aggron', 'manectric', 'sharpedo', 'altaria', 'walrein', 'salamence', 'metagross', 'latias', 'latios', 'kyogre', 'rayquaza']},
+      'sandstorm': {'name': 'sandstorm', 'learnable': ['steelix', 'gyarados', 'aerodactyl', 'snorlax', 'dragonite', 'articuno', 'zapdos', 'moltres', 'mewtwo', 'mew', 'scizor', 'skarmory', 'blissey', 'tyranitar', 'celebi', 'aggron', 'flygon', 'metagross', 'latias', 'latios', 'groudon', 'rayquaza']}, 'hail': {'name': 'hail', 'learnable': ['blastoise', 'poliwrath', 'chansey', 'blissey', 'kingdra', 'gyarados', 'lapras', 'vaporeon', 'articuno', 'zapdos', 'dragonite', 'mewtwo', 'mew', 'piloswine', 'swampert', 'ludicolo', 'sharpedo', 'walrein', 'kyogre']}, 'electric terrain': {'name': 'electric terrain', 'learnable': ['pikachu', 'raichu', 'magneton', 'mew', 'manectric']}, 'misty terrain': {'name': 'misty terrain', 'learnable': ['mew', 'gardevoir']}, 'grassy terrain': {'name': 'grassy terrain', 'learnable': ['venusaur', 'exeggutor', 'mew', 'celebi', 'sceptile', 'shiftry']}, 'psychic terrain': {'name': 'psychic terrain', 'learnable': ['alakazam', 'mewtwo', 'mew', 'celebi', 'gardevoir']}, 'spikes': {'name': 'spikes', 'learnable': ['skarmory', 'mew', 'heracross', 'deoxys defense', 'deoxys speed']}, 'toxic spikes': {'name': 'toxic spikes', 'learnable': ['beedrill', 'deoxys', 'deoxys attack', 'deoxys speed', 'mew']}, 'stealth rock': {'name': 'stealth rock', 'learnable': ['golem', 'steelix', 'chansey', 'pinsir', 'aerodactyl', 'mew', 'piloswine', 'skarmory', 'blissey', 'tyranitar', 'swampert', 'aggron', 'camerupt', 'metagross', 'groudon', 'deoxys']}}
+
+battle_items = ["potion", "super potion", "hyper potion", "max potion", "full heal", "full restore", "revive", "max revive", "x accuracy", "x attack", "x defense", "x s_attack", "x s_defense", "x speed", "oran berry", "lum berry"]
+
+items = {}
+items["potion"] = {"item": "potion", "price": 300, "description": "Restores 20 HP", "heal": 20, "stat boosts": {}}
+items["super potion"] = {"item": "super potion", "price": 700, "description": "Restores 60 HP", "heal": 60, "stat boosts": {}}
+items["hyper potion"] = {"item": "hyper potion", "price": 1200, "description": "Restores 120 HP", "heal": 120, "stat boosts": {}}
+items["max potion"] = {"item": "max potion", "price": 2500, "description": "Restores full HP", "heal": 1000, "stat boosts": {}}
+items["full heal"] = {"item": "full heal", "price": 500, "description": "Cures all status condition", "heal": 0, "stat boosts": {}}
+items["full restore"] = {"item": "full restore", "price": 3000, "description": "Restores full HP and cures all status condition", "heal": 1000, "stat boosts": {}}
+items["revive"] = {"item": "revive", "price": 1500, "description": "Restores full HP and cures all status condition", "heal": 0, "stat boosts": {}}
+items["max revive"] = {"item": "max revive", "price": 4500, "description": "Restores full HP and cures all status condition", "heal": 0, "stat boosts": {}}
+
+#battle items
+items["x accuracy"] = {"item": "x accuracy", "price": 1000, "description": "Raises a pokemon's accuracy by 1 stage", "heal": 0, "stat boosts": {"accuracy": 1}}
+items["x attack"] = {"item": "x attack", "price": 1000, "description": "Raises a pokemon's attack by 1 stage", "heal": 0, "stat boosts": {"attack": 1}}
+items["x defense"] = {"item": "x defense", "price": 1000, "description": "Raises a pokemon's defense by 1 stage", "heal": 0, "stat boosts": {"defense": 1}}
+items["x s_attack"] = {"item": "x s_attack", "price": 1000, "description": "Raises a pokemon's special attack by 1 stage", "heal": 0, "stat boosts": {"s_attack": 1}}
+items["x s_defense"] = {"item": "x s_defense", "price": 1000, "description": "Raises a pokemon's special defense by 1 stage", "heal": 0, "stat boosts": {"s_defense": 1}}
+items["x speed"] = {"item": "x speed", "price": 1000, "description": "Raises a pokemon's speed by 1 stage", "heal": 0, "stat boosts": {"speed": 1}}
+
+#held items
+items["leftovers"] = {"item": "leftovers", "price": 2000, "description": "Restores some hp on a pokemon each turn", "heal": 0, "stat boosts": {}}
+items["weakness policy"] = {"item": "weakness policy", "price": 1000, "description": "Increases attack and special attack when hit with a supereffective move", "heal": 0, "stat boosts": {}}
+items["muscle band"] = {"item": "muscle band", "price": 2000, "description": "Increases power of physical moves", "heal": 0, "stat boosts": {}}
+items["wise glasses"] = {"item": "wise glasses", "price": 2000, "description": "Increases power of special moves", "heal": 0, "stat boosts": {}}
+items["absorb bulb"] = {"item": "absorb bulb", "price": 500, "description": "Increases special attack if user is hit with a water type move", "heal": 0, "stat boosts": {}}
+items["cell battery"] = {"item": "cell battery", "price": 500, "description": "Increases special attack if user is hit with an electric type move", "heal": 0, "stat boosts": {}}
+items["snowball"] = {"item": "snowball", "price": 500, "description": "Increases attack if user is hit with an ice type move", "heal": 0, "stat boosts": {}}
+items["luminous moss"] = {"item": "luminous moss", "price": 500, "description": "Increases special defense if user is hit with a water type move", "heal": 0, "stat boosts": {}}
+items["soul dew"] = {"item": "soul dew", "price": 2000, "description": "Increases special attack and special defense of latios and latias", "heal": 0, "stat boosts": {}}
+items["life orb"] = {"item": "life orb", "price": 4000, "description": "Increases power of attacks, but makes user lose hp each turn", "heal": 0, "stat boosts": {}}
+items["expert belt"] = {"item": "expert belt", "price": 3000, "description": "Increases power of super effective attacks", "heal": 0, "stat boosts": {}}
+items["light clay"] = {"item": "light clay", "price": 1500, "description": "Increases duration of screens", "heal": 0, "stat boosts": {}}
+items["lucky egg"] = {"item": "light clay", "price": 5000, "description": "Increases exp gain by 50%", "heal": 0, "stat boosts": {}}
+#items["focus sash"] = {"item": "focus sash", "price": 5000, "description": "Allows your pokemon to survive an attack with 1 hp, breaks after used", "heal": 0, "stat boosts": {}}
+
+#type boosting items    by 20% for all
+items["charcoal"] = {"item": "charcoal", "price": 1000, "description": "Increases power of fire type moves", "heal": 0, "stat boosts": {}}
+items["mystic water"] = {"item": "mystic water", "price": 1000, "description": "Increases power of water type moves", "heal": 0, "stat boosts": {}}
+items["miracle seed"] = {"item": "miracle seed", "price": 1000, "description": "Increases power of grass type moves", "heal": 0, "stat boosts": {}}
+items["sharp beak"] = {"item": "sharp beak", "price": 1000, "description": "Increases power of flying type moves", "heal": 0, "stat boosts": {}}
+items["dragon fang"] = {"item": "dragon fang", "price": 1000, "description": "Increases power of dragon type moves", "heal": 0, "stat boosts": {}}
+items["never melt ice"] = {"item": "never melt ice", "price": 1000, "description": "Increases power of ice type moves", "heal": 0, "stat boosts": {}}
+items["black glasses"] = {"item": "black glasses", "price": 1000, "description": "Increases power of dark type moves", "heal": 0, "stat boosts": {}}
+items["magnet"] = {"item": "magnet", "price": 1000, "description": "Increases power of electric type moves", "heal": 0, "stat boosts": {}}
+items["hard stone"] = {"item": "hard stone", "price": 1000, "description": "Increases power of rock type moves", "heal": 0, "stat boosts": {}}
+items["soft sand"] = {"item": "soft sand", "price": 1000, "description": "Increases power of ground type moves", "heal": 0, "stat boosts": {}}
+items["metal coat"] = {"item": "metal coat", "price": 1000, "description": "Increases power of steel type moves", "heal": 0, "stat boosts": {}}
+items["twisted spoon"] = {"item": "twisted spoon", "price": 1000, "description": "Increases power of psychic type moves", "heal": 0, "stat boosts": {}}
+items["spell tag"] = {"item": "spell tag", "price": 1000, "description": "Increases power of ghost type moves", "heal": 0, "stat boosts": {}}
+items["poison barb"] = {"item": "poison barb", "price": 1000, "description": "Increases power of poison type moves", "heal": 0, "stat boosts": {}}
+
+#mega stones
+items["venusaurite"] = {"item": "venusaurite", "price": 5000, "description": "Allows venusaur to mega evolve", "heal": 0, "stat boosts": {}}
+items["charizardite y"] = {"item": "charizardite y", "price": 5000, "description": "Allows charizard to mega evolve", "heal": 0, "stat boosts": {}}
+items["charizardite x"] = {"item": "charizardite x", "price": 5000, "description": "Allows charizard to mega evolve", "heal": 0, "stat boosts": {}}
+items["blastoiseinite"] = {"item": "blastoiseinite", "price": 5000, "description": "Allows blastoise to mega evolve", "heal": 0, "stat boosts": {}}
+items["mewtwonite y"] = {"item": "mewtwonite y", "price": 5000, "description": "Allows mewtwo to mega evolve", "heal": 0, "stat boosts": {}}
+items["mewtwonite x"] = {"item": "mewtwonite x", "price": 5000, "description": "Allows mewtwo to mega evolve", "heal": 0, "stat boosts": {}}
+items["blazikenite"] = {"item": "blazikenite", "price": 5000, "description": "Allows blaziken to mega evolve", "heal": 0, "stat boosts": {}}
+items["sceptilite"] = {"item": "sceptilite", "price": 5000, "description": "Allows sceptile to mega evolve", "heal": 0, "stat boosts": {}}
+items["swampertite"] = {"item": "swampertite", "price": 5000, "description": "Allows swampert to mega evolve", "heal": 0, "stat boosts": {}}
+items["tyranitarite"] = {"item": "tyranitarite", "price": 5000, "description": "Allows tyranitar to mega evolve", "heal": 0, "stat boosts": {}}
+items["metagrossite"] = {"item": "metagrossite", "price": 5000, "description": "Allows metagross to mega evolve", "heal": 0, "stat boosts": {}}
+items["salamencite"] = {"item": "salamencite", "price": 5000, "description": "Allows salamence to mega evolve", "heal": 0, "stat boosts": {}}
+items["aggronite"] = {"item": "aggronite", "price": 5000, "description": "Allows aggron to mega evolve", "heal": 0, "stat boosts": {}}
+items["manectite"] = {"item": "manectite", "price": 5000, "description": "Allows manectric to mega evolve", "heal": 0, "stat boosts": {}}
+items["gardevoirite"] = {"item": "gardevoirite", "price": 5000, "description": "Allows gardevoir to mega evolve", "heal": 0, "stat boosts": {}}
+items["latiasite"] = {"item": "latiasite", "price": 5000, "description": "Allows latias to mega evolve", "heal": 0, "stat boosts": {}}
+items["latiosite"] = {"item": "latiosite", "price": 5000, "description": "Allows latios to mega evolve", "heal": 0, "stat boosts": {}}
+items["beedrillite"] = {"item": "beedrillite", "price": 5000, "description": "Allows beedrill to mega evolve", "heal": 0, "stat boosts": {}}
+items["alakazite"] = {"item": "alakazite", "price": 5000, "description": "Allows alakazam to mega evolve", "heal": 0, "stat boosts": {}}
+items["gengarite"] = {"item": "gengarite", "price": 5000, "description": "Allows gengar to mega evolve", "heal": 0, "stat boosts": {}}
+
+#berries
+items["oran berry"] = {"item": "oran berry", "price": 500, "description": "Heals 10 hp in a pinch", "heal": 0, "stat boosts": {}}
+items["sitrus berry"] = {"item": "sitrus berry", "price": 500, "description": "Heals 1/4 of your hp in a pinch", "heal": 0, "stat boosts": {}}
+items["enigma berry"] = {"item": "enigma", "price": 500, "description": "Heals 1/4 of your hp when hit by a supereffective attack", "heal": 0, "stat boosts": {}}
+items["lum berry"] = {"item": "lum berry", "price": 500, "description": "Clears status condition", "heal": 0, "stat boosts": {}}
+items["occa berry"] = {"item": "occa berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Fire-type attack", "heal": 0, "stat boosts": {}}
+items["passho berry"] = {"item": "passho berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Water-type attack", "heal": 0, "stat boosts": {}}
+items["wacan berry"] = {"item": "waccan berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Electric-type attack", "heal": 0, "stat boosts": {}}
+items["rindo berry"] = {"item": "rindo berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Grass-type attack", "heal": 0, "stat boosts": {}}
+items["yache berry"] = {"item": "yache berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Ice-type attack", "heal": 0, "stat boosts": {}}
+items["chople berry"] = {"item": "chople berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Fighting-type attack", "heal": 0, "stat boosts": {}}
+items["kebia berry"] = {"item": "kebia berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Poison-type attack", "heal": 0, "stat boosts": {}}
+items["shuca berry"] = {"item": "shuca berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Ground-type attack", "heal": 0, "stat boosts": {}}
+items["coba berry"] = {"item": "coba berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Flying-type attack", "heal": 0, "stat boosts": {}}
+items["payapa berry"] = {"item": "payapa berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Psychic-type attack", "heal": 0, "stat boosts": {}}
+items["tanga berry"] = {"item": "tanga berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Bug-type attack", "heal": 0, "stat boosts": {}}
+items["charti berry"] = {"item": "charti berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Rock-type attack", "heal": 0, "stat boosts": {}}
+items["kasib berry"] = {"item": "kasib berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Ghost-type attack", "heal": 0, "stat boosts": {}}
+items["haban berry"] = {"item": "haban berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Dragon-type attack", "heal": 0, "stat boosts": {}}
+items["colbur berry"] = {"item": "colbur berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Dark-type attack", "heal": 0, "stat boosts": {}}
+items["babiri berry"] = {"item": "babiri berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Steel-type attack", "heal": 0, "stat boosts": {}}
+items["roseli berry"] = {"item": "roseli berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Fairy-type attack", "heal": 0, "stat boosts": {}}
+items["chilan berry"] = {"item": "chilan berry", "price": 500, "description": "Will lessen the damage taken from one Normal-type attack", "heal": 0, "stat boosts": {}}
+
+
+
+# tm[""] = {"name": "", "learnable": [""]}
+# status moves
+
+# weather, terrain, barrier setters, entry hazards
