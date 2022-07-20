@@ -1,5 +1,5 @@
 import random
-from item_database import move_list, items, tm, battle_items
+from move_database import move_list, items, tm, battle_items
 
 type_chart = {"normal": {"weakness": ["fighting"], "resistance": [], "immunity": ["ghost"]},
               "grass": {"weakness": ["fire", "ice", "poison", "bug", "flying"],
@@ -35,14 +35,45 @@ type_chart = {"normal": {"weakness": ["fighting"], "resistance": [], "immunity":
                         "immunity": ["dragon"]},
               "psychic": {"weakness": ["bug", "dark", "ghost"], "resistance": ["fighting", "psychic"], "immunity": []}}
 
+
 def printer_outer(message_1, message_2, chars):
     return message_1 + " " * (chars - len(message_1)) + message_2
+
 
 class Trainer:
     def __init__(self, trainer_file):
         self.decoder(trainer_file)
         self.create_pokemon()
-        self.bag = Bag(self.bag, self.money)
+        self.bag = Bag(self.item_bag, self.money)
+
+    def encoder(self, file):
+        #file = open(file, "w")
+        #file.close()
+        items = [self.name + "\n", str(self.level) + "\n", str(self.bag.money) + "\n"]
+        return_string = ""
+        for item in self.bag.bag:
+            return_string += item + ":" + str(self.bag.bag[item]) + "|"
+        items.append(return_string[:-1])
+
+        def encode_pokemon(pokemon):
+            def list_is(list):
+                return_list = []
+                for item in list:
+                    return_list.append(str(item))
+                return return_list
+
+            info_list = [pokemon.name, pokemon.type.join(","), pokemon.moveset.join(","), list(list_is(pokemon.stats.values())).join(","), pokemon.ability, str(pokemon.health), self.status_condition, self.held_item,
+                         str(pokemon.level), list_is(pokemon.EVs).join(","), list_is(pokemon.IVs).join(","), str(pokemon.EXP), pokemon.nature, pokemon.nickname]
+            return info_list.join("|")
+
+        pokemon_list = []
+        for pokemon in self.pokemon_box:
+            pokemon_list.append(encode_pokemon(pokemon))
+        items.append(pokemon_list.join("\n"))
+        return items.join("\n\split\n")
+
+
+
 
 
     def decoder(self, file):
@@ -52,10 +83,11 @@ class Trainer:
         self.name = items[0].replace("\n", "")
         self.level = int(items[1].replace("\n", ""))
         self.money = int(items[2].replace("\n", ""))
-        self.bag = {}
+        self.item_bag = {}
         for item in items[3].replace("\n", "").split(","):
-            self.bag[item.split(":")[0]] = int(item.split(":")[1])
+            self.item_bag[item.split(":")[0]] = int(item.split(":")[1])
         trainer_pokemon = items[4][1:].split("\n")
+
         def decode_pokemon(str):
             info = str.split("|")
             return {"name": info[0], "types": list(info[1].split(",")), "moves": list(info[2].split(",")),
@@ -63,6 +95,7 @@ class Trainer:
                     "status condition": list(info[6].split(",")), "held item": info[7], "level": int(info[8]),
                     "EVs": list(info[9].split(",")), "IVs": list(info[10].split(",")), "EXP": int(info[11]),
                     "nature": info[12], "nickname": info[13]}
+
         self.pokemon_list = []
         for pokemon in trainer_pokemon:
             self.pokemon_list.append(decode_pokemon(pokemon))
@@ -70,7 +103,9 @@ class Trainer:
     def create_pokemon(self):
         self.pokemon_box = []
         for item in self.pokemon_list:
-            self.pokemon_box.append(Pokemon(item["name"], item["moves"], item["ability"], item["status condition"], item["held item"], item["level"], item["EXP"], item["EVs"], item["IVs"], item["nature"], item["nickname"]))
+            self.pokemon_box.append(
+                Pokemon(item["name"], item["moves"], item["ability"], item["status condition"], item["held item"],
+                        item["level"], item["EXP"], item["EVs"], item["IVs"], item["nature"], item["nickname"]))
 
     def print_pokemon_box(self):
         for pokemon in self.pokemon_box:
@@ -90,7 +125,8 @@ class Trainer:
                                              "Moves: {}".format(pokemon.moveset), 40) + "\n"
                       )
                 count += 1
-            chosen_pokemon = input("Which pokemon would you like to tm?(1 - {}, [enter] to stop)".format(len(self.pokemon_box)))
+            chosen_pokemon = input(
+                "Which pokemon would you like to tm?(1 - {}, [enter] to stop)".format(len(self.pokemon_box)))
             if chosen_pokemon == "":
                 break
             try:
@@ -98,7 +134,7 @@ class Trainer:
                 chosen_pokemon = int(chosen_pokemon) - 1
                 print("Name: {},          Moves: {}".format(self.pokemon_box[chosen_pokemon].name,
                                                             self.pokemon_box[chosen_pokemon].moveset))
-                print("\nTMs:    ", end = "")
+                print("\nTMs:    ", end="")
                 for item in tm:
                     if self.pokemon_box[chosen_pokemon].name in tm[item]["learnable"]:
                         if tm[item]["name"] not in self.pokemon_box[chosen_pokemon].moveset:
@@ -119,9 +155,6 @@ class Trainer:
             except:
                 print("Enter a number value!")
 
-
-
-
             def tm_assigner(pokemon, tm):
                 if pokemon["name"] not in tm["learnable"]:
                     print("This pokemon cannot learn this move! ")
@@ -137,8 +170,106 @@ class Trainer:
                 return pokemon
 
     def swap_items(self):
-        None
+        while True:
+            count = 1
+            for pokemon in self.pokemon_box:
+                print(str(count) + ": " +
+                      printer_outer(
+                          printer_outer("Nickname: {}".format(pokemon.nickname), "Species: {}".format(pokemon.name),
+                                        30),
+                          printer_outer("Level: {}".format(pokemon.level), "Held Item: {}".format(pokemon.held_item),
+                                        15), 55)
+                      + "\n" + printer_outer("Stats: {}".format(list(pokemon.pokemon_stats.values())),
+                                             "Moves: {}".format(pokemon.moveset), 40) + "\n"
+                      )
+                count += 1
+            chosen_pokemon = input(
+                "Which pokemon would you like to swap items?(1 - {}, [enter] to stop)".format(len(self.pokemon_box)))
+            if chosen_pokemon == "":
+                break
+            try:
+                print("-" * 100)
+                chosen_pokemon = int(chosen_pokemon) - 1
+                print("Name: {},          Held Item: {}".format(self.pokemon_box[chosen_pokemon].name,
+                                                            self.pokemon_box[chosen_pokemon].held_item))
+                print(self.bag.bag)
+                tm_input = input("Which item would you like to assign?(Enter name)")
+                if tm_input not in items:
+                    print("Choose a valid item!\n")
+                elif tm_input not in self.bag.bag:
+                    print("Choose an item in your bag!\n")
+                else:
+                    held_item = self.pokemon_box[chosen_pokemon].held_item
+                    try:
+                        if self.bag.remove_from_bag(tm_input, 1) == False:
+                            print("Not enough of item in bag!\n")
+                        else:
+                            self.pokemon_box[chosen_pokemon].held_item = tm_input
+                            self.bag.add_to_bag(held_item, 1)
+                            print("Items swapped!\n")
+                    except:
+                        print("Error occured!\n")
+            except:
+                print("Enter a number value!\n")
 
+    def name_nickname(self):
+        while True:
+            count = 1
+            for pokemon in self.pokemon_box:
+                print(str(count) + ": " +
+                      printer_outer(
+                          printer_outer("Nickname: {}".format(pokemon.nickname), "Species: {}".format(pokemon.name),
+                                        30),
+                          printer_outer("Level: {}".format(pokemon.level), "Held Item: {}".format(pokemon.held_item),
+                                        15), 55)
+                      + "\n" + printer_outer("Stats: {}".format(list(pokemon.pokemon_stats.values())),
+                                             "Moves: {}".format(pokemon.moveset), 40) + "\n"
+                      )
+                count += 1
+            chosen_pokemon = input(
+                "Which pokemon would you like to name?(1 - {}, [enter] to stop)".format(len(self.pokemon_box)))
+            if chosen_pokemon == "":
+                break
+            try:
+                print("-" * 100)
+                chosen_pokemon = int(chosen_pokemon) - 1
+                print("Name: {},          Nickname: {}".format(self.pokemon_box[chosen_pokemon].name,
+                                                            self.pokemon_box[chosen_pokemon].nickname))
+                nickname = input("What is the new nickname?(Enter name)")
+                if len(nickname) > 20:
+                    print("Nickname longer than 20 characters!\n")
+                elif "|" in nickname or "\split" in nickname:
+                    print("Invalid nickname; cannot use '|'\n")
+                else:
+                    self.pokemon_box[chosen_pokemon].nickname = nickname
+                    print("Pokemon named!\n")
+            except:
+                print("Enter a number value!\n")
+
+    def choose_pokemon(self):
+        print("Trainer: {}".format(self.name))
+        while True:
+            count = 1
+            for pokemon in self.pokemon_box:
+                print(str(count) + ": " +
+                      printer_outer(
+                          printer_outer("Nickname: {}".format(pokemon.nickname), "Species: {}".format(pokemon.name),
+                                        30),
+                          printer_outer("Level: {}".format(pokemon.level), "Held Item: {}".format(pokemon.held_item),
+                                        15), 55)
+                      + "\n" + printer_outer("Stats: {}".format(list(pokemon.pokemon_stats.values())),
+                                             "Moves: {}".format(pokemon.moveset), 40) + "\n"
+                      )
+                count += 1
+            chosen_pokemon = input(
+                "Which pokemon would you like to add to the team?(1 - {}, [enter] to stop)".format(len(self.pokemon_box)))
+            try:
+                print("-" * 100)
+                chosen_pokemon = int(chosen_pokemon) - 1
+                print("Name: {},          Nickname: {}".format(self.pokemon_box[chosen_pokemon].name, self.pokemon_box[chosen_pokemon].nickname))
+                return self.pokemon_box[chosen_pokemon]
+            except:
+                print("Enter a number value!\n")
 
 
 class Pokemon:
@@ -263,17 +394,23 @@ class Pokemon:
                 else:
                     return 1
 
-        HP = int(0.01 * (2 * int(self.base_stats["hp"]) + int(self.IVs[0]) + int(self.EVs[0]) / 4) * self.level) + self.level + 10
+        HP = int(0.01 * (2 * int(self.base_stats["hp"]) + int(self.IVs[0]) + int(
+            self.EVs[0]) / 4) * self.level) + self.level + 10
         Attack = int(((0.01 * (2 * int(self.base_stats["attack"]) + int(self.IVs[1]) + int(self.EVs[
-            1]) / 4) * self.level) + 5) * nature_mult("attack", self.nature))
+                                                                                               1]) / 4) * self.level) + 5) * nature_mult(
+            "attack", self.nature))
         Defense = int(((0.01 * (2 * int(self.base_stats["defense"]) + int(self.IVs[2]) + int(self.EVs[
-            2]) / 4) * self.level) + 5) * nature_mult("defense", self.nature))
+                                                                                                 2]) / 4) * self.level) + 5) * nature_mult(
+            "defense", self.nature))
         Special_Attack = int(((0.01 * (2 * int(self.base_stats["s_attack"]) + int(self.IVs[3]) + int(self.EVs[
-            3]) / 4) * self.level) + 5) * nature_mult("s_attack", self.nature))
+                                                                                                         3]) / 4) * self.level) + 5) * nature_mult(
+            "s_attack", self.nature))
         Special_Defense = int(((0.01 * (2 * int(self.base_stats["s_defense"]) + int(self.IVs[4]) + int(self.EVs[
-            4]) / 4) * self.level) + 5) * nature_mult("s_defense", self.nature))
+                                                                                                           4]) / 4) * self.level) + 5) * nature_mult(
+            "s_defense", self.nature))
         Speed = int(((0.01 * (
-                    2 * int(self.base_stats["speed"]) + int(self.IVs[5]) + int(self.EVs[5]) / 4) * self.level) + 5) * nature_mult(
+                2 * int(self.base_stats["speed"]) + int(self.IVs[5]) + int(
+            self.EVs[5]) / 4) * self.level) + 5) * nature_mult(
             "speed", self.nature))
         self.pokemon_stats = {"hp": HP, "attack": Attack, "defense": Defense, "s_attack": Special_Attack,
                               "s_defense": Special_Defense, "speed": Speed}
@@ -522,20 +659,27 @@ class Pokemon:
             return True
 
     def __repr__(self):
-        return """Nickname: {}, Name: {}, Types: {}, Moves: {}, Stats: {}""".format(self.nickname, self.name, self.type, self.moveset, self.pokemon_stats)
+        return """Nickname: {}, Name: {}, Types: {}, Moves: {}, Stats: {}""".format(self.nickname, self.name, self.type,
+                                                                                    self.moveset, self.pokemon_stats)
 
 
 class Battle:
-    def __init__(self):
+    def __init__(self, file1 = "trainer_info", file2 = "trainer_info"):
         # regarding trainers
+        self.trainer_1 = Trainer(file1)
+        self.trainer_2 = Trainer(file2)
+        self.trainer_1_name = self.trainer_1.name
+        self.trainer_2_name = self.trainer_2.name
+        self.p1_bag = self.trainer_1.bag
+        self.p2_bag = self.trainer_2.bag
+        self.p1_box = self.trainer_1.pokemon_box
+        self.p2_box = self.trainer_2.pokemon_box
 
         # regarding pokemon stats
-        self.pokemon_1 = Pokemon("venusaur", ["vine whip", "frenzy plant", "sludge", "earthquake"], "overgrow", [],
-                                 "None", 50, 0, [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], "calm", "Venusaur")
-        self.pokemon_2 = Pokemon("venusaur", ["vine whip", "frenzy plant", "sludge", "earthquake"], "overgrow", [],
-                                 "None", 1, 0, [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], "calm", "Venusaur")
-        self.p1_health = self.pokemon_1.pokemon_stats["hp"]
-        self.p2_health = self.pokemon_2.pokemon_stats["hp"]
+        #self.pokemon_1 = self.p1_team[0]
+        #self.pokemon_2 = self.p2_team[0]
+        #self.p1_health = self.pokemon_1.health
+        #self.p2_health = self.pokemon_2.health
 
         # sets boosts
         self.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0,
@@ -550,8 +694,7 @@ class Battle:
         self.p2_screens = {"reflect": 0, "light screen": 0}
 
         # bag
-        self.p1_bag = Bag()
-        self.p2_bag = Bag()
+
 
     def printer_outer(self, message_1, message_2, chars):
         return message_1 + " " * (chars - len(message_1)) + message_2
@@ -674,7 +817,7 @@ class Battle:
             atk_mult /= 2 / (2 - p2_def)
         return atk_mult
 
-    def speed_check(self, p1_priority=0, p2_priority=0, paralyzed = (False, False)):
+    def speed_check(self, p1_priority=0, p2_priority=0, paralyzed=(False, False)):
         if p1_priority != 0 or p2_priority != 0:
             if p1_priority > p2_priority:
                 return True
@@ -737,7 +880,6 @@ class Battle:
                 return 0.5
         return 1
 
-
     #####################################
 
     def move_calc(self, move_information, attacking_player):
@@ -754,13 +896,13 @@ class Battle:
             def_stat_boost = self.p1_boosts
 
         move = move_information.copy()
-        if "paralyze" in self.pokemon_1.status_condition and random.randint(0,4) == 4:
+        if "paralyze" in self.pokemon_1.status_condition and random.randint(0, 4) == 4:
             return "paralyzed"
         elif "frozen" in self.pokemon_1.status_condition:
             return "frozen"
         elif "asleep" in self.pokemon_1.status_condition:
             return "asleep"
-        elif "confused" in self.pokemon_1.status_condition and random.randint(0,4) == 4:
+        elif "confused" in self.pokemon_1.status_condition and random.randint(0, 4) == 4:
             return "confused"
 
         hit_or_miss = self.accuracy_check(move_information["accuracy"])
@@ -858,10 +1000,6 @@ class Battle:
         apparant_power = (((((2 * atk_pokemon.level) / 5) + 2) * move_information[
             "power"] * apparant_mult / 50) + 2) * type_mult * critical * rand_token * c_multiply * STAB * weather_mult * other
         return int(apparant_power)
-
-
-
-
 
     # dealing with stat boosts
     def boost_stat(self, stat, amnt, player):
@@ -965,17 +1103,16 @@ class Battle:
     def return_message(self, type_mul, move, pkmn_name):
         if type_mul == 0:
             return "The " + pkmn_name.title() + "'s " + move + " had no effect!"
-        elif type_mul == 1/4:
+        elif type_mul == 1 / 4:
             return "The " + pkmn_name.title() + "'s " + move + " was really not very effective!"
-        elif type_mul == 1/2:
+        elif type_mul == 1 / 2:
             return "The " + pkmn_name.title() + "'s " + move + " was not very effective!"
         elif type_mul == 1:
             return "The " + pkmn_name.title() + "'s " + move + " hit!"
         elif type_mul == 2:
-            return("The " + pkmn_name.title() + "'s " + move + " was super effective!")
+            return ("The " + pkmn_name.title() + "'s " + move + " was super effective!")
         elif type_mul == 4:
-            return("The " + pkmn_name.title() + "'s " + move + " was really super effective")
-
+            return ("The " + pkmn_name.title() + "'s " + move + " was really super effective")
 
     def display_items(self, player):
         if player == 1:
@@ -1037,9 +1174,19 @@ class Battle:
             print("Not a valid move!\n")
         return move
 
+    def choose_team(self, num_pokemon):
+        self.p1_team = []
+        self.p2_team = []
+        for i in range (0, num_pokemon):
+            print("Player 1:")
+            self.p1_team.append(self.trainer_1.choose_pokemon())
+            print("Player 1:")
+            self.p2_team.append(self.trainer_2.choose_pokemon())
+        return self.p1_team, self.p2_team
+
 
 class Bag:
-    def __init__(self, bag = {}, money = 0):
+    def __init__(self, bag={}, money=0):
         self.bag = bag
         self.money = money
 
@@ -1067,7 +1214,7 @@ class Bag:
     def add_money(self, amnt=0):
         self.money += amnt
 
-    def buy(self, item, amnt = 0, unit_cost = 0):
+    def buy(self, item, amnt=0, unit_cost=0):
         if self.remove_money(unit_cost * amnt) == False:
             return False
         else:
@@ -1121,11 +1268,6 @@ battle = Battle()
 battle.p1_bag.add_to_bag("potion", 5)
 battle.p1_bag.add_to_bag("hyper potion", 2)
 # battle.get_move(1)
-#print(battle.full_boost(move_list["ancient power"]))
-
-
-
-vablaziken = Trainer("trainer_info")
-#print(vablaziken.name)
-#vablaziken.print_pokemon_box()
-#vablaziken.use_tm()
+# print(battle.full_boost(move_list["ancient power"]))
+#battle.trainer_1.choose_pokemon()
+print(battle.trainer_1.encoder("trainer_info"))
