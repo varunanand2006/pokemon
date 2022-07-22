@@ -1,3 +1,38 @@
+bulbasaur|grass, poison|growl, tackle, vine whip, work up|45, 49, 49, 65, 65, 45|
+ivysaur|grass, poison|growl, tackle, vine whip, work up|60, 62, 63, 80, 80, 60|
+charmander|fire|bite, ember, sunny day, work up|309, 39, 52, 43, 60, 50|
+charmeleon|fire|bite, ember, sunny day, work up|58, 64, 58, 80, 65, 80|
+squirtle|water|bite, water gun, rain dance, tackle|44, 48, 65, 50, 64, 43|
+wartortle|water|bite, water gun, rain dance, tackle|59, 63, 80, 65, 80, 58|
+weedle|bug, posion|x scissor, sludge, confide, quick attack|40, 35, 30, 20, 20, 50|
+kakuna|bug, poison|x scissor, sludge, confide, quick attack|45, 25, 50, 25, 25, 35|
+pidgey|normal, flying|tackle, quick attack, aerial ace, steel wing|40, 45, 40, 35, 35, 56|
+pidgeotto|normal, flying|tackle, quick attack, aerial ace, steel wing|63, 60, 55, 50, 50, 71|
+zubat|poison, flying|air cutter, giga drain, bite, double team|40, 45, 35, 30, 40, 55|
+golbat|poison, flying|air cutter, giga drain, bite, double team|75, 80, 70, 65, 75, 90|
+meowth|normal|growl, bite, double team, play rough|40, 45, 35, 40, 40, 90|
+poliwag|water, fighting|water gun, double team, ice beam, rain dance|40, 50, 40, 40, 40, 90|
+poliwhirl|water, fighting|water gun, double team, ice beam, rain dance|65, 65, 65, 50, 50, 90|
+abra|psychic|psychic, calm mind, light screen, reflect|25, 20, 15, 105, 55, 90|
+kadabra|psychic|psychic, calm mind, light screen, reflect|40, 35, 30, 120, 70, 105|
+machop|fighting|fire punch, ice punch, bulk up, work up|70, 80, 50, 35, 35, 35|
+machoke|fighting|fire punch, ice punch, bulk up, work up|80, 100, 70, 50, 60, 45|
+bellsprout|grass, poison|vine whip, razor leaf, energy ball, swords dance|50, 75, 35, 70, 30, 40|
+weepinbell|grass, poison|vine whip, razor leaf, energy ball, swords dance|65, 90, 50, 85, 45, 55|
+geodude|rock, ground|tackle, sandstorm, stealth rock, stone edge|40, 80, 100, 30, 30, 20|
+graveler|rock, ground|tackle, sandstorm, stealth rock, stone edge|55, 95, 115, 45, 45, 35|
+magnemite|electric, steel|tackle, thunder wave, light screen, reflect|25, 35, 70, 95, 55, 45|
+ghastly|poison, ghost|dark pulse, shadow ball, giga drain, double team|30, 35, 30, 100, 35, 80|
+haunter|poison, ghost|dark pulse, shadow ball, giga drain, double team|45, 50, 45, 115, 55, 95|
+onix|rock, ground|stealth rock, sandstorm, iron tail, stone edge|35, 45, 160, 30, 45, 70|
+exeggcute|grass, psychic|giga drain, sunny day, ancient power, reflect|60, 40, 80, 60, 45, 40|
+horsea|water|water gun, rain dance, dragon dance, agility|30, 40, 70, 70, 25, 60|
+seadra|water|water gun, rain dance, dragon dance, agility|55, 65, 95, 95, 45, 85|
+scyther|bug, flying|quick attack, double team, swords dance, agility|70, 110, 80, 55, 80, 105|
+magikarp|water|tackle, water gun, rain dance, double team|20, 10, 55, 15, 20, 80|
+eevee|normal|growl, tackle, quick attack, bite|55, 55, 50, 45, 65, 55|
+dratini|dragon|thunder wave, agility, dragon dance, dragon rush|41, 64, 45, 50, 50, 50|
+dragonair|dragon|thunder wave, agility, dragon dance, dragon rush|61, 84, 65, 70, 70, 70|
 venusaur|grass, poison|vine whip, frenzy plant, sludge, earthquake|80, 82, 83, 100, 100, 80|overgrow
 charizard|fire, flying|ember, blast burn, bite, steel wing|78, 84, 78, 109, 85, 100|blaze
 blastoise|water|water gun, hydro cannon, bite, blizzard|79, 83, 100, 85, 105, 78|torrent
@@ -75,41 +110,6 @@ weavile|ice, dark|bite, ice punch, iron tail, hone claws|70, 120, 65, 45, 85, 12
 toxicroak|poison, fighting|mud slap, stone edge, shadow ball, earthquake|83, 106, 65, 86, 65, 85|prankster
 ice calyrex|psychic, ice|glacial lance, swords dance, iron defense, close combat|100, 165, 150, 85, 130, 50|as one
 shadow calyrex|psychic, ghost|astral barrage, nasty plot, psychic, energy ball|100, 85, 80, 165, 100, 150|as one
-bulbasaur|grass, poison|growl, tackle, vine whip, work up|45, 49, 49, 65, 65, 45|
-ivysaur|grass, poison|growl, tackle, vine whip, work up|60, 62, 63, 80, 80, 60|
-charmander|fire|bite, ember, sunny day, work up|309, 39, 52, 43, 60, 50|
-charmeleon|fire|bite, ember, sunny day, work up|58, 64, 58, 80, 65, 80|
-squirtle|water|bite, water gun, rain dance, tackle|44, 48, 65, 50, 64, 43|
-wartortle|water|bite, water gun, rain dance, tackle|59, 63, 80, 65, 80, 58|
-weedle|bug, posion|x scissor, sludge, confide, quick attack|40, 35, 30, 20, 20, 50|
-kakuna|bug, poison|x scissor, sludge, confide, quick attack|45, 25, 50, 25, 25, 35|
-pidgey|normal, flying|tackle, quick attack, aerial ace, steel wing|40, 45, 40, 35, 35, 56|
-pidgeotto|normal, flying|tackle, quick attack, aerial ace, steel wing|63, 60, 55, 50, 50, 71|
-zubat|poison, flying|air cutter, giga drain, bite, double team|40, 45, 35, 30, 40, 55|
-golbat|poison, flying|air cutter, giga drain, bite, double team|75, 80, 70, 65, 75, 90|
-meowth|normal|growl, bite, double team, play rough|40, 45, 35, 40, 40, 90|
-poliwag|water, fighting|water gun, double team, ice beam, rain dance|40, 50, 40, 40, 40, 90|
-poliwhirl|water, fighting|water gun, double team, ice beam, rain dance|65, 65, 65, 50, 50, 90|
-abra|psychic|psychic, calm mind, light screen, reflect|25, 20, 15, 105, 55, 90|
-kadabra|psychic|psychic, calm mind, light screen, reflect|40, 35, 30, 120, 70, 105|
-machop|fighting|fire punch, ice punch, bulk up, work up|70, 80, 50, 35, 35, 35|
-machoke|fighting|fire punch, ice punch, bulk up, work up|80, 100, 70, 50, 60, 45|
-bellsprout|grass, poison|vine whip, razor leaf, energy ball, swords dance|50, 75, 35, 70, 30, 40|
-weepinbell|grass, poison|vine whip, razor leaf, energy ball, swords dance|65, 90, 50, 85, 45, 55|
-geodude|rock, ground|tackle, sandstorm, stealth rock, stone edge|40, 80, 100, 30, 30, 20|
-graveler|rock, ground|tackle, sandstorm, stealth rock, stone edge|55, 95, 115, 45, 45, 35|
-magnemite|electric, steel|tackle, thunder wave, light screen, reflect|25, 35, 70, 95, 55, 45|
-ghastly|poison, ghost|dark pulse, shadow ball, giga drain, double team|30, 35, 30, 100, 35, 80|
-haunter|poison, ghost|dark pulse, shadow ball, giga drain, double team|45, 50, 45, 115, 55, 95|
-onix|rock, ground|stealth rock, sandstorm, iron tail, stone edge|35, 45, 160, 30, 45, 70|
-exeggcute|grass, psychic|giga drain, sunny day, ancient power, reflect|60, 40, 80, 60, 45, 40|
-horsea|water|water gun, rain dance, dragon dance, agility|30, 40, 70, 70, 25, 60|
-seadra|water|water gun, rain dance, dragon dance, agility|55, 65, 95, 95, 45, 85|
-scyther|bug, flying|quick attack, double team, swords dance, agility|70, 110, 80, 55, 80, 105|
-magikarp|water|tackle, water gun, rain dance, double team|20, 10, 55, 15, 20, 80|
-eevee|normal|growl, tackle, quick attack, bite|55, 55, 50, 45, 65, 55|
-dratini|dragon|thunder wave, agility, dragon dance, dragon rush|41, 64, 45, 50, 50, 50|
-dragonair|dragon|thunder wave, agility, dragon dance, dragon rush|61, 84, 65, 70, 70, 70|
 chikorita|grass|growl, tackle, razor leaf, reflect|45, 49, 65, 49, 65, 45|
 bayleef|grass|growl, tackle, razor leaf, reflect|60, 62, 80, 63, 80, 60|
 cyndaquil|fire|ember, quick attack, tackle, double team|39, 52, 43, 60, 50, 65|
