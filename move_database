@@ -252,6 +252,7 @@ tm = {'protect': {'name': 'protect', 'learnable': ['venusaur', 'charizard', 'bla
 
 battle_items = ["potion", "super potion", "hyper potion", "max potion", "full heal", "full restore", "revive", "max revive", "x accuracy", "x attack", "x defense", "x s_attack", "x s_defense", "x speed", "oran berry", "lum berry"]
 
+# healing items
 items = {}
 items["potion"] = {"item": "potion", "price": 300, "description": "Restores 20 HP", "heal": 20, "stat boosts": {}}
 items["super potion"] = {"item": "super potion", "price": 700, "description": "Restores 60 HP", "heal": 60, "stat boosts": {}}
@@ -262,7 +263,7 @@ items["full restore"] = {"item": "full restore", "price": 3000, "description": "
 items["revive"] = {"item": "revive", "price": 1500, "description": "Restores full HP and cures all status condition", "heal": 0, "stat boosts": {}}
 items["max revive"] = {"item": "max revive", "price": 4500, "description": "Restores full HP and cures all status condition", "heal": 0, "stat boosts": {}}
 
-#battle items
+# battle items
 items["x accuracy"] = {"item": "x accuracy", "price": 1000, "description": "Raises a pokemon's accuracy by 1 stage", "heal": 0, "stat boosts": {"accuracy": 1}}
 items["x attack"] = {"item": "x attack", "price": 1000, "description": "Raises a pokemon's attack by 1 stage", "heal": 0, "stat boosts": {"attack": 1}}
 items["x defense"] = {"item": "x defense", "price": 1000, "description": "Raises a pokemon's defense by 1 stage", "heal": 0, "stat boosts": {"defense": 1}}
@@ -270,7 +271,26 @@ items["x s_attack"] = {"item": "x s_attack", "price": 1000, "description": "Rais
 items["x s_defense"] = {"item": "x s_defense", "price": 1000, "description": "Raises a pokemon's special defense by 1 stage", "heal": 0, "stat boosts": {"s_defense": 1}}
 items["x speed"] = {"item": "x speed", "price": 1000, "description": "Raises a pokemon's speed by 1 stage", "heal": 0, "stat boosts": {"speed": 1}}
 
-#held items
+# pokeballs
+items["pokeball"] = {"item": "pokeball", "price": 200, "description": "Used to catch a pokemon", "heal": 0, "stat boosts": {}}
+items["great ball"] = {"item": "great ball", "price": 500, "description": "Higher catch rate than a pokeball", "heal": 0, "stat boosts": {}}
+items["ultra ball"] = {"item": "ultra ball", "price": 800, "description": "Higher catch rate than a great ball", "heal": 0, "stat boosts": {}}
+items["heal ball"] = {"item": "heal ball", "price": 800, "description": "Heals pokemon if caught", "heal": 0, "stat boosts": {}}
+items["quick ball"] = {"item": "quick ball", "price": 1000, "description": "Higher catch rate on first turn of a battle", "heal": 0, "stat boosts": {}}
+items["timer ball"] = {"item": "timer ball", "price": 1000, "description": "Higher catch rate as battle goes on", "heal": 0, "stat boosts": {}}
+items["dusk ball"] = {"item": "dusk ball", "price": 1000, "description": "Higher catch rate if used underground", "heal": 0, "stat boosts": {}}
+items["net ball"] = {"item": "net ball", "price": 1000, "description": "Higher catch rate on bug and water type pokemon", "heal": 0, "stat boosts": {}}
+items["dream ball"] = {"item": "dream ball", "price": 1000, "description": "Higher catch rate on sleeping pokemon", "heal": 0, "stat boosts": {}}
+items["level ball"] = {"item": "level ball", "price": 1000, "description": "Higher catch rate on lower level pokemon", "heal": 0, "stat boosts": {}}
+items["lure ball"] = {"item": "lure ball", "price": 1000, "description": "Higher catch rate if fishing", "heal": 0, "stat boosts": {}}
+items["dive ball"] = {"item": "dive ball", "price": 1000, "description": "Higher catch rate when used underwater or at sea", "heal": 0, "stat boosts": {}}
+items["luxury ball"] = {"item": "luxury ball", "price": 2000, "description": "A fancy pokeball", "heal": 0, "stat boosts": {}}
+items["master ball"] = {"item": "master ball", "price": 20000, "description": "Never fails to catch a pokemon", "heal": 0, "stat boosts": {}}
+
+
+
+
+# held items
 items["leftovers"] = {"item": "leftovers", "price": 2000, "description": "Restores some hp on a pokemon each turn", "heal": 0, "stat boosts": {}}
 items["weakness policy"] = {"item": "weakness policy", "price": 1000, "description": "Increases attack and special attack when hit with a supereffective move", "heal": 0, "stat boosts": {}}
 items["muscle band"] = {"item": "muscle band", "price": 2000, "description": "Increases power of physical moves", "heal": 0, "stat boosts": {}}
@@ -287,7 +307,7 @@ items["lucky egg"] = {"item": "light clay", "price": 5000, "description": "Incre
 #items["focus sash"] = {"item": "focus sash", "price": 5000, "description": "Allows your pokemon to survive an attack with 1 hp, breaks after used", "heal": 0, "stat boosts": {}}
 
 #type boosting items    by 20% for all
-items["charcoal"] = {"item": "charcoal", "price": 1000, "description": "Increases power of fire type moves", "heal": 0, "stat boosts": {}}
+"""items["charcoal"] = {"item": "charcoal", "price": 1000, "description": "Increases power of fire type moves", "heal": 0, "stat boosts": {}}
 items["mystic water"] = {"item": "mystic water", "price": 1000, "description": "Increases power of water type moves", "heal": 0, "stat boosts": {}}
 items["miracle seed"] = {"item": "miracle seed", "price": 1000, "description": "Increases power of grass type moves", "heal": 0, "stat boosts": {}}
 items["sharp beak"] = {"item": "sharp beak", "price": 1000, "description": "Increases power of flying type moves", "heal": 0, "stat boosts": {}}
@@ -323,13 +343,13 @@ items["latiosite"] = {"item": "latiosite", "price": 5000, "description": "Allows
 items["beedrillite"] = {"item": "beedrillite", "price": 5000, "description": "Allows beedrill to mega evolve", "heal": 0, "stat boosts": {}}
 items["alakazite"] = {"item": "alakazite", "price": 5000, "description": "Allows alakazam to mega evolve", "heal": 0, "stat boosts": {}}
 items["gengarite"] = {"item": "gengarite", "price": 5000, "description": "Allows gengar to mega evolve", "heal": 0, "stat boosts": {}}
-
+"""
 #berries
-items["oran berry"] = {"item": "oran berry", "price": 500, "description": "Heals 10 hp in a pinch", "heal": 0, "stat boosts": {}}
+items["oran berry"] = {"item": "oran berry", "price": 500, "description": "Heals 10 hp in a pinch", "heal": 10, "stat boosts": {}}
 items["sitrus berry"] = {"item": "sitrus berry", "price": 500, "description": "Heals 1/4 of your hp in a pinch", "heal": 0, "stat boosts": {}}
 items["enigma berry"] = {"item": "enigma", "price": 500, "description": "Heals 1/4 of your hp when hit by a supereffective attack", "heal": 0, "stat boosts": {}}
 items["lum berry"] = {"item": "lum berry", "price": 500, "description": "Clears status condition", "heal": 0, "stat boosts": {}}
-items["occa berry"] = {"item": "occa berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Fire-type attack", "heal": 0, "stat boosts": {}}
+"""items["occa berry"] = {"item": "occa berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Fire-type attack", "heal": 0, "stat boosts": {}}
 items["passho berry"] = {"item": "passho berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Water-type attack", "heal": 0, "stat boosts": {}}
 items["wacan berry"] = {"item": "waccan berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Electric-type attack", "heal": 0, "stat boosts": {}}
 items["rindo berry"] = {"item": "rindo berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Grass-type attack", "heal": 0, "stat boosts": {}}
@@ -347,10 +367,126 @@ items["colbur berry"] = {"item": "colbur berry", "price": 500, "description": "W
 items["babiri berry"] = {"item": "babiri berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Steel-type attack", "heal": 0, "stat boosts": {}}
 items["roseli berry"] = {"item": "roseli berry", "price": 500, "description": "Will lessen the damage taken from one supereffective Fairy-type attack", "heal": 0, "stat boosts": {}}
 items["chilan berry"] = {"item": "chilan berry", "price": 500, "description": "Will lessen the damage taken from one Normal-type attack", "heal": 0, "stat boosts": {}}
-
+"""
 
 
 # tm[""] = {"name": "", "learnable": [""]}
 # status moves
 
 # weather, terrain, barrier setters, entry hazards
+
+
+
+#"thing evolves from": "thing evolves into",
+#...
+
+evolve_into = {
+"bulbasaur": "ivysaur",
+"ivysaur": "venusaur",
+"charmander": "charmeleon",
+"charmeleon": "charizard",
+"squirtle": "wartortle",
+"wartortle": "blastoise",
+"caterpie": "metapod",
+"metapod": "butterfree",
+"weedle": "kakuna",
+"kakuna": "beedrill",
+"pidgey": "pidgeotto",
+"pidgeotto": "pidgeot",
+"rattata": "raticate",
+"spearow": "fearow",
+"ekans": "arbok",
+"pikachu": "raichu",
+"sandshrew": "sandslash",
+"nidoran_f": "nidorina",
+"nidorina": "nidoqueen",
+"nidoran_m": "nidorino",
+"nidorino": "nidoking",
+"clefairy": "clefable",
+"vulpix": "ninetails",
+"jigglypuff": "wigglytuff",
+"zubat": "golbat",
+"oddish": "gloom",
+"gloom": "vileplume",
+"meowth": "persian",
+"poliwag": "poliwhirl",
+"poliwhirl": "poliwrath",
+"abra": "kadabra",
+"kadabra": "alakazam",
+"machop": "machoke",
+"machoke": "machamp",
+"bellsprout": "weepinbell",
+"weepinbell": "victreebel",
+"geodude": "graveler",
+"graveler": "golem",
+"magnemite": "magneton",
+"ghastly": "haunter",
+"haunter": "gengar",
+"exeggute": "exeggutor",
+"horsea": "seadra",
+"magikarp": "gyarados",
+"eevee": ["vaporeon", "flareon", "jolteon"],
+"dratini": "dragonair",
+"dragonair": "dragonite"
+}
+
+evolve_level = {
+"bulbasaur": 16,
+"ivysaur": 32,
+"charmander": 16,
+"charmeleon": 36,
+"squirtle": 16,
+"wartortle": 36,
+"caterpie": 7,
+"metapod": 10,
+"weedle": 7,
+"kakuna": 10,
+"pidgey": 18,
+"pidgeotto": 36,
+"rattata": 20,
+"spearow": 20,
+"ekans": 22,
+"pikachu": 20,
+"sandshrew": 22,
+"nidoran": 16,
+"nidorina": 32,
+"nidoran": 16,
+"nidorino": 32,
+"clefairy": 20,
+"vulpix": 20,
+"jigglypuff": 20,
+"zubat": 22,
+"oddish": 21,
+"gloom": 36,
+"meowth": 28,
+"poliwag": 25,
+"poliwhirl": 36,
+"abra": 16,
+"kadabra": 32,
+"machop": 28,
+"machoke": 36,
+"bellsprout": 21,
+"weepinbell": 32,
+"geodude": 25,
+"graveler": 36,
+"magnemite": 30,
+"ghastly": 25,
+"haunter": 36,
+"exeggute": 32,
+"horsea": 32,
+"magikarp": 20,
+"eevee": 20,
+"dratini": 30,
+"dragonair": 55,
+# gen 2
+"chikorita": 16,
+"bayleef": 32,
+"cyndaquil": 14,
+"quilava": 36,
+"totodile": 18,
+"croconaw": 30,
+"mareep": 15,
+"flaaffy": 30,
+"larvitar": 30,
+"pupitar": 55
+}
