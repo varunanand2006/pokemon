@@ -1,0 +1,1046 @@
+from move_database import *
+from pokemon_functions import Battle, Trainer_Battle, gen_rand, Trainer
+
+def two_player_battler(file1, file2):
+    while True:
+        try:
+            num_pokemon = int(input(("Number of pokemon in team(1-6):")))
+            if 1 <= num_pokemon <= 6:
+                break
+        except:
+            print("Enter a number value")
+
+    battle = Battle(file1, file2)
+    battle.initialize_teams(num_pokemon)
+    print(battle.p1_team, battle.p2_team)
+    cont = True
+    loss = 0
+    while cont:
+        # checking if battle is won, and having players choose next pokemon
+        if battle.pokemon_1.health <= 0:
+            team_1_alive = False
+            battle.pokemon_1.hp_check()
+            for pokemon in battle.p1_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_1_alive = True
+                    break
+            if team_1_alive == False:
+                loss = 1
+                cont = False
+                break
+            battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+        if battle.pokemon_2.health <= 0:
+            team_2_alive = False
+            battle.pokemon_2.hp_check()
+            for pokemon in battle.p2_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_2_alive = True
+                    break
+            if team_2_alive == False:
+                loss = 2
+                cont = False
+                break
+            battle.pokemon_2 = battle.choose_pokemon_from_team(2, True)
+        print(battle)
+        move1, move2 = battle.get_both_moves()
+        #move1 = battle.get_move(1)
+        if move1 in ["protect"]:
+            p1_protected = True
+        else:
+            p1_protected = False
+        #move2 = battle.get_move(2)
+        if move2 in ["protect"]:
+            p2_protected = True
+        else:
+            p2_protected = False
+
+        p1_use_move, p2_use_move = (True, True)
+
+        if move1 == "switch":
+            print("{}, choose a pokemon to switch out!".format(battle.trainer_1.name))
+            p1_use_move = False
+            battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
+            battle.pokemon_1 = battle.choose_pokemon(1)
+        if move2 == "switch":
+            p2_use_move = False
+            print("{}, choose a pokemon to switch out!".format(battle.trainer_2.name))
+            battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
+            battle.pokemon_2 = battle.choose_pokemon(2)
+
+        if move1 in items and move1 not in pokeballs:
+            input("{} used a {}".format(battle.trainer_1.name, move1))
+            battle.p1_bag.remove_from_bag(move1, 1)
+            if move1 in ["oran berry", "potion", "super potion", " hyper potion", "max potion"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon.heal(items[move1]["heal"])
+            if move1 in ["full heal", "full restore"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon.heal(items[move1]["heal"])
+                heal_pokemon.remove_status_condition("all")
+            if move1 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
+                battle.boost_stat(move1[2:], 1, 1)
+            if move1 in ["revive", "max revive"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                if move1 == "revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                elif move1 == "max revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats
+            p1_use_move = False
+
+        if move2 in items:
+            input("{} used a {}".format(battle.trainer_2.name, move2))
+            battle.p2_bag.remove_from_bag(move2, 1)
+            if move2 in ["oran berry", "potion", "super potion", " hyper potion", "max potion", "full restore"]:
+                heal_pokemon = battle.choose_pokemon(2)
+                heal_pokemon.heal(items[move2]["heal"])
+            if move2 in ["full heal", "full restore"]:
+                heal_pokemon = battle.choose_pokemon(2)
+                heal_pokemon.remove_status_condition("all")
+            if move2 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
+                battle.boost_stat(move2[2:], 1, 2)
+            if move2 in ["revive", "max revive"]:
+                heal_pokemon = battle.choose_pokemon(2)
+                if move2 == "revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                elif move2 == "max revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats
+            p2_use_move = False
+
+        if p1_use_move and p2_use_move:
+            goes_first = battle.speed_check(move_list[move1]["priority"], move_list[move2]["priority"], ("paralyzed" in battle.pokemon_1.status_condition, "paralyzed" in battle.pokemon_2.status_condition))
+        elif p1_use_move:
+            goes_first = True
+        else:
+            goes_first = False
+
+        knocked_out = False
+        if goes_first:
+            if move1 in move_list:
+                move_power = battle.move_calc(move_list[move1], 1)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_1.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_1.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_1.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_1.name))
+                    battle.pokemon_1.heal(-1 * battle.move_calc(move_list["tackle"], 1))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p2_protected:
+                    input("{} protected itself!".format(battle.pokemon_2.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move1))
+                    battle.pokemon_2.health -= move_power
+                    input("{}'s {} took {} damage!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move1]), 1)
+                    recoil = battle.recoil_calc(move_list[move1], move_power, 1)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.trainer_1.name, battle.pokemon_1.nickname, recoil))
+                    if recoil < 0:
+                        input("{} took {} recoil damage!".format(battle.trainer_1.name, battle.pokemon_1.nickname, recoil))
+                    battle.pokemon_1.health += recoil
+
+                if battle.pokemon_2.health <= 0:
+                    battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    knocked_out = True
+                    battle.pokemon_2.hp_check()
+                    battle.pokemon_1.level_up(battle.pokemon_2)
+                    team_2_alive = False
+                    for pokemon in battle.p2_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_2_alive = True
+                            break
+                    if team_2_alive == False:
+                        loss = 2
+                        cont = False
+                        break
+                    battle.pokemon_2 = battle.choose_pokemon_from_team(2, True)
+                if battle.pokemon_1.health <= 0:
+                    battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    battle.pokemon_1.hp_check()
+                    if knocked_out == False:
+                        battle.pokemon_2.level_up(battle.pokemon_1)
+                    knocked_out = True
+                    team_1_alive = False
+                    for pokemon in battle.p1_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_1_alive = True
+                            break
+                    if team_1_alive == False:
+                        loss = 1
+                        cont = False
+                        break
+                    battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+            if move2 in move_list and knocked_out == False:
+                move_power = battle.move_calc(move_list[move2], 2)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_2.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_2.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_2.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_2.name))
+                    battle.pokemon_2.heal(-1 * battle.move_calc(move_list["tackle"], 2))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p1_protected:
+                    input("{} protected itself!".format(battle.pokemon_1.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move2))
+                    battle.pokemon_1.health -= move_power
+                    input("{}'s {} took {} damage!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move2]), 2)
+                    recoil = battle.recoil_calc(move_list[move2], move_power, 2)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.trainer_2.name, battle.pokemon_2.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.trainer_2.name, battle.pokemon_2.nickname, recoil))
+                    battle.pokemon_2.health += recoil
+        else:
+            if move2 in move_list:
+                move_power = battle.move_calc(move_list[move2], 2)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_2.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_2.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_2.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_2.name))
+                    battle.pokemon_2.heal(-1 * battle.move_calc(move_list["tackle"], 2))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p1_protected:
+                    input("{} protected itself!".format(battle.pokemon_1.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move2))
+                    battle.pokemon_1.take_damage(move_power)
+                    input("{}'s {} took {} damage!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move2]), 2)
+                    recoil = battle.recoil_calc(move_list[move2], move_power, 2)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.trainer_2.name, battle.pokemon_2.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.trainer_2.name, battle.pokemon_2.nickname, recoil))
+                    battle.pokemon_2.health += recoil
+                if battle.pokemon_1.health <= 0:
+                    battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    battle.pokemon_2.level_up(battle.pokemon_1)
+                    knocked_out = True
+                    team_1_alive = False
+                    battle.pokemon_1.hp_check()
+                    for pokemon in battle.p1_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_1_alive = True
+                            break
+                    if team_1_alive == False:
+                        loss = 1
+                        cont = False
+                        break
+                    battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+                if battle.pokemon_2.health <= 0:
+                    battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    if knocked_out == False:
+                        battle.pokemon_1.level_up(battle.pokemon_2)
+                    knocked_out = True
+                    battle.pokemon_2.hp_check()
+                    team_2_alive = False
+                    for pokemon in battle.p2_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_2_alive = True
+                            break
+                    if team_2_alive == False:
+                        loss = 2
+                        cont = False
+                        break
+                    battle.pokemon_2 = battle.choose_pokemon_from_team(2, True)
+            if move1 in move_list and knocked_out == False:
+                move_power = battle.move_calc(move_list[move1], 1)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_1.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_1.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_1.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_1.name))
+                    battle.pokemon_1.heal(-1 * battle.move_calc(move_list["tackle"], 1))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p2_protected:
+                    input("{} protected itself!".format(battle.pokemon_2.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move1))
+                    battle.pokemon_2.take_damage(move_power)
+                    input("{}'s {} took {} damage!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move1]), 1)
+                    recoil = battle.recoil_calc(move_list[move1], move_power, 1)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.trainer_1.name, battle.pokemon_1.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.trainer_1.name, battle.pokemon_1.nickname, recoil))
+                    battle.pokemon_1.health += recoil
+
+        if battle.pokemon_1.health <= 0:
+            battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0,
+                                "speed": 0}
+            team_1_alive = False
+            battle.pokemon_1.hp_check()
+            for pokemon in battle.p1_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_1_alive = True
+                    break
+            if team_1_alive == False:
+                loss = 1
+                cont = False
+                break
+            battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+        if battle.pokemon_2.health <= 0:
+            battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0,
+                                "speed": 0}
+            team_2_alive = False
+            battle.pokemon_2.hp_check()
+            for pokemon in battle.p2_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_2_alive = True
+                    break
+            if team_2_alive == False:
+                loss = 2
+                cont = False
+                break
+            battle.pokemon_2 = battle.choose_pokemon_from_team(2, True)
+        if knocked_out != True:
+            battle.damage_from_items()
+        battle.pokemon_1.hp_check()
+        battle.pokemon_2.hp_check()
+        battle.clean_bag()
+        battle.terrain_counter()
+        battle.weather_counter()
+        battle.weather_check()
+        battle.screen_counter()
+        battle.burn_poison()
+        battle.condition_counter()
+    print(battle)
+    print("\n" * 5)
+    if loss == 2:
+        print("{} won the match!".format(battle.trainer_1.name))
+    else:
+        print("{} won the match!".format(battle.trainer_2.name))
+    return loss
+
+def trainer_battler(player, team, computer):
+    battle = Trainer_Battle(player, team, computer)
+    battle.p1_team = team
+    battle.p2_team = battle.p2_box
+    cont = True
+    loss = 0
+    while cont:
+        # checking if battle is won, and having players choose next pokemon
+        if battle.pokemon_1.health <= 0:
+            team_1_alive = False
+            battle.pokemon_1.hp_check()
+            for pokemon in battle.p1_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_1_alive = True
+                    break
+            if team_1_alive == False:
+                loss = 1
+                cont = False
+                break
+            battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+        if battle.pokemon_2.health <= 0:
+            battle.pokemon_1.level_up(battle.pokemon_2)
+            team_2_alive = False
+            battle.pokemon_2.hp_check()
+            for pokemon in battle.p2_team:
+                if pokemon.health > 0:
+                    battle.pokemon_2 = pokemon
+                    team_2_alive = True
+                    break
+            if team_2_alive == False:
+                loss = 2
+                cont = False
+                break
+        print(battle)
+        move1 = battle.get_move(1)
+        #move2 = random.choice(battle.pokemon_2.moveset)
+        move2 = battle.get_computer_move(2)
+        if move1 in ["protect"]:
+            p1_protected = True
+        else:
+            p1_protected = False
+        if move2 in ["protect"]:
+            p2_protected = True
+        else:
+            p2_protected = False
+
+        p1_use_move, p2_use_move = (True, True)
+
+        if move1 == "switch":
+            print("{}, choose a pokemon to switch out!".format(battle.player.name))
+            p1_use_move = False
+            battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
+            battle.pokemon_1 = battle.choose_pokemon(1)
+
+        if move1 in items:
+            input("{} used a {}".format(battle.player.name, move1))
+            battle.p1_bag.remove_from_bag(move1, 1)
+            if move1 in ["oran berry", "potion", "super potion", " hyper potion", "max potion"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon.heal(items[move1]["heal"])
+            if move1 in ["full heal", "full restore"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon.heal(items[move1]["heal"])
+                heal_pokemon.remove_status_condition("all")
+            if move1 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
+                battle.boost_stat(move1[2:], 1, 1)
+            if move1 in ["revive", "max revive"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                if move1 == "revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                elif move1 == "max revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats
+            p1_use_move = False
+
+        if move2 in items:
+            input("{} used a {}".format(battle.computer.name, move2))
+            battle.p2_bag.remove_from_bag(move2, 1)
+            if move2 in ["oran berry", "potion", "super potion", " hyper potion", "max potion", "full restore"]:
+                battle.pokemon_2.heal(items[move2]["heal"])
+            if move2 in ["full heal", "full restore"]:
+                battle.pokemon_2.remove_status_condition("all")
+            if move2 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
+                battle.boost_stat(move2[2:], 1, 2)
+            if move2 in ["revive", "max revive"]:
+                if move2 == "revive":
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats // 2
+                elif move2 == "max revive":
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats
+            p2_use_move = False
+
+        if p1_use_move and p2_use_move:
+            goes_first = battle.speed_check(move_list[move1]["priority"], move_list[move2]["priority"], ("paralyzed" in battle.pokemon_1.status_condition, "paralyzed" in battle.pokemon_2.status_condition))
+        elif p1_use_move:
+            goes_first = True
+        else:
+            goes_first = False
+
+        knocked_out = False
+        if goes_first:
+            if move1 in move_list:
+                move_power = battle.move_calc(move_list[move1], 1)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_1.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_1.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_1.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_1.name))
+                    battle.pokemon_1.heal(-1 * battle.move_calc(move_list["tackle"], 1))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p2_protected:
+                    input("{} protected itself!".format(battle.pokemon_2.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
+                    battle.pokemon_2.health -= move_power
+                    input("{}'s {} took {} damage!".format(battle.computer.name, battle.pokemon_2.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move1]), 1)
+                    recoil = battle.recoil_calc(move_list[move1], move_power, 1)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    battle.pokemon_1.health += recoil
+
+                if battle.pokemon_2.health <= 0:
+                    battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    knocked_out = True
+                    battle.pokemon_2.hp_check()
+                    battle.pokemon_1.level_up(battle.pokemon_2)
+                    team_2_alive = False
+                    for pokemon in battle.p2_team:
+                        if pokemon.health > 0:
+                            battle.pokemon_2 = pokemon
+                            team_2_alive = True
+                            break
+                    if team_2_alive == False:
+                        loss = 2
+                        cont = False
+                        break
+                if battle.pokemon_1.health <= 0:
+                    battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    battle.pokemon_1.hp_check()
+                    if knocked_out == False:
+                        battle.pokemon_2.level_up(battle.pokemon_1)
+                    knocked_out = True
+                    team_1_alive = False
+                    for pokemon in battle.p1_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_1_alive = True
+                            break
+                    if team_1_alive == False:
+                        loss = 1
+                        cont = False
+                        break
+                    battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+            if move2 in move_list and knocked_out == False:
+                move_power = battle.move_calc(move_list[move2], 2)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_2.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_2.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_2.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_2.name))
+                    battle.pokemon_2.heal(-1 * battle.move_calc(move_list["tackle"], 2))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p1_protected:
+                    input("{} protected itself!".format(battle.pokemon_1.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
+                    battle.pokemon_1.health -= move_power
+                    input("{}'s {} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move2]), 2)
+                    recoil = battle.recoil_calc(move_list[move2], move_power, 2)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.computer.name, battle.pokemon_2.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.computer.name, battle.pokemon_2.nickname, recoil))
+                    battle.pokemon_2.health += recoil
+        else:
+            if move2 in move_list:
+                move_power = battle.move_calc(move_list[move2], 2)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_2.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_2.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_2.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_2.name))
+                    battle.pokemon_2.heal(-1 * battle.move_calc(move_list["tackle"], 2))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p1_protected:
+                    input("{} protected itself!".format(battle.pokemon_1.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
+                    battle.pokemon_1.take_damage(move_power)
+                    input("{} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move2]), 2)
+                    recoil = battle.recoil_calc(move_list[move2], move_power, 2)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.computer.name, battle.pokemon_2.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.computer.name, battle.pokemon_2.nickname, recoil))
+                    battle.pokemon_2.health += recoil
+                if battle.pokemon_1.health <= 0:
+                    battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    battle.pokemon_2.level_up(battle.pokemon_1)
+                    knocked_out = True
+                    team_1_alive = False
+                    battle.pokemon_1.hp_check()
+                    for pokemon in battle.p1_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_1_alive = True
+                            break
+                    if team_1_alive == False:
+                        loss = 1
+                        cont = False
+                        break
+                    battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+                if battle.pokemon_2.health <= 0:
+                    battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    if knocked_out == False:
+                        battle.pokemon_1.level_up(battle.pokemon_2)
+                    knocked_out = True
+                    battle.pokemon_2.hp_check()
+                    team_2_alive = False
+                    for pokemon in battle.p2_team:
+                        if pokemon.health > 0:
+                            battle.pokemon_2 = pokemon
+                            team_2_alive = True
+                            break
+                    if team_2_alive == False:
+                        loss = 2
+                        cont = False
+                        break
+            if move1 in move_list and knocked_out == False:
+                move_power = battle.move_calc(move_list[move1], 1)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_1.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_1.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_1.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_1.name))
+                    battle.pokemon_1.heal(-1 * battle.move_calc(move_list["tackle"], 1))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p2_protected:
+                    input("{} protected itself!".format(battle.pokemon_2.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
+                    battle.pokemon_2.take_damage(move_power)
+                    input("{}'s {} took {} damage!".format(battle.computer.name, battle.pokemon_2.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move1]), 1)
+                    recoil = battle.recoil_calc(move_list[move1], move_power, 1)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    battle.pokemon_1.health += recoil
+
+        if battle.pokemon_1.health <= 0:
+            battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0,
+                                "speed": 0}
+            team_1_alive = False
+            battle.pokemon_1.hp_check()
+            for pokemon in battle.p1_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_1_alive = True
+                    break
+            if team_1_alive == False:
+                loss = 1
+                cont = False
+                break
+            battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+        if battle.pokemon_2.health <= 0:
+            battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0,
+                                "speed": 0}
+            team_2_alive = False
+            battle.pokemon_2.hp_check()
+            for pokemon in battle.p2_team:
+                if pokemon.health > 0:
+                    battle.pokemon_2 = pokemon
+                    team_2_alive = True
+                    break
+            if team_2_alive == False:
+                loss = 2
+                cont = False
+                break
+        if knocked_out != True:
+            battle.damage_from_items()
+        battle.pokemon_1.hp_check()
+        battle.pokemon_2.hp_check()
+        battle.clean_bag()
+        battle.terrain_counter()
+        battle.weather_counter()
+        battle.weather_check()
+        battle.screen_counter()
+        battle.burn_poison()
+        battle.condition_counter()
+    print(battle)
+    print("\n" * 5)
+    if loss == 2:
+        print("{} won the match!".format(battle.player.name))
+    else:
+        print("{} won the match!".format(battle.computer.name))
+    for pokemon in battle.p1_team:
+        pokemon.evolve()
+    return loss
+
+def wild_encounter(player, team, tier):
+    computer = Trainer("wild encounter{}".format(tier))
+    battle = Trainer_Battle(player, team, computer, wild=True)
+    battle.p1_team = team
+    battle.p2_team = battle.p2_box
+    cont = True
+    loss = 0
+    while cont:
+        # checking if battle is won, and having players choose next pokemon
+        if battle.pokemon_1.health <= 0:
+            team_1_alive = False
+            battle.pokemon_1.hp_check()
+            for pokemon in battle.p1_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_1_alive = True
+                    break
+            if team_1_alive == False:
+                loss = 1
+                cont = False
+                break
+            battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+        if battle.pokemon_2.health <= 0:
+            battle.pokemon_1.level_up(battle.pokemon_2)
+            team_2_alive = False
+            battle.pokemon_2.hp_check()
+            for pokemon in battle.p2_team:
+                if pokemon.health > 0:
+                    battle.pokemon_2 = pokemon
+                    team_2_alive = True
+                    break
+            if team_2_alive == False:
+                loss = 2
+                cont = False
+                break
+        print(battle)
+        print(battle.p1_bag.print_pokeballs())
+        move1 = battle.get_move(1)
+        # move2 = random.choice(battle.pokemon_2.moveset)
+        try:
+            move2 = battle.get_computer_move(2)
+        except:
+            move2 = "tackle"
+        if move1 in pokeballs:
+            p1_use_move = False
+            battle.p1_bag.remove_from_bag(move1, 1)
+            if battle.pokeball_calc(move1):
+                battle.player.add_to_box(battle.pokemon_2)
+                input("{} was caught in a {} by {}".format(battle.pokemon_2.name.title(), move1, battle.player.name))
+                loss = 2
+                battle.pokemon_1.level_up(battle.pokemon_2)
+                break
+            else:
+                input("{} broke free!".format(battle.pokemon_2.name.title(), move1, battle.player.name))
+
+        elif move1.lower() == "run":
+            loss = 1
+            break
+
+        if move1 in ["protect"]:
+            p1_protected = True
+        else:
+            p1_protected = False
+        if move2 in ["protect"]:
+            p2_protected = True
+        else:
+            p2_protected = False
+
+        p1_use_move, p2_use_move = (True, True)
+
+        if move1 in pokeballs:
+            p1_use_move = False
+
+        if move1 == "switch":
+            print("{}, choose a pokemon to switch out!".format(battle.player.name))
+            p1_use_move = False
+            battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                "evasion": 0, "speed": 0}
+            battle.pokemon_1 = battle.choose_pokemon(1)
+
+        if move1 in items and move1 not in pokeballs:
+            input("{} used a {}".format(battle.player.name, move1))
+            battle.p1_bag.remove_from_bag(move1, 1)
+            if move1 in ["oran berry", "potion", "super potion", " hyper potion", "max potion"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon.heal(items[move1]["heal"])
+            if move1 in ["full heal", "full restore"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon.heal(items[move1]["heal"])
+                heal_pokemon.remove_status_condition("all")
+            if move1 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
+                battle.boost_stat(move1[2:], 1, 1)
+            if move1 in ["revive", "max revive"]:
+                heal_pokemon = battle.choose_pokemon(1)
+                if move1 == "revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                elif move1 == "max revive":
+                    heal_pokemon.health = heal_pokemon.pokemon_stats
+            p1_use_move = False
+
+        if move2 in items:
+            input("{} used a {}".format(battle.computer.name, move2))
+            battle.p2_bag.remove_from_bag(move2, 1)
+            if move2 in ["oran berry", "potion", "super potion", " hyper potion", "max potion", "full restore"]:
+                battle.pokemon_2.heal(items[move2]["heal"])
+            if move2 in ["full heal", "full restore"]:
+                battle.pokemon_2.remove_status_condition("all")
+            if move2 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
+                battle.boost_stat(move2[2:], 1, 2)
+            if move2 in ["revive", "max revive"]:
+                if move2 == "revive":
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats // 2
+                elif move2 == "max revive":
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats
+            p2_use_move = False
+
+        if p1_use_move and p2_use_move:
+            goes_first = battle.speed_check(move_list[move1]["priority"], move_list[move2]["priority"], (
+            "paralyzed" in battle.pokemon_1.status_condition, "paralyzed" in battle.pokemon_2.status_condition))
+        elif p1_use_move:
+            goes_first = True
+        else:
+            goes_first = False
+
+        knocked_out = False
+        if goes_first:
+            if move1 in move_list:
+                move_power = battle.move_calc(move_list[move1], 1)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_1.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_1.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_1.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_1.name))
+                    battle.pokemon_1.heal(-1 * battle.move_calc(move_list["tackle"], 1))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p2_protected:
+                    input("{} protected itself!".format(battle.pokemon_2.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
+                    battle.pokemon_2.health -= move_power
+                    input("The wild {} took {} damage!".format(battle.pokemon_2.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move1]), 1)
+                    recoil = battle.recoil_calc(move_list[move1], move_power, 1)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    battle.pokemon_1.health += recoil
+
+                if battle.pokemon_2.health <= 0:
+                    battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    knocked_out = True
+                    battle.pokemon_2.hp_check()
+                    battle.pokemon_1.level_up(battle.pokemon_2)
+                    team_2_alive = False
+                    for pokemon in battle.p2_team:
+                        if pokemon.health > 0:
+                            battle.pokemon_2 = pokemon
+                            team_2_alive = True
+                            break
+                    if team_2_alive == False:
+                        loss = 2
+                        cont = False
+                        break
+                if battle.pokemon_1.health <= 0:
+                    battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    battle.pokemon_1.hp_check()
+                    knocked_out = True
+                    team_1_alive = False
+                    for pokemon in battle.p1_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_1_alive = True
+                            break
+                    if team_1_alive == False:
+                        loss = 1
+                        cont = False
+                        break
+                    battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+            if move2 in move_list and knocked_out == False:
+                move_power = battle.move_calc(move_list[move2], 2)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_2.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_2.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_2.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_2.name))
+                    battle.pokemon_2.heal(-1 * battle.move_calc(move_list["tackle"], 2))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p1_protected:
+                    input("{} protected itself!".format(battle.pokemon_1.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
+                    battle.pokemon_1.health -= move_power
+                    input("{}'s {} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move2]), 2)
+                    recoil = battle.recoil_calc(move_list[move2], move_power, 2)
+                    if recoil > 0:
+                        input("The wild {} healed {} hp!".format(battle.pokemon_2.nickname, recoil))
+                    if recoil < 0:
+                        input("The wild {} took {} recoil damage!".format(battle.pokemon_2.nickname, recoil))
+                    battle.pokemon_2.health += recoil
+        else:
+            if move2 in move_list:
+                move_power = battle.move_calc(move_list[move2], 2)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_2.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_2.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_2.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_2.name))
+                    battle.pokemon_2.heal(-1 * battle.move_calc(move_list["tackle"], 2))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p1_protected:
+                    input("{} protected itself!".format(battle.pokemon_1.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
+                    battle.pokemon_1.take_damage(move_power)
+                    input("{}'s {} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move2]), 2)
+                    recoil = battle.recoil_calc(move_list[move2], move_power, 2)
+                    if recoil > 0:
+                        input("The wild {} healed {} hp!".format(battle.pokemon_2.nickname, recoil))
+                    if recoil < 0:
+                        input("The wild {} took {} recoil damage!".format(battle.pokemon_2.nickname, recoil))
+                    battle.pokemon_2.health += recoil
+                if battle.pokemon_1.health <= 0:
+                    battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    knocked_out = True
+                    team_1_alive = False
+                    battle.pokemon_1.hp_check()
+                    for pokemon in battle.p1_team:
+                        if pokemon.health > 0:
+                            print("Pokemon still available in team!")
+                            team_1_alive = True
+                            break
+                    if team_1_alive == False:
+                        loss = 1
+                        cont = False
+                        break
+                    battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+                if battle.pokemon_2.health <= 0:
+                    battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                        "evasion": 0, "speed": 0}
+                    if knocked_out == False:
+                        battle.pokemon_1.level_up(battle.pokemon_2)
+                    knocked_out = True
+                    battle.pokemon_2.hp_check()
+                    team_2_alive = False
+                    for pokemon in battle.p2_team:
+                        if pokemon.health > 0:
+                            battle.pokemon_2 = pokemon
+                            team_2_alive = True
+                            break
+                    if team_2_alive == False:
+                        loss = 2
+                        cont = False
+                        break
+            if move1 in move_list and knocked_out == False:
+                move_power = battle.move_calc(move_list[move1], 1)
+                if move_power == "paralyzed":
+                    input("{} is paralyzed and couldn't move!".format(battle.pokemon_1.name))
+                elif move_power == "frozen":
+                    input("{} is frozen solid!".format(battle.pokemon_1.name))
+                elif move_power == "asleep":
+                    input("{} is fast asleep!".format(battle.pokemon_1.name))
+                elif move_power == "confused":
+                    input("{} hit itself in confusion!".format(battle.pokemon_1.name))
+                    battle.pokemon_1.heal(-1 * battle.move_calc(move_list["tackle"], 1))
+                elif move_power == "immune":
+                    input("Move had no effect!")
+                elif move_power == "miss":
+                    input("Move missed")
+                elif p2_protected:
+                    input("{} protected itself!".format(battle.pokemon_2.name))
+                else:
+                    input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
+                    battle.pokemon_2.take_damage(move_power)
+                    input("The wild {} took {} damage!".format(battle.pokemon_2.nickname, move_power))
+                    battle.boost_check(battle.full_boost(move_list[move1]), 1)
+                    recoil = battle.recoil_calc(move_list[move1], move_power, 1)
+                    if recoil > 0:
+                        input("{}'s {} healed {} hp!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    if recoil < 0:
+                        input("{}'s {} took {} recoil damage!".format(battle.player.name, battle.pokemon_1.nickname, recoil))
+                    battle.pokemon_1.health += recoil
+
+        if battle.pokemon_1.health <= 0:
+            battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                "evasion": 0,
+                                "speed": 0}
+            team_1_alive = False
+            battle.pokemon_1.hp_check()
+            for pokemon in battle.p1_team:
+                if pokemon.health > 0:
+                    print("Pokemon still available in team!")
+                    team_1_alive = True
+                    break
+            if team_1_alive == False:
+                loss = 1
+                cont = False
+                break
+            battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
+        if battle.pokemon_2.health <= 0:
+            battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
+                                "evasion": 0,
+                                "speed": 0}
+            team_2_alive = False
+            battle.pokemon_2.hp_check()
+            for pokemon in battle.p2_team:
+                if pokemon.health > 0:
+                    battle.pokemon_2 = pokemon
+                    team_2_alive = True
+                    break
+            if team_2_alive == False:
+                loss = 2
+                cont = False
+                break
+        if knocked_out != True:
+            battle.damage_from_items()
+        battle.pokemon_1.hp_check()
+        battle.pokemon_2.hp_check()
+        battle.clean_bag()
+        battle.terrain_counter()
+        battle.weather_counter()
+        battle.weather_check()
+        battle.screen_counter()
+        battle.burn_poison()
+        battle.condition_counter()
+    print(battle)
+    print("\n" * 5)
+    if loss == 2:
+        print("{} won the match!".format(battle.player.name))
+        battle.pokemon_1.add_EV_yield(pokedex[battle.pokemon_2.name]["ev yield"])
+    elif loss == 1:
+        print("The wild {} won the encounter!".format(battle.computer.name))
+    for pokemon in battle.p1_team:
+        pokemon.evolve()
+    return loss
+
+#two_player_battler("vablaziken_file", "vablaziken_file")
