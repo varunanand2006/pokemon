@@ -79,11 +79,14 @@ class Trainer:
         trainer_pokemon = items[4][1:].split("\n")
         def decode_pokemon(str):
             info = str.split("|")
-            return {"name": info[0], "types": list(info[1].split(",")), "moves": list(info[2].split(",")),
+            pkmn =  {"name": info[0], "types": list(info[1].split(",")), "moves": list(info[2].split(",")),
                     "stats": list(info[3].split(",")), "ability": info[4], "current hp": int(info[5]),
                     "status condition": list(info[6].split(",")), "held item": info[7], "level": int(info[8]),
                     "EVs": list(info[9].split(",")), "IVs": list(info[10].split(",")), "EXP": int(info[11]),
                     "nature": info[12], "nickname": info[13], "friendship": int(info[14]), "ball caught in": info[15], "gender": info[16], "shiny": info[17] == "True"}
+            if pkmn["moves"] == ['']:
+                pkmn["moves"] = []
+            return pkmn
         self.pokemon_list = []
         if trainer_pokemon != "" and trainer_pokemon != [""]:
             for pokemon in trainer_pokemon:
@@ -182,6 +185,8 @@ class Trainer:
                     print("Choose a tm from the list!")
                 else:
                     move_replace = input("Which move would you like to replace? (In numbers 1-4): ")
+                    if len(self.pokemon_box[chosen_pokemon].moveset) < 4:
+                        self.pokemon_box[chosen_pokemon].moveset.append(tm_input)
                     try:
                         self.pokemon_box[chosen_pokemon].moveset[int(move_replace) - 1] = tm_input
                         print("The tm worked!")
@@ -222,6 +227,10 @@ class Trainer:
                 "Which pokemon would you like to swap items?(1 - {}, [enter] to stop)".format(len(self.pokemon_box)))
             if chosen_pokemon == "":
                 break
+            elif chosen_pokemon == " ":
+                chosen_pokemon = ""
+                self.bag.add_to_bag(self.held_item, 1)
+                self.held_item = ""
             try:
                 print("-" * 100)
                 chosen_pokemon = int(chosen_pokemon) - 1
@@ -240,7 +249,8 @@ class Trainer:
                             print("Not enough of item in bag!\n")
                         else:
                             self.pokemon_box[chosen_pokemon].held_item = tm_input
-                            self.bag.add_to_bag(held_item, 1)
+                            if held_item != "":
+                                self.bag.add_to_bag(held_item, 1)
                             print("Items swapped!\n")
                     except:
                         print("Error occured!\n")
@@ -272,14 +282,15 @@ class Trainer:
                                                             self.pokemon_box[chosen_pokemon].held_item))
                 print(self.bag.bag)
                 tm_input = input("Which item would you like to assign?(Enter name)")
-                if tm_input not in ["xp candy xs", "xp candy s", "xp candy m"]:
+                if tm_input not in ["xp candy xs", "xp candy s", "xp candy m", "xp candy l", "xp candy xl"]:
                     print("Choose a valid item!\n")
                 elif tm_input not in self.bag.bag:
                     print("Choose an item in your bag!\n")
                 else:
-                    xp_vals = {"xp candy xs": 100, "xp candy s": 260, "xp candy m": 500}
+                    xp_vals = {"xp candy xs": 200, "xp candy s": 550, "xp candy m": 1400, "xp candy l": 4000, "xp candy xl": 10000}
                     if self.bag.remove_from_bag(tm_input, 1) != False:
                         self.pokemon_box[chosen_pokemon].exp += xp_vals[tm_input]
+                        self.pokemon_box[chosen_pokemon].level_up("")
             except:
                 print("Enter a number value!\n")
 
@@ -493,8 +504,10 @@ class Pokemon:
                               "s_defense": Special_Defense, "speed": Speed}
 
     def experience_gain(self, defeated_pokemon):
-        if defeated_pokemon.name not in pokedex:
-            b = 50
+        if defeated_pokemon == "":
+            return 0
+        elif defeated_pokemon.name not in pokedex:
+            b = 0
         else:
             b = pokedex[defeated_pokemon.name]["base exp"]
         if self.held_item == "lucky egg":
@@ -503,7 +516,8 @@ class Pokemon:
             e = 1
         Lp = self.level
         L = defeated_pokemon.level
-        self.exp += int(((b * L) / 2 * ((2 * L + 10) / (L + Lp + 10)) ** 2) * e)
+        self.exp += int(((b * L) / ((2 * L + 10) / (L + Lp + 10)) ** 2.5) * e)
+        return int(((b * L) / ((2 * L + 10) / (L + Lp + 10)) ** 2.5) * e)
 
     def xp_to_next_lvl(self):
         exp_group = {
@@ -625,7 +639,7 @@ class Pokemon:
                 return int((n ** 3) * ((n / 2) + 32) // 50)
 
     def level_up(self, opponent_pokemon):
-        self.experience_gain(opponent_pokemon)
+        print("{} gained {} exp points!".format(self.nickname, self.experience_gain(opponent_pokemon)))
         while self.exp >= self.xp_to_next_lvl():
             self.exp -= self.xp_to_next_lvl()
             if self.level >= 100:
@@ -637,10 +651,10 @@ class Pokemon:
             # learning move based on level up
             for item in pokedex[self.name]["move list"]:
                 if int(pokedex[self.name]["move list"][item]) == int(self.level) and item in move_list:
-                    learn = input("{} wants to learn {}, do you want it to learn this move? (y/n)".format(self.nickname, item))
+                    learn = input("{} wants to learn {}, do you want it to learn this move? (y/n)\n{}".format(self.nickname, item, move_list[item]))
                     if learn.lower() == "y":
-                        self.learn_new_move(item)
-                        input("{} learned {}!".format(self.nickname, item))
+                        if self.learn_new_move(item):
+                            input("{} learned {}!".format(self.nickname, item))
                     else:
                         input("{} did not learn {}!".format(self.nickname, item))
         return self.level
@@ -654,11 +668,12 @@ class Pokemon:
                 print("Nickname: {},    Name: {},   Moves: {}".format(self.nickname, self.name, self.moveset))
                 move_replace = input("Which move would you like to replace? [enter] to cancel the move replacement").lower()
                 if move_replace == "":
-                    break
+                    return False
                 count = 0
                 for move in self.moveset:
                     if move_replace == move:
                         self.moveset[count] = new_move
+                        return True
                         move_cont = False
                     count += 1
 
@@ -666,7 +681,7 @@ class Pokemon:
     def evolve(self):
         if self.name not in evolve_into:
             return None
-        if self.level >= evolve_level[self.name]:
+        if self.level >= evolve_level[self.name] and input("Would you like your {} to evolve into a {}?".format(self.nickname, evolve_into[self.name])):
             if type(evolve_into[self.name]) == list:
                 evolve_name = random.choice(evolve_into[self.name])
             else:
@@ -678,7 +693,15 @@ class Pokemon:
             self.all_stats()
             self.type = self.find_in_pokedex()["type"]
             self.health = self.pokemon_stats["hp"]
-            print("Your {} evolved into a {}!".format(self.nickname, self.name))
+            input("Your {} evolved into a {}!".format(self.nickname, self.name))
+            for item in pokedex[self.name]["move list"]:
+                if int(pokedex[self.name]["move list"][item]) <= int(self.level) and item in move_list:
+                    learn = input("{} wants to learn {}, do you want it to learn this move? (y/n)\n{}".format(self.nickname, item, move_list[item]))
+                    if learn.lower() == "y":
+                        if self.learn_new_move(item):
+                            input("{} learned {}!".format(self.nickname, item))
+                    else:
+                        input("{} did not learn {}!".format(self.nickname, item))
             return self
 
     def pokeball_catch_rate(self, user_pokemon, ball, turn = 0, location = "surface"):
@@ -778,12 +801,16 @@ class Battle:
         # sets boosts
         self.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
         self.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
+        self.p1_hazards = {"spikes": 0, "toxic spikes": 0, "pointed stones": 0, "sticky web": 0}
+        self.p2_hazards = {"spikes": 0, "toxic spikes": 0, "pointed stones": 0, "sticky web": 0}
+        self.p1_trap =  0
+        self.p2_trap = 0
 
         # battlefield conditions
         self.weather = ["clear", 0]
         self.terrain = ["none", 0]
-        self.p1_screens = {"reflect": 0, "light screen": 0}
-        self.p2_screens = {"reflect": 0, "light screen": 0}
+        self.p1_screens = {"reflect": 0, "light screen": 0, "safeguard": 0}
+        self.p2_screens = {"reflect": 0, "light screen": 0, "safeguard": 0}
 
     def choose_pokemon_from_team(self, player, hp_check = False):
         if player == 1:
@@ -819,16 +846,16 @@ class Battle:
             except:
                 print("Enter a number value!\n")
 
-    def choose_pokemon(self, player):
+    def choose_pokemon(self, player, hp_check = True):
         while True:
             if player == 1:
-                pokemon = self.choose_pokemon_from_team(1)
+                pokemon = self.choose_pokemon_from_team(1, hp_check)
                 if pokemon.health > 0:
                     break
                 else:
                     print("Pokemon health below 0!")
             elif player == 2:
-                pokemon = self.choose_pokemon_from_team(2)
+                pokemon = self.choose_pokemon_from_team(2, hp_check)
                 if pokemon.health > 0:
                     break
                 else:
@@ -844,7 +871,6 @@ class Battle:
         return message_1 + " " * (chars - len(message_1)) + message_2
 
     # for calculating power of a move
-
     def bst_calc(self, move, attacking_player):
         def bast_calc(c_type, p1_atk=1, p2_def=1, p1_satk=1, p2_sdef=1):
             if c_type == "physical":
@@ -977,6 +1003,46 @@ class Battle:
         return 1
 
     #####################################
+    def special_move_cases(self, move_information, attacking_player):
+        if move_information["name"] == "brick break":
+            if attacking_player == 1:
+                self.p2_screens["light screen"], self.p2_screens["reflect"] = (0, 0)
+            elif attacking_player == 2:
+                self.p1_screens["light screen"], self.p1_screens["reflect"] = (0, 0)
+        if move_information["name"] == "clear smog":
+            if attacking_player == 1:
+                self.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
+            elif attacking_player == 2:
+                self.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
+        if move_information["name"] == "rapid spin":
+            if attacking_player == 1:
+                self.p1_trap = 0
+                self.p1_hazards = {"spikes": 0, "toxic spikes": 0, "pointed stones": 0, "sticky web": 0}
+            elif attacking_player == 2:
+                self.p2_trap = 0
+                self.p2_hazards = {"spikes": 0, "toxic spikes": 0, "pointed stones": 0, "sticky web": 0}
+        if move_information["name"] in ("bind", "clamp", "fire spin", "ifestation", "magma storm", "sand tomb", "snap trap", "thunder cage", "whirlpool", "wrap"):
+            if attacking_player == 1:
+                self.p2_trap = random.choice(4, 5)
+            elif attacking_player == 2:
+                self.p1_trap = random.choice(4, 5)
+        if move_information["name"] in ["spikes", "toxic spikes", "sticky web"]:
+            if attacking_player == 1:
+                self.p2_hazards[move_information["name"]] = 1
+            elif attacking_player == 2:
+                self.p1_hazards[move_information["name"]] = 1
+        if move_information["name"] == "stealth rock":
+            if attacking_player == 1:
+                self.p2_hazards["pointed stones"] += 1
+                if self.p2_hazards["pointed stones"] > 3:
+                    self.p2_hazards["pointed stones"] = 3
+            elif attacking_player == 2:
+                self.p1_hazards["pointed stones"] += 1
+                if self.p1_hazards["pointed stones"] > 3:
+                    self.p1_hazards["pointed stones"] = 3
+
+
+
     # calculating move power
     def move_calc(self, move_information, attacking_player):
         # setting attacking & defending pokemon & boosts
@@ -1045,6 +1111,9 @@ class Battle:
             c_multiply /= 2
 
         token = random.randint(0, 24)
+        if move_information["name"] in ["aeroblast", "air cutter", "attack order", "blaze kick", "ceaseless", "crabhammer", "cross chop", "cross poison", "dire claw", "drill run", "esper wing",
+                                        "karate chop", "leaf blade", "night slash", "poison tail", "psycho cut", "razor leaf", "shadow claw", "slash", "snipe shot", "spacial rend", "stone axe", "stone edge"]:
+            token = random.randint(0, 8)
         if token == 0:
             critical = 1.5 / c_multiply
             print("It's a critical hit!")
@@ -1123,8 +1192,7 @@ class Battle:
             return -1 * int(pokemon.pokemon_stats["hp"])
         elif move["name"] == "recover" or move["name"] == "slack off" or move["name"] == "soft boiled":
             return int(pokemon.pokemon_stats["hp"] * 0.5)
-        elif move["name"] == "giga drain" or move["name"] == "drain punch" or move["name"] == "draining kiss" or \
-                move["name"] == "leech life":
+        elif move["name"] == "giga drain" or move["name"] == "drain punch" or move["name"] == "draining kiss" or move["name"] == "leech life":
             if pokemon.held_item == "big root":
                 return int(damage_done * 0.65)
             else:
@@ -1189,9 +1257,14 @@ class Battle:
             boosts = {}
             for item in move["stat change"]:
                 if type(move["stat change"][item]) != int:
-                    token = random.randint(1, 101)
-                    if token < (move["stat change"][item]) * 100:
-                        boosts[item] = 1
+                    if move["stat change"][item] < 0:
+                        token = random.randint(1, 101)
+                        if token < move["stat change"][item] * -100:
+                            boosts[item] = -1
+                    else:
+                        token = random.randint(1, 101)
+                        if token < (move["stat change"][item]) * 100:
+                            boosts[item] = 1
                 else:
                     boosts[item] = move["stat change"][item]
             return boosts
@@ -1221,8 +1294,12 @@ class Battle:
         for item in self.p2_screens:
             self.p2_screens[item] -= 1
 
+    def trap_counter(self):
+        self.p1_trap -= 1
+        self.p2_trap -= 1
+
     def set_weather(self, move):
-        weather_dict = {"rain": ["rain dance"], "sunny": ["sunny day"], "sandstorm": ["sandstorm"], "hail": ["hail"]}
+        weather_dict = {"rainy": ["rain dance"], "sunny": ["sunny day"], "sandstorm": ["sandstorm"], "hail": ["hail"]}
         for item in weather_dict:
             if move in weather_dict[item]:
                 self.weather[0] = item
@@ -1260,6 +1337,8 @@ class Battle:
             if "confused" in pokemon.status_condition and random.randint(0,4) == 0:
                 pokemon.remove_status_condition("asleep")
                 print("{} snapped out of it's confusion!".format(pokemon.nickname))
+
+
 
     # for displaying info
     def return_message(self, type_mul, move, pkmn_name):
@@ -1433,20 +1512,25 @@ class Battle:
             trainer = self.trainer_2
         if (self.speed_check() and computer_player == 1) or (not self.speed_check() and computer_player == 2):
             for move in pokemon.moveset:
-                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 2) == 0:
+                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 1) == 0 and move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 4) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 3) == 0 and move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 8) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 7) == 0 and move_list[move]["power"] > 0:
                     return move
-                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.5 and random.randint(0, 1) == 0:
-                    return move
+                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.75 and random.randint(0, 1) == 0:
+                    if ["status condition"] in move_list[move]:
+                        for cond in move_list[move]["status condition"]:
+                            if cond not in opponent_pokemon.status_condition:
+                                return move
+                    else:
+                        return move
         else:
             if random.randint(0, 1) == 0:
                 self.clean_bag()
                 for item in trainer.bag.bag:
                     if item in battle_items:
-                        if random.randint(0,4) == 0 and item["heal"] > 0 and pokemon.health < pokemon.pokemon_stats["hp"]:
+                        if random.randint(0,4) == 0 and items[item]["heal"] > 0 and pokemon.health < pokemon.pokemon_stats["hp"]:
                                 return item
                         else:
                             if pokemon.pokemon_stats["hp"] > 0:
@@ -1455,7 +1539,7 @@ class Battle:
                 if move_list[move]["priority"] > 0 and random.randint(0,4) == 0:
                     return move
         for move in pokemon.moveset:
-            if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.8 and random.randint(0, 2) == 0:
+            if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.8 and random.randint(0, 3) == 0:
                 return move
         return random.choice(pokemon.moveset)
 
@@ -1472,20 +1556,29 @@ class Battle:
             trainer = self.trainer_2
         if (self.speed_check() and computer_player == 1) or (not self.speed_check() and computer_player == 2):
             for move in pokemon.moveset:
-                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 2) == 0:
+                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 1) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 4) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 3) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 8) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 7) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.5 and random.randint(0, 1) == 0:
-                    return move
+                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats[
+                    "hp"] > 0.75 and random.randint(0, 1) == 0:
+                    if ["status condition"] in move_list[move]:
+                        for cond in move_list[move]["status condition"]:
+                            if cond not in opponent_pokemon.status_condition:
+                                return move
+                    else:
+                        return move
         else:
             for move in pokemon.moveset:
                 if move_list[move]["priority"] > 0 and random.randint(0, 4) == 0:
                     return move
         for move in pokemon.moveset:
-            if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.8 and random.randint(0, 2) == 0:
+            if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.8 and random.randint(0, 3) == 0:
                 return move
         return random.choice(pokemon.moveset)
 
@@ -1501,6 +1594,7 @@ class Battle:
 
     def __repr__(self):
         gender_dict = {"male": "♂", "female": "♀", "none": "⚧"}
+        shiny_dict =  {True: "✨", False: ""}
         return_string = "-" * 150 + "\n"
         num_bars_1 = int(self.pokemon_1.health / self.pokemon_1.pokemon_stats["hp"] * 30)
         num_bars_2 = int(self.pokemon_2.health / self.pokemon_2.pokemon_stats["hp"] * 30)
@@ -1508,8 +1602,8 @@ class Battle:
         healthbar_2 = "=" * num_bars_2 + "_" * (30 - num_bars_2)
 
         return_string += printer_outer(self.trainer_1.name, self.trainer_2.name, 80) + "\n"
-        return_string += printer_outer(printer_outer("Pkmn: {} {}".format(self.pokemon_1.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_1.level), 30),
-                            printer_outer("Pkmn: {} {}".format(self.pokemon_2.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_2.level), 30), 80) + "\n"
+        return_string += printer_outer(printer_outer("Pkmn: {} {} {}".format(shiny_dict[self.pokemon_1.shiny],self.pokemon_1.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_1.level), 30),
+                            printer_outer("Pkmn: {} {} {}".format(shiny_dict[self.pokemon_1.shiny],self.pokemon_2.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_2.level), 30), 80) + "\n"
         return_string += printer_outer("Types: {}".format(" ".join(print_symbols(self.pokemon_1.type))), "Types: {}".format(" ".join(print_symbols(self.pokemon_2.type))), 79) + "\n"
 
         return_string += printer_outer(printer_outer("HP: " + str(self.pokemon_1.health) + "/" + str(self.pokemon_1.pokemon_stats["hp"]), "Status: {}".format(self.pokemon_1.status_condition), 30),
@@ -1575,7 +1669,7 @@ class Bag:
     def buying(self):
         print("item", "price", "Description")
         for item in items.keys():
-            print(items[item]["item"], items[item]["price"])
+            print(printer_outer("Item: " + printer_outer(items[item]["item"], str(items[item]["price"]), 20), "Description: " + items[item]["description"], 40))
         while True:
             print("\n")
             print("Money: " + str(self.money))
@@ -1625,13 +1719,13 @@ def gen_rand(tier):
             }
             poke_pool = []
             for i in range(1, tier + 1):
-                poke_pool += tiers["T" + str(i)] * (tier - i + 1)
+                poke_pool += tiers["T" + str(i - 1)] * (tier - i + 1)
             return random.choice(poke_pool)
         name = gen_rand_name(tier)
     else:
         name = random.choice(["charmander", "bulbasaur", "squirtle"])
         tier = 1
-    pokemon = Pokemon(name, [], random.choice(pokedex[name]["ability"]), [], "", tier * 5, 0, [0, 0, 0, 0, 0, 0], [random.randint(1,32), random.randint(1,32), random.randint(1,32), random.randint(1,32), random.randint(1,32), random.randint(1,32)],
+    pokemon = Pokemon(name, [], random.choice(pokedex[name]["ability"]), [], "", (tier * 5) + random.randint(0, 5 + tier), 0, [0, 0, 0, 0, 0, 0], [random.randint(1,32), random.randint(1,32), random.randint(1,32), random.randint(1,32), random.randint(1,32), random.randint(1,32)],
                    random.choice(
                        ["hardy", "lonely", "adament", "naughty", "brave", "bold", "docile", "impish", "lax", "relaxed",
                         "modest", "mild", "bashful", "rash", "quiet", "calm", "gentle", "careful", "quirky", "sassy",
@@ -1680,12 +1774,16 @@ class Trainer_Battle:
         # sets boosts
         self.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
         self.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0, "speed": 0}
+        self.p1_hazards = {"spikes": 0, "toxic spikes": 0, "pointed stones": 0, "sticky web": 0}
+        self.p2_hazards = {"spikes": 0, "toxic spikes": 0, "pointed stones": 0, "sticky web": 0}
+        self.p1_trap =  0
+        self.p2_trap = 0
 
         # battlefield conditions
         self.weather = ["clear", 0]
         self.terrain = ["none", 0]
-        self.p1_screens = {"reflect": 0, "light screen": 0}
-        self.p2_screens = {"reflect": 0, "light screen": 0}
+        self.p1_screens = {"reflect": 0, "light screen": 0, "safeguard": 0}
+        self.p2_screens = {"reflect": 0, "light screen": 0, "safeguard": 0}
 
     def choose_pokemon_from_team(self, player, hp_check = False):
         if player == 1:
@@ -1721,16 +1819,16 @@ class Trainer_Battle:
             except:
                 print("Enter a number value!\n")
 
-    def choose_pokemon(self, player):
+    def choose_pokemon(self, player, hp_check = True):
         while True:
             if player == 1:
-                pokemon = self.choose_pokemon_from_team(1)
+                pokemon = self.choose_pokemon_from_team(1, hp_check)
                 if pokemon.health > 0:
                     break
                 else:
                     print("Pokemon health below 0!")
             elif player == 2:
-                pokemon = self.choose_pokemon_from_team(2)
+                pokemon = self.choose_pokemon_from_team(2, hp_check)
                 if pokemon.health > 0:
                     break
                 else:
@@ -1880,6 +1978,7 @@ class Trainer_Battle:
 
     #####################################
     # calculating move power
+
     def move_calc(self, move_information, attacking_player):
         # setting attacking & defending pokemon & boosts
         if attacking_player == 1:
@@ -1949,6 +2048,9 @@ class Trainer_Battle:
             c_multiply /= 2
 
         token = random.randint(0, 24)
+        if move_information["name"] in ["aeroblast", "air cutter", "attack order", "blaze kick", "ceaseless", "crabhammer", "cross chop", "cross poison", "dire claw", "drill run", "esper wing",
+                                        "karate chop", "leaf blade", "night slash", "poison tail", "psycho cut", "razor leaf", "shadow claw", "slash", "snipe shot", "spacial rend", "stone axe", "stone edge"]:
+            token = random.randint(0, 8)
         if token == 0:
             critical = 1.5 / c_multiply
             print("It's a critical hit!")
@@ -2024,19 +2126,20 @@ class Trainer_Battle:
             pokemon = self.pokemon_2
         if move["name"] == "belly drum":
             return -1 * int(pokemon.pokemon_stats["hp"] * 0.5)
-        elif move["name"] == "explosion":
+        elif move["name"] == "explosion" or move["name"] == "self-destruct" or move["name"] == "self-destruct":
             return -1 * int(pokemon.pokemon_stats["hp"])
         elif move["name"] == "recover" or move["name"] == "slack off" or move["name"] == "soft boiled":
             return int(pokemon.pokemon_stats["hp"] * 0.5)
-        elif move["name"] == "giga drain" or move["name"] == "drain punch" or move["name"] == "draining kiss" or \
-                move["name"] == "leech life":
+        elif move["name"] == "giga drain" or move["name"] == "drain punch" or move["name"] == "draining kiss" or move[
+            "name"] == "leech life":
             if pokemon.held_item == "big root":
                 return int(damage_done * 0.65)
             else:
                 return int(damage_done * 0.5)
         elif move["name"] == "wild charge" or move["name"] == "take down":
             return -1 * int(damage_done / 4)
-        elif move["name"] == "flare blitz" or move["name"] == "brave bird" or move["name"] == "volt tackle" or move["name"] == "wood hammer":
+        elif move["name"] == "flare blitz" or move["name"] == "brave bird" or move["name"] == "volt tackle" or move[
+            "name"] == "wood hammer":
             return -1 * int(damage_done / 3)
         elif move["name"] == "head smash":
             return -1 * int(damage_done / 2)
@@ -2090,16 +2193,23 @@ class Trainer_Battle:
                         "speed": 1}
             else:
                 return {}
+        if move["name"] == "accupressure":
+            return {random.choice("attack", "defense", "s_attack", "s_defense", "accuracy", "evasion", "speed"): 2}
         else:
             boosts = {}
             for item in move["stat change"]:
                 if type(move["stat change"][item]) != int:
-                    token = random.randint(1, 101)
-                    if token < (move["stat change"][item]) * 100:
-                        boosts[item] = 1
+                    if move["stat change"][item] < 0:
+                        token = random.randint(1, 101)
+                        if token < move["stat change"][item] * -100:
+                            boosts[item] = -1
+                    else:
+                        token = random.randint(1, 101)
+                        if token < (move["stat change"][item]) * 100:
+                            boosts[item] = 1
                 else:
                     boosts[item] = move["stat change"][item]
-            return boosts
+        return boosts
 
     # battle conditions
     def weather_counter(self):
@@ -2126,8 +2236,12 @@ class Trainer_Battle:
         for item in self.p2_screens:
             self.p2_screens[item] -= 1
 
+    def trap_counter(self):
+        self.p1_trap -= 1
+        self.p2_trap -= 1
+
     def set_weather(self, move):
-        weather_dict = {"rain": ["rain dance"], "sunny": ["sunny day"], "sandstorm": ["sandstorm"], "hail": ["hail"]}
+        weather_dict = {"rainy": ["rain dance"], "sunny": ["sunny day"], "sandstorm": ["sandstorm"], "hail": ["hail"]}
         for item in weather_dict:
             if move in weather_dict[item]:
                 self.weather[0] = item
@@ -2340,27 +2454,36 @@ class Trainer_Battle:
             trainer = self.player
         if (self.speed_check() and computer_player == 1) or (not self.speed_check() and computer_player == 2):
             for move in pokemon.moveset:
-                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 2) == 0:
+                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 1) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 4) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 3) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 8) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 7) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.5 and random.randint(0, 2) == 0:
-                    return move
+                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats[
+                    "hp"] > 0.75 and random.randint(0, 1) == 0:
+                    if ["status condition"] in move_list[move]:
+                        for cond in move_list[move]["status condition"]:
+                            if cond not in opponent_pokemon.status_condition:
+                                return move
+                    else:
+                        return move
         else:
             if random.randint(0, 1) == 0:
                 self.clean_bag()
                 for item in trainer.bag.bag:
                     if item in battle_items:
-                        if random.randint(0, 4) == 0 and item["heal"] > 0 and pokemon.health < pokemon.pokemon_stats["hp"]:
+                        if random.randint(0, 4) == 0 and items[item]["heal"] > 0 and pokemon.health < pokemon.pokemon_stats["hp"]:
                             return item
             for move in pokemon.moveset:
                 if move_list[move]["priority"] > 0 and random.randint(0, 4) == 0:
                     return move
         for move in pokemon.moveset:
             if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats[
-                "hp"] > 0.8 and random.randint(0, 2) == 0:
+                "hp"] > 0.8 and random.randint(0, 3) == 0:
                 return move
         return random.choice(pokemon.moveset)
 
@@ -2377,102 +2500,33 @@ class Trainer_Battle:
             trainer = self.player
         if (self.speed_check() and computer_player == 1) or (not self.speed_check() and computer_player == 2):
             for move in pokemon.moveset:
-                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 2) == 0:
+                if check_type(move_list[move]["type"], opponent_pokemon.type) == 4 and random.randint(0, 1) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 4) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 2 and random.randint(0, 3) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
-                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 8) == 0:
+                elif check_type(move_list[move]["type"], opponent_pokemon.type) == 1 and random.randint(0, 7) == 0 and \
+                        move_list[move]["power"] > 0:
                     return move
                 if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats[
-                    "hp"] > 0.5 and random.randint(0, 1) == 0:
-                    return move
+                    "hp"] > 0.75 and random.randint(0, 1) == 0:
+                    if ["status condition"] in move_list[move]:
+                        for cond in move_list[move]["status condition"]:
+                            if cond not in opponent_pokemon.status_condition:
+                                return move
+                    else:
+                        return move
         else:
             for move in pokemon.moveset:
                 if move_list[move]["priority"] > 0 and random.randint(0, 4) == 0:
                     return move
         for move in pokemon.moveset:
             if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats[
-                "hp"] > 0.8 and random.randint(0, 2) == 0:
+                "hp"] > 0.8 and random.randint(0, 3) == 0:
                 return move
         return random.choice(pokemon.moveset)
 
-        """
-        def get_computer_move(self, computer_player = 2):
-        if computer_player == 1:
-            player = 2
-            pokemon = self.pokemon_1
-            opponent_pokemon = self.pokemon_2
-            trainer = self.player
-        else:
-            player = 1
-            pokemon = self.pokemon_2
-            opponent_pokemon = self.pokemon_1
-            trainer = self.computer
-        if (self.speed_check() and computer_player == 1) or (not self.speed_check() and computer_player == 2):
-            for move in pokemon.moveset:
-                copy_battle = copy.copy(self)
-                if copy_battle.move_calc(move_list[move], computer_player) > opponent_pokemon.health:
-                    return move
-                del copy_battle
-            for move in pokemon.moveset:
-                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.5:
-                    return move
-        else:
-            for move in opponent_pokemon.moveset:
-                copy_battle = copy.copy(self)
-                damage = copy_battle.move_calc(move_list[move], player)
-                if damage > opponent_pokemon.health:
-                    if random.randint(0, 1) == 0:
-                        self.clean_bag()
-                        for item in trainer.bag.bag:
-                            if item in battle_items and pokemon.health < pokemon.pokemon_stats["hp"]:
-                                if pokemon.health + item["heal"] <= pokemon.pokemon_stats["hp"]:
-                                    if pokemon.health - damage > 0:
-                                        return item
-                                else:
-                                    if pokemon.pokemon_stats["hp"] > 0:
-                                        return item
-            for move in pokemon.moveset:
-                if move_list[move]["priority"] > 2:
-                    return move
-                del copy_battle
-        for move in pokemon.moveset:
-            if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.5:
-                return move
-        return random.choice(pokemon.moveset)
-    
-    def get_wild_move(self, computer_player = 2):
-        if computer_player == 1:
-            player = 2
-            pokemon = self.pokemon_1
-            opponent_pokemon = self.pokemon_2
-            trainer = self.player
-        else:
-            player = 1
-            pokemon = self.pokemon_2
-            opponent_pokemon = self.pokemon_1
-            trainer = self.computer
-        if (self.speed_check() and computer_player == 1) or (not self.speed_check() and computer_player == 2):
-            for move in pokemon.moveset:
-                copy_battle = copy.copy(self)
-                if copy_battle.move_calc(move_list[move], computer_player) > opponent_pokemon.health:
-                    return move
-                del copy_battle
-            for move in pokemon.moveset:
-                if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.5:
-                    return move
-        else:
-            for move in pokemon.moveset:
-                if move["priority"] > 2:
-                    return move
-                copy_battle = copy.copy(self)
-                if copy_battle.move_calc(move_list[move], computer_player) > opponent_pokemon.health:
-                    return move
-                del copy_battle
-        for move in pokemon.moveset:
-            if move_list[move]["c_type"] == "status" and pokemon.health / pokemon.pokemon_stats["hp"] > 0.5:
-                return move
-        return random.choice(pokemon.moveset)"""
 
     def choose_team(self, num_pokemon):
         self.p1_team = []
@@ -2484,17 +2538,18 @@ class Trainer_Battle:
             self.p2_team.append(self.computer.choose_pokemon())
         return self.p1_team, self.p2_team
 
-    def pokeball_calc(self, ball):
+    def pokeball_calc(self, ball, turn = 0):
         health_ratio = 2 * self.pokemon_2.pokemon_stats["hp"] / self.pokemon_2.health + self.pokemon_2.pokemon_stats["hp"]
         if self.pokemon_2.status_condition not in [[], [""]]:
             health_ratio *= 0.5
-        pokeball_rate = self.pokemon_2.pokeball_catch_rate(self.pokemon_1, ball)
-        if random.randint(0, 512) <= float(pokeball_rate) * int(pokedex[self.pokemon_2.name]["catch rate"]):
+        pokeball_rate = self.pokemon_2.pokeball_catch_rate(self.pokemon_1, ball, turn)
+        if random.randint(0, 256) <= float(pokeball_rate) * float(pokedex[self.pokemon_2.name]["catch rate"]):
             return True
         return False
 
     def __repr__(self):
-        gender_dict = {"male": "♂", "female": "♀", "none": "⚧"}
+        gender_dict = {"male": "♂", "female": "♀", "genderless": "⚧"}
+        shiny_dict = {True: "✨", False: ""}
         return_string = "-" * 150 + "\n"
         num_bars_1 = int(self.pokemon_1.health / self.pokemon_1.pokemon_stats["hp"] * 30)
         num_bars_2 = int(self.pokemon_2.health / self.pokemon_2.pokemon_stats["hp"] * 30)
@@ -2502,8 +2557,8 @@ class Trainer_Battle:
         healthbar_2 = "=" * num_bars_2 + "_" * (30 - num_bars_2)
 
         return_string += printer_outer(self.player.name, self.computer.name, 80) + "\n"
-        return_string += printer_outer(printer_outer("Pkmn: {} {}".format(self.pokemon_1.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_1.level), 30),
-                            printer_outer("Pkmn: {} {}".format(self.pokemon_2.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_2.level), 30), 80) + "\n"
+        return_string += printer_outer(printer_outer("Pkmn: {} {} {}".format(shiny_dict[self.pokemon_1.shiny], self.pokemon_1.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_1.level), 30),
+                            printer_outer("Pkmn: {} {} {}".format(shiny_dict[self.pokemon_2.shiny],self.pokemon_2.name.title(), gender_dict[self.pokemon_1.gender]), "Lvl: {}".format(self.pokemon_2.level), 30), 80) + "\n"
         return_string += printer_outer("Types: {}".format(" ".join(print_symbols(self.pokemon_1.type))), "Types: {}".format(" ".join(print_symbols(self.pokemon_2.type))), 79) + "\n"
 
         return_string += printer_outer(printer_outer("HP: " + str(self.pokemon_1.health) + "/" + str(self.pokemon_1.pokemon_stats["hp"]), "Status: {}".format(self.pokemon_1.status_condition), 30),
