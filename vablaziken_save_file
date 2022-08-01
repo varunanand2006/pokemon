@@ -1,11 +1,24 @@
 Vablaziken
 \split
-0
+10
 \split
-3000
+10100
 \split
-potion:1
+revive:1,hyper potion:4,xp candy xl:3,leftovers:1,max revive:3,life orb:1,expert belt:1
 \split
-charmander|fire|growl,scratch,ember|39,52,43,60,50,65|Blaze|34|||11|5,2,4,0,0,36|13,3,17,20,30,7|278|modest|charmander|0|pokeball|female|False
-sandshrew|ground|scratch|50,75,85,20,30,40|Sand Rush|20|||12|5,4,0,0,0,11|15,11,16,32,15,28|87|hasty|sandshrew|0|pokeball|female|False
-sandshrew|ground|scratch|50,75,85,20,30,40|Sand Rush|21|||5|0,0,0,0,0,0|20,30,11,4,27,19|0|quiet|sandshrew|0|pokeball|male|False
+charizard|fire,flying|shadow claw,dragon claw,air slash,flamethrower|78,84,78,109,85,100|Blaze|110||potion|37|8,7,6,4,0,49|13,3,17,20,30,7|19063|modest|Dharmander|0|pokeball|female|False
+sandshrew|ground|scratch,sand attack|50,75,85,20,30,40|Sand Rush|40||leftovers|14|5,6,0,0,0,13|15,11,16,32,15,28|2305|hasty|Mickeymousy|0|pokeball|female|False
+bellsprout|grass,poison|vine whip,growth,poison powder,sleep powder|50,75,35,70,30,40|Chlorophyll|42|||15|0,0,6,0,0,5|19,14,7,26,32,18|282|careful|Tacobellsprout|0|pokeball|female|False
+marowak|ground|mud-slap,tail whip,headbutt,retaliate|60,80,110,50,80,45|Lightning Rod|59|||21|0,1,1,0,0,5|14,19,17,8,24,30|538|serious|Chew Toy|0|pokeball|male|False
+gyarados|water,flying|rain dance,dragon dance,ice beam,hydro pump|95,125,79,60,100,81|Swift Swim|74||lucky egg|22|0,2,3,1,0,8|2,28,26,24,18,25|10529|modest|King Karp|0|pokeball|male|False
+alakazam|psychic|shadow ball,psycho cut,psychic,reflect|55,50,45,135,95,120|Magic Guard|84|||35|0,0,0,0,0,0|4,9,3,23,31,4|23528|impish|alakazam|0|pokeball|male|False
+poliwrath|water,fighting|rain dance,bulk up,close combat,hydro pump|90,95,95,70,90,70|Swift Swim|140||super potion|46|2,5,2,0,1,2|4,32,1,32,20,22|66475|calm|ThorBonecrusher|0|pokeball|female|False
+jolteon|electric|thunder wave,bite,double-edge,discharge|65,65,60,110,95,130|Adaptability|115|||44|0,0,0,0,0,0|10,1,31,23,10,23|0|impish|jolteon|0|pokeball|female|False
+machamp|fighting|bulk up,low sweep,cross chop,double-edge|90,130,80,65,85,55|No Guard|166||muscle band|53|0,4,0,2,3,0|16,23,29,17,18,18|76669|jolly|Grand Champion|0|pokeball|female|False
+blastoise|water|aqua tail,shell smash,iron defense,hydro pump|79,83,100,85,105,78|Rain Dish|157|||57|0,1,0,2,0,0|1,32,28,27,21,15|31826|hasty|Squirtoise|0|pokeball|male|False
+gengar|ghost,poison|curse,hex,dark pulse,shadow ball|60,65,60,130,75,110|Levitate|151|||57|0,0,2,6,2,2|29,21,24,11,15,5|69473|rash|Gengy|0|pokeball|male|False
+gyarados|water,flying|waterfall,dragon dance,crunch,ice fang|95,125,79,60,100,81|Rattled|189|||59|0,0,0,1,1,0|15,1,6,24,4,26|48985|bold|DFA KO|0|pokeball|male|False
+dragonite|dragon,flying|extreme speed,thunder wave,dragon dance,outrage|91,134,95,100,100,80|Shed Skin|184||leftovers|58|0,2,0,3,3,1|19,21,15,17,1,23|71230|hasty|Imagine Dragons|0|pokeball|male|False
+alakazam|psychic|recover,reflect,calm mind,psychic|55,50,45,135,95,120|Synchronize|134|||57|0,1,0,0,0,0|8,14,6,29,17,2|12327|relaxed|alakazam|0|pokeball|female|False
+venusaur|grass,poison|petal blizzard,sleep powder,sweet scent,double-edge|80,82,83,100,100,80|Overgrow|197|||65|3,0,2,0,1,1|27,30,17,32,11,12|31686|adament|venusaur|0|pokeball|female|False
+mew|psychic|pound,amnesia,ancient power,nasty plot|100,100,100,100,100,100|Synchronize|171|asleep||53|0,0,0,0,0,0|5,7,24,23,6,18|0|hasty|mew|0|pokeball|male|False
