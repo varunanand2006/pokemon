@@ -1,4 +1,5 @@
 from move_database import *
+import random
 from pokemon_functions import Battle, Trainer_Battle, gen_rand, Trainer
 
 def two_player_battler(file1, file2):
@@ -82,11 +83,11 @@ def two_player_battler(file1, file2):
             if move1 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
                 battle.boost_stat(move1[2:], 1, 1)
             if move1 in ["revive", "max revive"]:
-                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon = battle.choose_pokemon(1, True)
                 if move1 == "revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"] // 2
                 elif move1 == "max revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"]
             p1_use_move = False
 
         if move2 in items:
@@ -101,11 +102,11 @@ def two_player_battler(file1, file2):
             if move2 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
                 battle.boost_stat(move2[2:], 1, 2)
             if move2 in ["revive", "max revive"]:
-                heal_pokemon = battle.choose_pokemon(2)
+                heal_pokemon = battle.choose_pokemon(2, True)
                 if move2 == "revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"] // 2
                 elif move2 == "max revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"]
             p2_use_move = False
 
         if p1_use_move and p2_use_move:
@@ -137,7 +138,6 @@ def two_player_battler(file1, file2):
                 else:
                     input("{}'s {} used {}!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move1))
                     battle.pokemon_2.health -= move_power
-                    input("{}'s {} took {} damage!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move1]), 1)
                     recoil = battle.recoil_calc(move_list[move1], move_power, 1)
                     if recoil > 0:
@@ -201,7 +201,6 @@ def two_player_battler(file1, file2):
                 else:
                     input("{}'s {} used {}!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move2))
                     battle.pokemon_1.health -= move_power
-                    input("{}'s {} took {} damage!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move2]), 2)
                     recoil = battle.recoil_calc(move_list[move2], move_power, 2)
                     if recoil > 0:
@@ -230,7 +229,6 @@ def two_player_battler(file1, file2):
                 else:
                     input("{}'s {} used {}!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move2))
                     battle.pokemon_1.take_damage(move_power)
-                    input("{}'s {} took {} damage!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move2]), 2)
                     recoil = battle.recoil_calc(move_list[move2], move_power, 2)
                     if recoil > 0:
@@ -293,7 +291,6 @@ def two_player_battler(file1, file2):
                 else:
                     input("{}'s {} used {}!".format(battle.trainer_1.name, battle.pokemon_1.nickname, move1))
                     battle.pokemon_2.take_damage(move_power)
-                    input("{}'s {} took {} damage!".format(battle.trainer_2.name, battle.pokemon_2.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move1]), 1)
                     recoil = battle.recoil_calc(move_list[move1], move_power, 1)
                     if recoil > 0:
@@ -388,7 +385,13 @@ def trainer_battler(player, team, computer):
         print(battle)
         move1 = battle.get_move(1)
         #move2 = random.choice(battle.pokemon_2.moveset)
-        move2 = battle.get_computer_move(2)
+        try:
+            move2 = battle.get_computer_move(2)
+        except:
+            try:
+                move2 = random.choice(battle.pokemon_2.moveset)
+            except:
+                move2 = "tackle"
         if move1 in ["protect"]:
             p1_protected = True
         else:
@@ -419,11 +422,11 @@ def trainer_battler(player, team, computer):
             if move1 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
                 battle.boost_stat(move1[2:], 1, 1)
             if move1 in ["revive", "max revive"]:
-                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon = battle.choose_pokemon(1, False)
                 if move1 == "revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"] // 2
                 elif move1 == "max revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"]
             p1_use_move = False
 
         if move2 in items:
@@ -437,9 +440,9 @@ def trainer_battler(player, team, computer):
                 battle.boost_stat(move2[2:], 1, 2)
             if move2 in ["revive", "max revive"]:
                 if move2 == "revive":
-                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats // 2
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats["hp"] // 2
                 elif move2 == "max revive":
-                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats["hp"]
             p2_use_move = False
 
         if p1_use_move and p2_use_move:
@@ -471,7 +474,6 @@ def trainer_battler(player, team, computer):
                 else:
                     input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
                     battle.pokemon_2.health -= move_power
-                    input("{}'s {} took {} damage!".format(battle.computer.name, battle.pokemon_2.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move1]), 1)
                     recoil = battle.recoil_calc(move_list[move1], move_power, 1)
                     if recoil > 0:
@@ -500,8 +502,6 @@ def trainer_battler(player, team, computer):
                     battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
                                         "evasion": 0, "speed": 0}
                     battle.pokemon_1.hp_check()
-                    if knocked_out == False:
-                        battle.pokemon_2.level_up(battle.pokemon_1)
                     knocked_out = True
                     team_1_alive = False
                     for pokemon in battle.p1_team:
@@ -534,7 +534,6 @@ def trainer_battler(player, team, computer):
                 else:
                     input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
                     battle.pokemon_1.health -= move_power
-                    input("{}'s {} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move2]), 2)
                     recoil = battle.recoil_calc(move_list[move2], move_power, 2)
                     if recoil > 0:
@@ -563,7 +562,6 @@ def trainer_battler(player, team, computer):
                 else:
                     input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
                     battle.pokemon_1.take_damage(move_power)
-                    input("{} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move2]), 2)
                     recoil = battle.recoil_calc(move_list[move2], move_power, 2)
                     if recoil > 0:
@@ -574,7 +572,6 @@ def trainer_battler(player, team, computer):
                 if battle.pokemon_1.health <= 0:
                     battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
                                         "evasion": 0, "speed": 0}
-                    battle.pokemon_2.level_up(battle.pokemon_1)
                     knocked_out = True
                     team_1_alive = False
                     battle.pokemon_1.hp_check()
@@ -625,7 +622,6 @@ def trainer_battler(player, team, computer):
                 else:
                     input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
                     battle.pokemon_2.take_damage(move_power)
-                    input("{}'s {} took {} damage!".format(battle.computer.name, battle.pokemon_2.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move1]), 1)
                     recoil = battle.recoil_calc(move_list[move1], move_power, 1)
                     if recoil > 0:
@@ -650,6 +646,7 @@ def trainer_battler(player, team, computer):
                 break
             battle.pokemon_1 = battle.choose_pokemon_from_team(1, True)
         if battle.pokemon_2.health <= 0:
+            battle.pokemon_1.level_up(battle.pokemon_2)
             battle.p2_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0, "evasion": 0,
                                 "speed": 0}
             team_2_alive = False
@@ -691,7 +688,9 @@ def wild_encounter(player, team, tier):
     battle.p2_team = battle.p2_box
     cont = True
     loss = 0
+    turn = 0
     while cont:
+        turn += 1
         # checking if battle is won, and having players choose next pokemon
         if battle.pokemon_1.health <= 0:
             team_1_alive = False
@@ -724,13 +723,16 @@ def wild_encounter(player, team, tier):
         move1 = battle.get_move(1)
         # move2 = random.choice(battle.pokemon_2.moveset)
         try:
-            move2 = battle.get_computer_move(2)
+            move2 = battle.get_wild_move(2)
         except:
-            move2 = "tackle"
+            try:
+                move2 = random.choice(battle.pokemon_2.moveset)
+            except:
+                move2 = "tackle"
         if move1 in pokeballs:
             p1_use_move = False
             battle.p1_bag.remove_from_bag(move1, 1)
-            if battle.pokeball_calc(move1):
+            if battle.pokeball_calc(move1, turn):
                 battle.player.add_to_box(battle.pokemon_2)
                 input("{} was caught in a {} by {}".format(battle.pokemon_2.name.title(), move1, battle.player.name))
                 loss = 2
@@ -777,11 +779,11 @@ def wild_encounter(player, team, tier):
             if move1 in ["x attack", "x defense", "x s_attack", "x s_defense", "x accuracy", "x speed"]:
                 battle.boost_stat(move1[2:], 1, 1)
             if move1 in ["revive", "max revive"]:
-                heal_pokemon = battle.choose_pokemon(1)
+                heal_pokemon = battle.choose_pokemon(1, False)
                 if move1 == "revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats // 2
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"] // 2
                 elif move1 == "max revive":
-                    heal_pokemon.health = heal_pokemon.pokemon_stats
+                    heal_pokemon.health = heal_pokemon.pokemon_stats["hp"]
             p1_use_move = False
 
         if move2 in items:
@@ -795,9 +797,9 @@ def wild_encounter(player, team, tier):
                 battle.boost_stat(move2[2:], 1, 2)
             if move2 in ["revive", "max revive"]:
                 if move2 == "revive":
-                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats // 2
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats["hp"] // 2
                 elif move2 == "max revive":
-                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats
+                    battle.pokemon_2.health = battle.pokemon_2.pokemon_stats["hp"]
             p2_use_move = False
 
         if p1_use_move and p2_use_move:
@@ -830,7 +832,6 @@ def wild_encounter(player, team, tier):
                 else:
                     input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
                     battle.pokemon_2.health -= move_power
-                    input("The wild {} took {} damage!".format(battle.pokemon_2.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move1]), 1)
                     recoil = battle.recoil_calc(move_list[move1], move_power, 1)
                     if recoil > 0:
@@ -891,7 +892,6 @@ def wild_encounter(player, team, tier):
                 else:
                     input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
                     battle.pokemon_1.health -= move_power
-                    input("{}'s {} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move2]), 2)
                     recoil = battle.recoil_calc(move_list[move2], move_power, 2)
                     if recoil > 0:
@@ -920,7 +920,6 @@ def wild_encounter(player, team, tier):
                 else:
                     input("{}'s {} used {}!".format(battle.computer.name, battle.pokemon_2.nickname, move2))
                     battle.pokemon_1.take_damage(move_power)
-                    input("{}'s {} took {} damage!".format(battle.player.name, battle.pokemon_1.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move2]), 2)
                     recoil = battle.recoil_calc(move_list[move2], move_power, 2)
                     if recoil > 0:
@@ -981,7 +980,6 @@ def wild_encounter(player, team, tier):
                 else:
                     input("{}'s {} used {}!".format(battle.player.name, battle.pokemon_1.nickname, move1))
                     battle.pokemon_2.take_damage(move_power)
-                    input("The wild {} took {} damage!".format(battle.pokemon_2.nickname, move_power))
                     battle.boost_check(battle.full_boost(move_list[move1]), 1)
                     recoil = battle.recoil_calc(move_list[move1], move_power, 1)
                     if recoil > 0:
@@ -991,6 +989,7 @@ def wild_encounter(player, team, tier):
                     battle.pokemon_1.health += recoil
 
         if battle.pokemon_1.health <= 0:
+            battle.pokemon_1.level_up(battle.pokemon_2)
             battle.p1_boosts = {"attack": 0, "defense": 0, "s_attack": 0, "s_defense": 0, "accuracy": 0,
                                 "evasion": 0,
                                 "speed": 0}
