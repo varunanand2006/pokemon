@@ -19,16 +19,15 @@ while True:
     print("-" * 150)
     command = input("""
     '1': battle another trainer
-    '2': battle a computer
+    '2': battle an npc
     '3': encounter a wild pokemon
     '4': buy items
-    '5': use item
-    '6': reselect/change team
+    '5': manage pokemon/use items
+    '6': reselect team
     '7': use pokemon center
-    '8': nickname a pokemon
-    '9': save file
-    '10': quit
-    '11': earn money
+    '8': save file
+    '9': quit
+    '10': earn money
     """)
     print("-" * 150)
     if command == "1":
@@ -39,38 +38,71 @@ while True:
     elif command == "2":
         type_of_trainer = input("""Which trainer would you like to battle:
         '1': Gym Leader
-        '2': Other Trainer""")
+        '2': Other Trainer
+        '3': Rocket Grunt""")
         if type_of_trainer == '1':
             gym_leader = {0: "Brock", 1: "Misty", 2: "Lt. Surge", 3: "Erika", 4: "Koga", 5: "Sabrina", 6: "Blaine",
                           7: "Giovanni"}
-            if user.level > 7:
-                trainer_battler(user, team, trainers[gym_leader[random.randint(0, 8)]])
+            if user.level == 8:
+                who_lost = trainer_battler(user, team, trainers["Bruno"])
+                for pokemon in team:
+                    pokemon.health = pokemon.pokemon_stats["hp"]
+                    pokemon.remove_status_condition("all")
+                if who_lost == 2:
+                    if not input("Amazing work, you've beaten the Bruno, now its time for Agatha! Would you like to end here? (y/n)").startswith( "y"):
+                        who_lost = trainer_battler(user, team, trainers["Agatha"])
+                        for pokemon in team:
+                            pokemon.health = pokemon.pokemon_stats["hp"]
+                            pokemon.remove_status_condition("all")
+                        if who_lost == 2:
+                            if not input( "Amazing work, you've beaten the Agatha, now its time for Lorelei! Would you like to end here? (y/n)").startswith("y"):
+                                who_lost = trainer_battler(user, team, trainers["Lorelei"])
+                                for pokemon in team:
+                                    pokemon.health = pokemon.pokemon_stats["hp"]
+                                    pokemon.remove_status_condition("all")
+                                if who_lost == 2:
+                                    if not input("Amazing work, you've beaten the Lorelei, now its time for Lance! Would you like to end here? (y/n)").startswith("y"):
+                                        who_lost = trainer_battler(user, team, trainers["Lance"])
+                                        for pokemon in team:
+                                            pokemon.health = pokemon.pokemon_stats["hp"]
+                                            pokemon.remove_status_condition("all")
+                                        if who_lost == 2:
+                                            if not input("Amazing work, you've beaten the elite 4, now its time for the champion Blue! Would you like to end here? (y/n)").startswith("y"):
+                                                who_lost = trainer_battler(user, team, trainers["Blue"])
+                                                for pokemon in team:
+                                                    pokemon.health = pokemon.pokemon_stats["hp"]
+                                                    pokemon.remove_status_condition("all")
+                                                if who_lost == 2:
+                                                    input("Amazing job, you've beaten the champion! Try facing Red in the 'other trainers' tab!")
+                                                    user.level = 9
             else:
                 who_lost = trainer_battler(user, team, trainers[gym_leader[user.level]])
                 if who_lost == 2:
                     user.level += 1
-                    input("Congrats, you have earned a new gym badge; you can now encounter pokemon up to level {}!".format(user.level * 5))
+                    input("Congrats, you have earned a new gym badge; you can now encounter pokemon up to level {}!".format(user.level * 5 + 5 + user.level))
                     user.bag.money += 5000
         elif type_of_trainer == '2':
             if user.level < 9:
                 input("Sorry, you haven't beaten the champion yet!")
             else:
                 who_lost = trainer_battler(user, team, trainers["Red"])
-                if who_lost == 1:
+                if who_lost == 2:
                     user.level = 10
-                    input("Congrats, you have beaten trainer red; you can now encounter pokemon up to level {}!".format(user.level * 5))
+                    input("Congrats, you have beaten trainer red; you can now encounter pokemon up to level {}, and encounter legendary pokemon!".format((user.level * 5) + 5 + user.level))
                     user.bag.money += 10000
                 else:
                     input("You lost! Better luck next time!")
         elif type_of_trainer == '3':
-            if user.level < 4:
+            if user.level < 3:
                 who_lost = trainer_battler(user, team, trainers["Rocket Grunt"])
-            elif 4 <= user.level < 6:
+            elif 3 <= user.level < 5:
                 who_lost = trainer_battler(user, team, trainers["Rocket Leader"])
-            elif 6 <= user.level < 8:
+            elif 5 <= user.level < 7:
                 who_lost = trainer_battler(user, team, trainers["Rocket Commander"])
+            elif 7 <= user.level < 9:
+                who_lost = trainer_battler(user, team, trainers["Giovanni"])
             else:
-                input("Giovanni is currently at the gym, please wait until he comes out...")
+                input("Giovanni was thwarted by legendary pokemon trainer Red! Team Rocket is no more!")
                 who_lost = 1
             if who_lost == 2:
                 user.bag.money += 1000
@@ -85,13 +117,28 @@ while True:
         item_cmd =  input("""
         '1' to use a tm
         '2' to swap held items
-        '3' to use xp candy""")
+        '3' to use xp candy
+        '4' to release a pokemon
+        '5' to view exp levels
+        '6' to nickname a pokemon""")
         if item_cmd == "1":
             user.use_tm()
         elif item_cmd == "2":
             user.swap_items()
         elif item_cmd == "3":
             user.use_candy()
+        elif item_cmd == "4":
+            poke_chos = user.choose_pokemon()
+            if (input("Are you sure you want to release: \n {}".format(poke_chos)).lower()).startswith("y"):
+                for item in user.pokemon_box:
+                    if item == poke_chos:
+                        print("{} released {} into the wild!".format(user.name, poke_chos.nickname))
+                        user.pokemon_box.remove(item)
+        elif item_cmd == "5":
+            for pokemon in team:
+                print("Pkmn: {}, Lvl: {}, EXP: {} / {}".format(pokemon.nickname, pokemon.level, pokemon.exp, pokemon.xp_to_next_lvl()))
+        elif item_cmd == "6":
+            user.name_nickname()
         user.encoder()
     elif command == "6":
         if len(user.pokemon_box) < 6:
@@ -104,17 +151,16 @@ while True:
             pokemon.remove_status_condition("all")
         print("Pokemon in team all healed up!")
     elif command == "8":
-        user.name_nickname()
+        user.encoder()
+        print("File saved!")
     elif command == "9":
         user.encoder()
-    elif command == "10":
-        user.encoder()
         break
-    elif command == "11":
-        num = str(random.randint(1, 6))
+    elif command == "10":
+        num = str(random.randint(1, 5))
         if num == input("What number am I thinking of?(between 1-5): "):
             input("Congrats, you guessed right!")
-            user.bag.money += 500
+            user.bag.money += random.randint(0, 5) * 50
             print("Money: ", user.bag.money)
         else:
             input("Sorry, wrong guess, the answer was {}".format(num))
