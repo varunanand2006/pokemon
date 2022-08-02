@@ -1,155 +1,2182 @@
-bulbasaur|grass, poison|growl, tackle, vine whip, work up|45, 49, 49, 65, 65, 45|
-ivysaur|grass, poison|growl, tackle, vine whip, work up|60, 62, 63, 80, 80, 60|
-charmander|fire|bite, ember, sunny day, work up|309, 39, 52, 43, 60, 50|
-charmeleon|fire|bite, ember, sunny day, work up|58, 64, 58, 80, 65, 80|
-squirtle|water|bite, water gun, rain dance, tackle|44, 48, 65, 50, 64, 43|
-wartortle|water|bite, water gun, rain dance, tackle|59, 63, 80, 65, 80, 58|
-weedle|bug, posion|x scissor, sludge, confide, quick attack|40, 35, 30, 20, 20, 50|
-kakuna|bug, poison|x scissor, sludge, confide, quick attack|45, 25, 50, 25, 25, 35|
-pidgey|normal, flying|tackle, quick attack, aerial ace, steel wing|40, 45, 40, 35, 35, 56|
-pidgeotto|normal, flying|tackle, quick attack, aerial ace, steel wing|63, 60, 55, 50, 50, 71|
-zubat|poison, flying|air cutter, giga drain, bite, double team|40, 45, 35, 30, 40, 55|
-golbat|poison, flying|air cutter, giga drain, bite, double team|75, 80, 70, 65, 75, 90|
-meowth|normal|growl, bite, double team, play rough|40, 45, 35, 40, 40, 90|
-poliwag|water, fighting|water gun, double team, ice beam, rain dance|40, 50, 40, 40, 40, 90|
-poliwhirl|water, fighting|water gun, double team, ice beam, rain dance|65, 65, 65, 50, 50, 90|
-abra|psychic|psychic, calm mind, light screen, reflect|25, 20, 15, 105, 55, 90|
-kadabra|psychic|psychic, calm mind, light screen, reflect|40, 35, 30, 120, 70, 105|
-machop|fighting|fire punch, ice punch, bulk up, work up|70, 80, 50, 35, 35, 35|
-machoke|fighting|fire punch, ice punch, bulk up, work up|80, 100, 70, 50, 60, 45|
-bellsprout|grass, poison|vine whip, razor leaf, energy ball, swords dance|50, 75, 35, 70, 30, 40|
-weepinbell|grass, poison|vine whip, razor leaf, energy ball, swords dance|65, 90, 50, 85, 45, 55|
-geodude|rock, ground|tackle, sandstorm, stealth rock, stone edge|40, 80, 100, 30, 30, 20|
-graveler|rock, ground|tackle, sandstorm, stealth rock, stone edge|55, 95, 115, 45, 45, 35|
-magnemite|electric, steel|tackle, thunder wave, light screen, reflect|25, 35, 70, 95, 55, 45|
-ghastly|poison, ghost|dark pulse, shadow ball, giga drain, double team|30, 35, 30, 100, 35, 80|
-haunter|poison, ghost|dark pulse, shadow ball, giga drain, double team|45, 50, 45, 115, 55, 95|
-onix|rock, ground|stealth rock, sandstorm, iron tail, stone edge|35, 45, 160, 30, 45, 70|
-exeggcute|grass, psychic|giga drain, sunny day, ancient power, reflect|60, 40, 80, 60, 45, 40|
-horsea|water|water gun, rain dance, dragon dance, agility|30, 40, 70, 70, 25, 60|
-seadra|water|water gun, rain dance, dragon dance, agility|55, 65, 95, 95, 45, 85|
-scyther|bug, flying|quick attack, double team, swords dance, agility|70, 110, 80, 55, 80, 105|
-magikarp|water|tackle, water gun, rain dance, double team|20, 10, 55, 15, 20, 80|
-eevee|normal|growl, tackle, quick attack, bite|55, 55, 50, 45, 65, 55|
-dratini|dragon|thunder wave, agility, dragon dance, dragon rush|41, 64, 45, 50, 50, 50|
-dragonair|dragon|thunder wave, agility, dragon dance, dragon rush|61, 84, 65, 70, 70, 70|
-venusaur|grass, poison|vine whip, frenzy plant, sludge, earthquake|80, 82, 83, 100, 100, 80|overgrow
-charizard|fire, flying|ember, blast burn, bite, steel wing|78, 84, 78, 109, 85, 100|blaze
-blastoise|water|water gun, hydro cannon, bite, blizzard|79, 83, 100, 85, 105, 78|torrent
-gengar|ghost, poison|shadow ball, sludge, bite, quick attack|60, 65, 60, 130, 75, 110|cursed body
-alakazam|psychic|psychic, shadow ball, fire punch, thunder punch|55, 50, 45, 135, 95, 120|synchronize
-machamp|fighting|double kick, fire punch, work up, rock slide|90, 130, 80, 65, 85, 55|guts
-pidgeot|normal, flying|peck, quick attack, hurricane, steel wing|83, 80, 75, 70, 70, 101|keen eye
-beedrill|bug, poison|x scissor, sludge, confide, quick attack|65, 90, 40, 45, 89, 75|swarm
-lapras|water, ice|water gun, blizzard, psychic, dragon dance|130, 85, 80, 85, 90, 60|water absorb
-raichu|electric|thunder punch, surf, double team|60, 90, 55, 90, 80, 110|lightning rod
-golem|rock, ground|rock slide, earthquake, rock tomb, hammer arm|80, 120, 130, 55, 65, 45|sand veil
-gyarados|water, flying|surf, hurricane, dragon dance, rain dance|95, 125, 79, 60, 100, 81|intimidate
-pinsir|bug|x scissor, earthquake, rock slide, swords dance|65, 125, 100, 55, 70, 85|hyper cutter
-exeggutor|grass, psychic|vine whip, psychic, swords dance, ancient power|95, 95, 85, 125, 75, 55|clorophyll
-poliwrath|water, fighting|water gun, blizzard, work up, belly drum|90, 95, 95, 70, 90, 70|sift swim
-chansey|normal|charm, double team, blizzard|250, 5, 5, 35, 105, 50|natural cure
-aerodactyl|rock, flying|ancient power, earthquake, bite, steel wing|80, 105, 65, 60, 75, 130|rock head
-pikachu|electric|tackle, thunder, quick attack|35, 55, 40, 50, 50, 90|lightning rod
-snorlax|normal|tackle, growl, surf, bite|160, 110, 65, 65, 110, 30|thick fat
-dragonite|dragon, flying|dragon rush, thunder punch, fire punch, dragon dance|91, 134, 95, 100, 100, 80|multiscale
-persian|normal|shadow ball, nasty plot, bite, double team|65, 70, 60, 65, 65, 115|limber
-victreebel|grass, poison|vine whip, leaf storm, sunny day|80, 105, 65, 100, 70, 70|clorophyll
-magneton|electric, steel|thunder, charge beam, metal sound, explosion|50, 60, 95, 120, 70, 70|sturdy
-vaporeon|water|water gun, hydro pump, blizzard, mud slap|130, 65, 60, 110, 95, 65|water absorb
-flareon|fire|ember, overheat, double kick, charm|65, 130, 60, 95, 110, 65|flash fire
-jolteon|electric|thunder, shadow ball, double team, work up|65, 65, 60, 110, 95, 130|volt absorb
-mewtwo|psychic|psychic, shadow ball, ancient power, calm mind|106, 110, 90, 154, 90, 130|synchronize
-mew|psychic|psychic, nasty plot, shadow ball, bulk up|100, 100, 100, 100, 100, 100|synchronize
-articuno|ice, flying|hurricane, blizzard, steel wing, hail|90, 85, 100, 95, 125, 85|snow cloak
-zapdos|electric, flying|thunder, ancient power, double team, rain dance|90, 90, 85, 125, 90, 100|static
-moltres|fire, flying|overheat, ancient power, heat wave, sunny day|90, 100, 90, 125, 85, 90|flame body
-meganium|grass|frenzy plant, ancient power, earthquake, double team|80, 82, 100, 83, 100, 80|overgrow
-typhlosion|fire|blast burn, quick attack, rock tomb, sunny day|78, 84, 78, 109, 85, 100|blaze
-feraligatr|water|hydro cannon, mud slap, bite, ice fang|85, 105, 100, 79, 83, 78|torrent
-steelix|steel, ground|rock tomb, earthquake, sandstorm, ice fang|75, 85, 200, 55, 65, 30|sturdy
-scizor|bug, steel|x scissor, steel wing, quick attack, swords dance|70, 130, 100, 55, 80, 65|swarm
-kingdra|water, dragon|hydro pump, ice beam, rain dance, dragon dance|75, 95, 95, 95, 95, 85|sift swim
-tyranitar|rock, dark|earthquake, bite, ancient power, dragon dance|100, 134, 110, 95, 100, 61|sandstream
-ampharos|electric|thunder, dragon pulse, fire punch, charge bearm|90, 95, 105, 165, 110, 45|static
-crobat|poison, flying|venoshock, steel wing, bite, nasty plot|85, 90, 80, 70, 80, 130|inner focus
-espeon|psychic|psychic, bite, quick attack, double team|65, 65, 60, 130, 95, 110|synchronize
-umbreon|dark|bite, double team, quick attack, nasty plot|95, 65, 110, 60, 130, 65|synchronize
-heracross|bug, fighting|tackle, bulk up, megahorn, swords dance|80, 125, 75, 40, 95, 85|swarm
-skarmory|steel, flying|peck, steel wing, metal sound, sandstorm|65, 80, 140, 40, 70, 70|keen eye
-piloswine|ice, ground|ancient power, ice beam, earthquake, amnesia|100, 100, 80, 60, 60, 50|thick fat
-celebi|grass, psychic|leaf storm, dazzling gleam, ancient power, psychic|100, 100, 100, 100, 100, 100|natural cure
-sceptile|grass|energy ball, dragon pulse, giga drain, double team|70, 85, 65, 105, 85, 120|overgrow
-swampert|water, ground|earthquake, surf, ancient power, bulk up|100, 110, 90, 85, 90, 60|torrent
-blaziken|fire, fighting|blaze kick, flare blitz, stone edge, swords dance|80, 120, 70, 110, 70, 80|speed boost
-manectric|electric|thunder, iron tail, ice fang, double team|70, 75, 60, 105, 60, 105|lightning rod
-altaria|dragon, flying|dragon pulse, hurricane, cotton guard, dazzling gleam|75, 70, 90, 70, 105, 80|cloud nine
-shiftry|grass, dark|energy ball, rock tomb, shadow ball, hurricane|90, 100, 60, 90, 60, 80|clorophyll
-gardevoir|psychic, fairy|psychic, moonblast, shadow ball, double team|68, 65, 65, 125, 115, 80|synchronize
-ludicolo|water, grass|hydro pump, ice beam, energy ball, rain dance|80, 70, 70, 90, 100, 70|sift swim
-aggron|steel, rock|iron tail, rock tomb, iron defense, earthquake|70, 110, 180, 60, 60, 50|sturdy
-flygon|ground, dragon|earthquake, dragon rush, sandstorm, dragon dance|80, 100, 80, 80, 80, 100|levitate
-salamence|dragon, flying|dragon rush, iron tail, double team, dragon dance|95, 135, 80, 110, 80, 110|intimidate
-metagross|steel, psychic|meteor mash, iron defense, double team, sandstorm|80, 135, 130, 95, 90, 70|clear body
-mightyena|dark|bite, thunder fang, play rough, mud slap|70, 90, 70, 60, 60, 70|intimidate
-camerupt|fire, ground|ember, earthquake, sunny day, double team|70, 100, 70, 105, 75, 40|magma armor
-sharpedo|water, dark|bite, ice fang, rain dance, surf|70, 120, 40, 95, 40, 95|speed boost
-walrein|water, ice|earthquake, ice beam, surf, iron tail|110, 80, 90, 95, 90, 65|thick fat
-rayquaza|dragon, flying|dragon ascent, ancient power, bulk up, dragon dance|105, 150, 90, 150, 90, 95|air lock
-latias|dragon, psychic|psychic, dragon pulse, ice beam, earthquake|80, 80, 90, 110, 130, 110|levitate
-latios|dragon, psychic|psychic, dragon pulse, thunder, shadow ball|80, 90, 80, 130, 110, 110|levitate
-kyogre|water|origin pulse, ice beam, rain dance, calm mind|100, 100, 90, 150, 140, 90|drizzle
-groudon|ground|precipice blades, overheat, sunny day, bulk up|100, 150, 140, 100, 90, 90|drought
-deoxys|psychic|psychic, thunder punch, extreme speed, ice punch|50, 150, 50, 150, 50, 150|pressure
-deoxys attack|psychic|extreme speed, ice beam, shadow ball, psycho boost|50, 180, 20, 180, 20, 150|pressure
-deoxys defense|psychic|cosmic power, recover, psychic, protect|50, 70, 160, 70, 160, 90|pressure
-deoxys speed|psychic|energy ball, charge beam, psycho boost, stealth rock|50, 95, 90, 95, 90, 180|pressure
-togekiss|fairy, flying|ancient power, dazzling gleam, shadow ball, nasty plot|85, 50, 95, 120, 115, 80|serene grace
-lucario|fighting, steel|earthquake, meteor mash, close combat, work up|70, 110, 70, 115, 70, 90|aura
-weavile|ice, dark|bite, ice punch, iron tail, hone claws|70, 120, 65, 45, 85, 125|prankster
-toxicroak|poison, fighting|mud slap, stone edge, shadow ball, earthquake|83, 106, 65, 86, 65, 85|prankster
-ice calyrex|psychic, ice|glacial lance, swords dance, iron defense, close combat|100, 165, 150, 85, 130, 50|as one
-shadow calyrex|psychic, ghost|astral barrage, nasty plot, psychic, energy ball|100, 85, 80, 165, 100, 150|as one
-chikorita|grass|growl, tackle, razor leaf, reflect|45, 49, 65, 49, 65, 45|
-bayleef|grass|growl, tackle, razor leaf, reflect|60, 62, 80, 63, 80, 60|
-cyndaquil|fire|ember, quick attack, tackle, double team|39, 52, 43, 60, 50, 65|
-quilava|fire|ember, quick attack, tackle, double team|58, 64, 58, 80, 65, 80|
-totodile|water|water gun, bite, ice fang, work up|50, 65, 64, 44, 48, 43|
-croconaw|water|water gun, bite, ice fang, work up|65, 80, 80, 59, 63, 58|
-togepi|fairy|growl, ancient power, shadow ball, double team|35, 20, 65, 40, 65, 20|
-togetic|fairy, flying|growl, ancient power, shadow ball, double team|55, 40, 85, 80, 105, 40|
-mareep|electric|thunder wave, cotton guard, double team, thunder|55, 40, 40, 65, 45, 35|
-flaaffy|electric|thunder wave, cotton guard, double team, thunder|70, 55, 55, 80, 60, 45|
-larvitar|rock, ground|iron defense, bite, tackle, stone edge|50, 64, 50, 45, 50, 41|
-pupitar|rock, ground|iron defense, bite, tackle, stone edge|70, 84, 70, 65, 70, 51|
-swinub|ice, ground|mud slap, tackle, hail, ice beam|50, 50, 40, 30, 30, 50|
-sneasel|dark, ice|quick attack, agility, bite, ice beam|55, 95, 55, 35, 75, 115|
-treecko|grass|pound, quick attack, giga drain, double team|40, 45, 35, 65, 55, 70|
-grovyle|grass|pound, quick attack, giga drain, double team|50, 65, 45, 85, 65, 95|
-torchic|fire|growl, scratch, flame charge, aerial ace|45, 60, 40, 70, 50, 45|
-combusken|fire|growl, scratch, flame charge, aerial ace|60, 85, 60, 85, 60, 55|
-mudkip|water|growl, tackle, water gun, bite|50, 70, 50, 50, 50, 40|
-marshtomp|water, ground|growl, tackle, water gun, bite|70, 85, 70, 60, 70, 50|
-poochyena|dark|tackle, bite, mud slap, iron tail|35, 55, 35, 30, 30, 35|
-lotad|water, grass|growl, water gun, giga drain, rain dance|40, 30, 30, 40, 50, 30|
-lombre|water, grass|growl, water gun, giga drain, rain dance|60, 50, 50, 60, 70, 50|
-seedot|grass, dark|tackle, energy ball, sunny day, amnesia|40, 40, 50, 30, 30, 30|
-nuzleaf|grass, dark|tackle, energy ball, sunny day, amnesia|70, 70, 40, 60, 40, 60|
-ralts|psychic, psychic|growl, double team, psychic, calm mind|28, 25, 25, 45, 35, 40|
-kirlia|psychic, fairy|growl, double team, psychic, calm mind|38, 35, 35, 65, 55, 50|
-aron|steel, rock|tackle, metal claw, metal sound, iron head|50, 70, 100, 40, 40, 30|
-lairon|steel, rock|tackle, metal claw, metal sound, iron head|60, 90, 140, 50, 50, 40|
-electrike|electric|thunder wave, quick attack, bite, thunder fang|40, 45, 40, 65, 40, 65|
-carvanha|water|bite, ice fang, agility, ancient power|45, 90, 20, 65, 20, 65|
-numel|fire, ground|growl, tackle, ember, earthquake|60, 60, 40, 65, 45, 35|
-trapinch|ground|giga drain, bite, sandstorm, earthquake|45, 100, 45, 45, 45, 10|
-vibrava|ground, dragon|giga drain, bite, sandstorm, earthquake|50, 70, 50, 50, 50, 70|
-swablu|normal, flying|growl, peck, cotton guard, dragon rush|45, 40, 60, 40, 75, 50|
-spheal|ice, water|growl, water gun, hail, ice beam|70, 40, 50, 55, 50, 25|
-sealeo|ice, water|growl, water gun, hail, ice beam|90, 60, 70, 75, 70, 45|
-bagon|dragon|ember, bite, dragon claw, dragon dance|45, 75, 60, 40, 30, 50|
-shelgon|dragon|ember, bite, dragon claw, dragon dance|65, 95, 100, 60, 50, 50|
-beldum|steel, psychic|tackle, iron defense, metal claw, psychic|40, 55, 80, 35, 60, 30|
-metang|steel, psychic|tackle, iron defense, metal claw, psychic|60, 75, 100, 55, 80, 50|
-riolu|fighting|quick attack, metal claw, swords dance, bite|40, 70, 40, 35, 40, 60|
-croagunk|poison, fighting|mud slap, earthquake, bulk up, work up|48, 61, 40, 61, 40, 50|
+1	Growl	NORMAL	Status	—	100
+1	Tackle	NORMAL	Physical	40	100
+3	Vine Whip	GRASS	Physical	45	100
+6	Growth	NORMAL	Status	—	—
+9	Leech Seed	GRASS	Status	—	90
+12	Razor Leaf	GRASS	Physical	55	95
+15	Poison Powder	POISON	Status	—	75
+15	Sleep Powder	GRASS	Status	—	75
+18	Seed Bomb	GRASS	Physical	80	100
+21	Take Down	NORMAL	Physical	90	85
+24	Sweet Scent	NORMAL	Status	—	100
+27	Synthesis	GRASS	Status	—	—
+30	Worry Seed	GRASS	Status	—	100
+33	Double-Edge	NORMAL	Physical	120	100
+36	Solar Beam	GRASS	Special	120	100.1	Growl	NORMAL	Status	—	100
+1	Growth	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+1	Vine Whip	GRASS	Physical	45	100
+9	Leech Seed	GRASS	Status	—	90
+12	Razor Leaf	GRASS	Physical	55	95
+15	Poison Powder	POISON	Status	—	75
+15	Sleep Powder	GRASS	Status	—	75
+20	Seed Bomb	GRASS	Physical	80	100
+25	Take Down	NORMAL	Physical	90	85
+30	Sweet Scent	NORMAL	Status	—	100
+35	Synthesis	GRASS	Status	—	—
+40	Worry Seed	GRASS	Status	—	100
+45	Double-Edge	NORMAL	Physical	120	100
+50	Solar Beam	GRASS	Special	120	100.1	Growl	NORMAL	Status	—	100
+1	Growth	NORMAL	Status	—	—
+1	Petal Blizzard	GRASS	Physical	90	100
+1	Petal Dance	GRASS	Special	120	100
+1	Tackle	NORMAL	Physical	40	100
+1	Vine Whip	GRASS	Physical	45	100
+9	Leech Seed	GRASS	Status	—	90
+12	Razor Leaf	GRASS	Physical	55	95
+15	Poison Powder	POISON	Status	—	75
+15	Sleep Powder	GRASS	Status	—	75
+20	Seed Bomb	GRASS	Physical	80	100
+25	Take Down	NORMAL	Physical	90	85
+30	Sweet Scent	NORMAL	Status	—	100
+37	Synthesis	GRASS	Status	—	—
+44	Worry Seed	GRASS	Status	—	100
+51	Double-Edge	NORMAL	Physical	120	100
+58	Solar Beam	GRASS	Special	120	100.1	Growl	NORMAL	Status	—	100
+1	Scratch	NORMAL	Physical	40	100
+4	Ember	FIRE	Special	40	100
+8	Smokescreen	NORMAL	Status	—	100
+12	Dragon Breath	DRAGON	Special	60	100
+17	Fire Fang	FIRE	Physical	65	95
+20	Slash	NORMAL	Physical	70	100
+24	Flamethrower	FIRE	Special	90	100
+28	Scary Face	NORMAL	Status	—	100
+32	Fire Spin	FIRE	Special	35	85
+36	Inferno	FIRE	Special	100	50
+40	Flare Blitz	FIRE	Physical	120	100.1	Ember	FIRE	Special	40	100
+1	Growl	NORMAL	Status	—	100
+1	Scratch	NORMAL	Physical	40	100
+1	Smokescreen	NORMAL	Status	—	100
+12	Dragon Breath	DRAGON	Special	60	100
+19	Fire Fang	FIRE	Physical	65	95
+24	Slash	NORMAL	Physical	70	100
+30	Flamethrower	FIRE	Special	90	100
+37	Scary Face	NORMAL	Status	—	100
+42	Fire Spin	FIRE	Special	35	85
+48	Inferno	FIRE	Special	100	50
+54	Flare Blitz	FIRE	Physical	120	100.1	Air Slash	FLYING	Special	75	95
+1	Dragon Claw	DRAGON	Physical	80	100
+1	Ember	FIRE	Special	40	100
+1	Growl	NORMAL	Status	—	100
+1	Heat Wave	FIRE	Special	95	90
+1	Scratch	NORMAL	Physical	40	100
+1	Smokescreen	NORMAL	Status	—	100
+12	Dragon Breath	DRAGON	Special	60	100
+19	Fire Fang	FIRE	Physical	65	95
+24	Slash	NORMAL	Physical	70	100
+30	Flamethrower	FIRE	Special	90	100
+39	Scary Face	NORMAL	Status	—	100
+46	Fire Spin	FIRE	Special	35	85
+54	Inferno	FIRE	Special	100	50
+62	Flare Blitz	FIRE	Physical	120	100.1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+3	Water Gun	WATER	Special	40	100
+6	Withdraw	WATER	Status	—	—
+9	Rapid Spin	NORMAL	Physical	50	100
+12	Bite	DARK	Physical	60	100
+15	Water Pulse	WATER	Special	60	100
+18	Protect	NORMAL	Status	—	—
+21	Rain Dance	WATER	Status	—	—
+24	Aqua Tail	WATER	Physical	90	90
+27	Shell Smash	NORMAL	Status	—	—
+30	Iron Defense	STEEL	Status	—	—
+33	Hydro Pump	WATER	Special	110	80
+36	Skull Bash	NORMAL	Physical	130	100.1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Water Gun	WATER	Special	40	100
+1	Withdraw	WATER	Status	—	—
+9	Rapid Spin	NORMAL	Physical	50	100
+12	Bite	DARK	Physical	60	100
+15	Water Pulse	WATER	Special	60	100
+20	Protect	NORMAL	Status	—	—
+25	Rain Dance	WATER	Status	—	—
+30	Aqua Tail	WATER	Physical	90	90
+35	Shell Smash	NORMAL	Status	—	—
+40	Iron Defense	STEEL	Status	—	—
+45	Hydro Pump	WATER	Special	110	80
+50	Skull Bash	NORMAL	Physical	130	100.1	Flash Cannon	STEEL	Special	80	100
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Water Gun	WATER	Special	40	100
+1	Withdraw	WATER	Status	—	—
+9	Rapid Spin	NORMAL	Physical	50	100
+12	Bite	DARK	Physical	60	100
+15	Water Pulse	WATER	Special	60	100
+20	Protect	NORMAL	Status	—	—
+25	Rain Dance	WATER	Status	—	—
+30	Aqua Tail	WATER	Physical	90	90
+35	Shell Smash	NORMAL	Status	—	—
+42	Iron Defense	STEEL	Status	—	—
+49	Hydro Pump	WATER	Special	110	80
+56	Skull Bash	NORMAL	Physical	130	100.1	String Shot	BUG	Status	—	95
+1	Tackle	NORMAL	Physical	40	100
+9	Bug Bite	BUG	Physical	60	100.1	Harden	NORMAL	Status	—	—.1	Bug Bite	BUG	Physical	60	100
+1	Gust	FLYING	Special	40	100
+1	Harden	NORMAL	Status	—	—
+1	String Shot	BUG	Status	—	95
+1	Tackle	NORMAL	Physical	40	100
+4	Supersonic	NORMAL	Status	—	55
+8	Confusion	PSYCHIC	Special	50	100
+12	Poison Powder	POISON	Status	—	75
+12	Sleep Powder	GRASS	Status	—	75
+12	Stun Spore	GRASS	Status	—	75
+16	Psybeam	PSYCHIC	Special	65	100
+20	Whirlwind	NORMAL	Status	—	—
+24	Air Slash	FLYING	Special	75	95
+28	Safeguard	NORMAL	Status	—	—
+32	Bug Buzz	BUG	Special	90	100
+36	Tailwind	FLYING	Status	—	—
+40	Rage Powder	BUG	Status	—	—
+44	Quiver Dance	BUG	Status	—	—.1	Poison Sting	POISON	Physical	15	100
+1	String Shot	BUG	Status	—	95
+9	Bug Bite	BUG	Physical	60	100.1	Harden	NORMAL	Status	—	—.1	Bug Bite	BUG	Physical	60	100
+1	Fury Attack	NORMAL	Physical	15	85
+1	Harden	NORMAL	Status	—	—
+1	Poison Sting	POISON	Physical	15	100
+1	String Shot	BUG	Status	—	95
+11	Fury Cutter	BUG	Physical	40	95
+14	Laser Focus	NORMAL	Status	—	—
+17	Poison Sting	POISON	Physical	15	100
+20	Focus Energy	NORMAL	Status	—	—
+23	Venoshock	POISON	Special	65	100
+26	Assurance	DARK	Physical	60	100
+29	Toxic Spikes	POISON	Status	—	—
+32	Pin Missile	BUG	Physical	25	95
+35	Poison Jab	POISON	Physical	80	100
+38	Agility	PSYCHIC	Status	—	—
+41	Endeavor	NORMAL	Physical	—	100
+44	Fell Stinger	BUG	Physical	50	100.1	Tackle	NORMAL	Physical	40	100
+5	Sand Attack	GROUND	Status	—	100
+9	Gust	FLYING	Special	40	100
+13	Quick Attack	NORMAL	Physical	40	100
+17	Whirlwind	NORMAL	Status	—	—
+21	Twister	DRAGON	Special	40	100
+25	Feather Dance	FLYING	Status	—	100
+29	Agility	PSYCHIC	Status	—	—
+33	Wing Attack	FLYING	Physical	60	100
+37	Roost	FLYING	Status	—	—
+41	Tailwind	FLYING	Status	—	—
+45	Aerial Ace	FLYING	Physical	60	∞
+49	Air Slash	FLYING	Special	75	95
+53	Hurricane	FLYING	Special	110	70.1	Gust	FLYING	Special	40	100
+1	Sand Attack	GROUND	Status	—	100
+1	Tackle	NORMAL	Physical	40	100
+5	Sand Attack	GROUND	Status	—	100
+9	Gust	FLYING	Special	40	100
+13	Quick Attack	NORMAL	Physical	40	100
+17	Whirlwind	NORMAL	Status	—	—
+22	Twister	DRAGON	Special	40	100
+27	Feather Dance	FLYING	Status	—	100
+32	Agility	PSYCHIC	Status	—	—
+37	Wing Attack	FLYING	Physical	60	100
+42	Roost	FLYING	Status	—	—
+47	Tailwind	FLYING	Status	—	—
+52	Aerial Ace	FLYING	Physical	60	∞
+57	Air Slash	FLYING	Special	75	95
+62	Hurricane	FLYING	Special	110	70.1	Gust	FLYING	Special	40	100
+1	Hurricane	FLYING	Special	110	70
+1	Quick Attack	NORMAL	Physical	40	100
+1	Sand Attack	GROUND	Status	—	100
+1	Tackle	NORMAL	Physical	40	100
+5	Sand Attack	GROUND	Status	—	100
+9	Gust	FLYING	Special	40	100
+13	Quick Attack	NORMAL	Physical	40	100
+17	Whirlwind	NORMAL	Status	—	—
+22	Twister	DRAGON	Special	40	100
+27	Feather Dance	FLYING	Status	—	100
+32	Agility	PSYCHIC	Status	—	—
+38	Wing Attack	FLYING	Physical	60	100
+44	Roost	FLYING	Status	—	—
+50	Tailwind	FLYING	Status	—	—
+56	Aerial Ace	FLYING	Physical	60	∞
+62	Air Slash	FLYING	Special	75	95
+68	Hurricane	FLYING	Special	110	70.1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+4	Quick Attack	NORMAL	Physical	40	100
+7	Focus Energy	NORMAL	Status	—	—
+10	Bite	DARK	Physical	60	100
+13	Laser Focus	NORMAL	Status	—	—
+16	Take Down	NORMAL	Physical	90	85
+19	Assurance	DARK	Physical	60	100
+22	Crunch	DARK	Physical	80	100
+25	Sucker Punch	DARK	Physical	70	100
+28	Super Fang	NORMAL	Physical	—	90
+31	Double-Edge	NORMAL	Physical	120	100
+34	Endeavor	NORMAL	Physical	—	100.1	Focus Energy	NORMAL	Status	—	—
+1	Quick Attack	NORMAL	Physical	40	100
+1	Scary Face	NORMAL	Status	—	100
+1	Swords Dance	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+4	Quick Attack	NORMAL	Physical	40	100
+7	Focus Energy	NORMAL	Status	—	—
+10	Bite	DARK	Physical	60	100
+13	Laser Focus	NORMAL	Status	—	—
+16	Take Down	NORMAL	Physical	90	85
+19	Assurance	DARK	Physical	60	100
+24	Crunch	DARK	Physical	80	100
+29	Sucker Punch	DARK	Physical	70	100
+34	Super Fang	NORMAL	Physical	—	90
+39	Double-Edge	NORMAL	Physical	120	100
+44	Endeavor	NORMAL	Physical	—	100.1	Growl	NORMAL	Status	—	100
+1	Peck	FLYING	Physical	35	100
+4	Leer	NORMAL	Status	—	100
+8	Assurance	DARK	Physical	60	100
+11	Fury Attack	NORMAL	Physical	15	85
+15	Aerial Ace	FLYING	Physical	60	∞
+18	Wing Attack	FLYING	Physical	60	100
+22	Take Down	NORMAL	Physical	90	85
+25	Agility	PSYCHIC	Status	—	—
+29	Focus Energy	NORMAL	Status	—	—
+32	Roost	FLYING	Status	—	—
+36	Drill Peck	FLYING	Physical	80	100.1	Drill Run	GROUND	Physical	80	95
+1	Growl	NORMAL	Status	—	100
+1	Leer	NORMAL	Status	—	100
+1	Peck	FLYING	Physical	35	100
+1	Pluck	FLYING	Physical	60	100
+4	Leer	NORMAL	Status	—	100
+8	Assurance	DARK	Physical	60	100
+11	Fury Attack	NORMAL	Physical	15	85
+15	Aerial Ace	FLYING	Physical	60	∞
+18	Wing Attack	FLYING	Physical	60	100
+23	Take Down	NORMAL	Physical	90	85
+27	Agility	PSYCHIC	Status	—	—
+32	Focus Energy	NORMAL	Status	—	—
+36	Roost	FLYING	Status	—	—
+41	Drill Peck	FLYING	Physical	80	100
+45	Drill Run	GROUND	Physical	80	95.1	Leer	NORMAL	Status	—	100
+1	Wrap	NORMAL	Physical	15	90
+4	Poison Sting	POISON	Physical	15	100
+9	Bite	DARK	Physical	60	100
+12	Glare	NORMAL	Status	—	100
+17	Screech	NORMAL	Status	—	85
+20	Acid	POISON	Special	40	100
+25	Spit Up	NORMAL	Special	—	100
+25	Stockpile	NORMAL	Status	—	—
+25	Swallow	NORMAL	Status	—	—
+28	Acid Spray	POISON	Special	40	100
+33	Sludge Bomb	POISON	Special	90	100
+36	Gastro Acid	POISON	Status	—	100
+38	Belch	POISON	Special	120	90
+41	Haze	ICE	Status	—	—
+44	Coil	POISON	Status	—	—
+49	Gunk Shot	POISON	Physical	120	80.1	Bite	DARK	Physical	60	100
+1	Crunch	DARK	Physical	80	100
+1	Fire Fang	FIRE	Physical	65	95
+1	Ice Fang	ICE	Physical	65	95
+1	Leer	NORMAL	Status	—	100
+1	Poison Sting	POISON	Physical	15	100
+1	Thunder Fang	ELECTRIC	Physical	65	95
+1	Wrap	NORMAL	Physical	15	90
+4	Poison Sting	POISON	Physical	15	100
+9	Bite	DARK	Physical	60	100
+12	Glare	NORMAL	Status	—	100
+17	Screech	NORMAL	Status	—	85
+20	Acid	POISON	Special	40	100
+27	Spit Up	NORMAL	Special	—	100
+27	Stockpile	NORMAL	Status	—	—
+27	Swallow	NORMAL	Status	—	—
+32	Acid Spray	POISON	Special	40	100
+39	Sludge Bomb	POISON	Special	90	100
+44	Gastro Acid	POISON	Status	—	100
+48	Belch	POISON	Special	120	90
+51	Haze	ICE	Status	—	—
+56	Coil	POISON	Status	—	—
+63	Gunk Shot	POISON	Physical	120	80.1	Charm	FAIRY	Status	—	100
+1	Growl	NORMAL	Status	—	100
+1	Nasty Plot	DARK	Status	—	—
+1	Nuzzle	ELECTRIC	Physical	20	100
+1	Play Nice	NORMAL	Status	—	—
+1	Quick Attack	NORMAL	Physical	40	100
+1	Sweet Kiss	FAIRY	Status	—	75
+1	Tail Whip	NORMAL	Status	—	100
+1	Thunder Shock	ELECTRIC	Special	40	100
+4	Thunder Wave	ELECTRIC	Status	—	90
+8	Double Team	NORMAL	Status	—	—
+12	Electro Ball	ELECTRIC	Special	—	100
+16	Feint	NORMAL	Physical	30	100
+20	Spark	ELECTRIC	Physical	65	100
+24	Agility	PSYCHIC	Status	—	—
+28	Slam	NORMAL	Physical	80	75
+32	Discharge	ELECTRIC	Special	80	100
+36	Thunderbolt	ELECTRIC	Special	90	100
+40	Light Screen	PSYCHIC	Status	—	—
+44	Thunder	ELECTRIC	Special	110	70.1	Agility	PSYCHIC	Status	—	—
+1	Charm	FAIRY	Status	—	100
+1	Discharge	ELECTRIC	Special	80	100
+1	Double Team	NORMAL	Status	—	—
+1	Electro Ball	ELECTRIC	Special	—	100
+1	Feint	NORMAL	Physical	30	100
+1	Growl	NORMAL	Status	—	100
+1	Light Screen	PSYCHIC	Status	—	—
+1	Nasty Plot	DARK	Status	—	—
+1	Nuzzle	ELECTRIC	Physical	20	100
+1	Play Nice	NORMAL	Status	—	—
+1	Quick Attack	NORMAL	Physical	40	100
+1	Slam	NORMAL	Physical	80	75
+1	Spark	ELECTRIC	Physical	65	100
+1	Sweet Kiss	FAIRY	Status	—	75
+1	Tail Whip	NORMAL	Status	—	100
+1	Thunder	ELECTRIC	Special	110	70
+1	Thunder Punch	ELECTRIC	Physical	75	100
+1	Thunder Shock	ELECTRIC	Special	40	100
+1	Thunder Wave	ELECTRIC	Status	—	90
+1	Thunderbolt	ELECTRIC	Special	90	100.1	Defense Curl	NORMAL	Status	—	—
+1	Scratch	NORMAL	Physical	40	100
+3	Poison Sting	POISON	Physical	15	100
+6	Sand Attack	GROUND	Status	—	100
+9	Rollout	ROCK	Physical	30	90
+12	Fury Cutter	BUG	Physical	40	95
+15	Rapid Spin	NORMAL	Physical	50	100
+18	Bulldoze	GROUND	Physical	60	100
+21	Swift	NORMAL	Special	60	∞
+24	Fury Swipes	NORMAL	Physical	18	80
+27	Agility	PSYCHIC	Status	—	—
+30	Slash	NORMAL	Physical	70	100
+33	Dig	GROUND	Physical	80	100
+36	Gyro Ball	STEEL	Physical	—	100
+39	Swords Dance	NORMAL	Status	—	—
+42	Sandstorm	ROCK	Status	—	—
+45	Earthquake	GROUND	Physical	100	100.1	Agility	PSYCHIC	Status	—	—
+1	Crush Claw	NORMAL	Physical	75	95
+1	Defense Curl	NORMAL	Status	—	—
+1	Poison Sting	POISON	Physical	15	100
+1	Sand Attack	GROUND	Status	—	100
+1	Scratch	NORMAL	Physical	40	100
+9	Rollout	ROCK	Physical	30	90
+12	Fury Cutter	BUG	Physical	40	95
+15	Rapid Spin	NORMAL	Physical	50	100
+18	Bulldoze	GROUND	Physical	60	100
+21	Swift	NORMAL	Special	60	∞
+26	Fury Swipes	NORMAL	Physical	18	80
+31	Sand Tomb	GROUND	Physical	35	85
+36	Slash	NORMAL	Physical	70	100
+41	Dig	GROUND	Physical	80	100
+46	Gyro Ball	STEEL	Physical	—	100
+51	Swords Dance	NORMAL	Status	—	—
+56	Sandstorm	ROCK	Status	—	—
+61	Earthquake	GROUND	Physical	100	100.1	Growl	NORMAL	Status	—	100
+1	Poison Sting	POISON	Physical	15	100
+5	Scratch	NORMAL	Physical	40	100
+10	Tail Whip	NORMAL	Status	—	100
+15	Fury Swipes	NORMAL	Physical	18	80
+20	Toxic Spikes	POISON	Status	—	—
+25	Double Kick	FIGHTING	Physical	30	100
+30	Bite	DARK	Physical	60	100
+35	Helping Hand	NORMAL	Status	—	—
+40	Toxic	POISON	Status	—	90
+45	Flatter	DARK	Status	—	100
+50	Crunch	DARK	Physical	80	100
+55	Earth Power	GROUND	Special	90	100.1	Growl	NORMAL	Status	—	100
+1	Poison Sting	POISON	Physical	15	100
+1	Scratch	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+15	Fury Swipes	NORMAL	Physical	18	80
+22	Toxic Spikes	POISON	Status	—	—
+29	Double Kick	FIGHTING	Physical	30	100
+36	Bite	DARK	Physical	60	100
+43	Helping Hand	NORMAL	Status	—	—
+50	Toxic	POISON	Status	—	90
+57	Flatter	DARK	Status	—	100
+64	Crunch	DARK	Physical	80	100
+71	Earth Power	GROUND	Special	90	100.1	Bite	DARK	Physical	60	100
+1	Crunch	DARK	Physical	80	100
+1	Double Kick	FIGHTING	Physical	30	100
+1	Earth Power	GROUND	Special	90	100
+1	Flatter	DARK	Status	—	100
+1	Fury Swipes	NORMAL	Physical	18	80
+1	Growl	NORMAL	Status	—	100
+1	Helping Hand	NORMAL	Status	—	—
+1	Poison Sting	POISON	Physical	15	100
+1	Scratch	NORMAL	Physical	40	100
+1	Sludge Wave	POISON	Special	95	100
+1	Superpower	FIGHTING	Physical	120	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Toxic	POISON	Status	—	90
+1	Toxic Spikes	POISON	Status	—	—.1	Leer	NORMAL	Status	—	100
+1	Poison Sting	POISON	Physical	15	100
+5	Peck	FLYING	Physical	35	100
+10	Focus Energy	NORMAL	Status	—	—
+15	Fury Attack	NORMAL	Physical	15	85
+20	Toxic Spikes	POISON	Status	—	—
+25	Double Kick	FIGHTING	Physical	30	100
+30	Horn Attack	NORMAL	Physical	65	100
+35	Helping Hand	NORMAL	Status	—	—
+40	Toxic	POISON	Status	—	90
+45	Flatter	DARK	Status	—	100
+50	Poison Jab	POISON	Physical	80	100
+55	Earth Power	GROUND	Special	90	100.1	Focus Energy	NORMAL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Peck	FLYING	Physical	35	100
+1	Poison Sting	POISON	Physical	15	100
+15	Fury Attack	NORMAL	Physical	15	85
+22	Toxic Spikes	POISON	Status	—	—
+29	Double Kick	FIGHTING	Physical	30	100
+36	Horn Attack	NORMAL	Physical	65	100
+43	Helping Hand	NORMAL	Status	—	—
+50	Toxic	POISON	Status	—	90
+57	Flatter	DARK	Status	—	100
+64	Poison Jab	POISON	Physical	80	100
+71	Earth Power	GROUND	Special	90	100.1	Double Kick	FIGHTING	Physical	30	100
+1	Earth Power	GROUND	Special	90	100
+1	Flatter	DARK	Status	—	100
+1	Focus Energy	NORMAL	Status	—	—
+1	Fury Attack	NORMAL	Physical	15	85
+1	Helping Hand	NORMAL	Status	—	—
+1	Horn Attack	NORMAL	Physical	65	100
+1	Leer	NORMAL	Status	—	100
+1	Megahorn	BUG	Physical	120	85
+1	Peck	FLYING	Physical	35	100
+1	Poison Jab	POISON	Physical	80	100
+1	Poison Sting	POISON	Physical	15	100
+1	Sludge Wave	POISON	Special	95	100
+1	Toxic	POISON	Status	—	90
+1	Toxic Spikes	POISON	Status	—	—.1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Defense Curl	NORMAL	Status	—	—
+1	Disarming Voice	FAIRY	Special	40	∞
+1	Encore	NORMAL	Status	—	100
+1	Growl	NORMAL	Status	—	100
+1	Pound	NORMAL	Physical	40	100
+1	Sing	NORMAL	Status	—	55
+1	Splash	NORMAL	Status	—	—
+1	Sweet Kiss	FAIRY	Status	—	75
+4	Stored Power	PSYCHIC	Special	20	100
+8	Minimize	NORMAL	Status	—	—
+12	After You	NORMAL	Status	—	—
+16	Life Dew	WATER	Status	—	—
+20	Metronome	NORMAL	Status	—	—
+24	Moonlight	FAIRY	Status	—	—
+28	Gravity	PSYCHIC	Status	—	—
+32	Meteor Mash	STEEL	Physical	90	90
+36	Follow Me	NORMAL	Status	—	—
+40	Cosmic Power	PSYCHIC	Status	—	—
+44	Moonblast	FAIRY	Special	95	100
+48	Healing Wish	PSYCHIC	Status	—	—.1	After You	NORMAL	Status	—	—
+1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Cosmic Power	PSYCHIC	Status	—	—
+1	Defense Curl	NORMAL	Status	—	—
+1	Disarming Voice	FAIRY	Special	40	∞
+1	Encore	NORMAL	Status	—	100
+1	Follow Me	NORMAL	Status	—	—
+1	Gravity	PSYCHIC	Status	—	—
+1	Growl	NORMAL	Status	—	100
+1	Healing Wish	PSYCHIC	Status	—	—
+1	Life Dew	WATER	Status	—	—
+1	Meteor Mash	STEEL	Physical	90	90
+1	Metronome	NORMAL	Status	—	—
+1	Minimize	NORMAL	Status	—	—
+1	Moonblast	FAIRY	Special	95	100
+1	Moonlight	FAIRY	Status	—	—
+1	Pound	NORMAL	Physical	40	100
+1	Sing	NORMAL	Status	—	55
+1	Splash	NORMAL	Status	—	—
+1	Stored Power	PSYCHIC	Special	20	100
+1	Sweet Kiss	FAIRY	Status	—	75.1	Ember	FIRE	Special	40	100
+1	Tail Whip	NORMAL	Status	—	100
+4	Disable	NORMAL	Status	—	100
+8	Quick Attack	NORMAL	Physical	40	100
+12	Spite	GHOST	Status	—	100
+16	Incinerate	FIRE	Special	60	100
+20	Confuse Ray	GHOST	Status	—	100
+24	Will-O-Wisp	FIRE	Status	—	85
+28	Extrasensory	PSYCHIC	Special	80	100
+32	Flamethrower	FIRE	Special	90	100
+36	Imprison	PSYCHIC	Status	—	—
+40	Fire Spin	FIRE	Special	35	85
+44	Safeguard	NORMAL	Status	—	—
+48	Inferno	FIRE	Special	100	50
+52	Grudge	GHOST	Status	—	—
+56	Fire Blast	FIRE	Special	110	85.1	Confuse Ray	GHOST	Status	—	100
+1	Disable	NORMAL	Status	—	100
+1	Ember	FIRE	Special	40	100
+1	Extrasensory	PSYCHIC	Special	80	100
+1	Fire Blast	FIRE	Special	110	85
+1	Fire Spin	FIRE	Special	35	85
+1	Flamethrower	FIRE	Special	90	100
+1	Grudge	GHOST	Status	—	—
+1	Imprison	PSYCHIC	Status	—	—
+1	Incinerate	FIRE	Special	60	100
+1	Inferno	FIRE	Special	100	50
+1	Nasty Plot	DARK	Status	—	—
+1	Quick Attack	NORMAL	Physical	40	100
+1	Safeguard	NORMAL	Status	—	—
+1	Spite	GHOST	Status	—	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Will-O-Wisp	FIRE	Status	—	85.1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Defense Curl	NORMAL	Status	—	—
+1	Disable	NORMAL	Status	—	100
+1	Disarming Voice	FAIRY	Special	40	∞
+1	Pound	NORMAL	Physical	40	100
+1	Sing	NORMAL	Status	—	55
+1	Sweet Kiss	FAIRY	Status	—	75
+4	Echoed Voice	NORMAL	Special	40	100
+8	Covet	NORMAL	Physical	60	100
+12	Spit Up	NORMAL	Special	—	100
+12	Stockpile	NORMAL	Status	—	—
+12	Swallow	NORMAL	Status	—	—
+16	Round	NORMAL	Special	60	100
+20	Rest	PSYCHIC	Status	—	—
+24	Body Slam	NORMAL	Physical	85	100
+28	Mimic	NORMAL	Status	—	—
+32	Gyro Ball	STEEL	Physical	—	100
+36	Hyper Voice	NORMAL	Special	90	100
+40	Play Rough	FAIRY	Physical	90	90
+44	Double-Edge	NORMAL	Physical	120	100.1	Body Slam	NORMAL	Physical	85	100
+1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Covet	NORMAL	Physical	60	100
+1	Defense Curl	NORMAL	Status	—	—
+1	Disable	NORMAL	Status	—	100
+1	Disarming Voice	FAIRY	Special	40	∞
+1	Double-Edge	NORMAL	Physical	120	100
+1	Echoed Voice	NORMAL	Special	40	100
+1	Gyro Ball	STEEL	Physical	—	100
+1	Hyper Voice	NORMAL	Special	90	100
+1	Mimic	NORMAL	Status	—	—
+1	Play Rough	FAIRY	Physical	90	90
+1	Pound	NORMAL	Physical	40	100
+1	Rest	PSYCHIC	Status	—	—
+1	Round	NORMAL	Special	60	100
+1	Sing	NORMAL	Status	—	55
+1	Spit Up	NORMAL	Special	—	100
+1	Stockpile	NORMAL	Status	—	—
+1	Swallow	NORMAL	Status	—	—
+1	Sweet Kiss	FAIRY	Status	—	75.1	Absorb	GRASS	Special	20	100
+1	Supersonic	NORMAL	Status	—	55
+5	Astonish	GHOST	Physical	30	100
+10	Mean Look	NORMAL	Status	—	—
+15	Poison Fang	POISON	Physical	50	100
+20	Quick Guard	FIGHTING	Status	—	—
+25	Air Cutter	FLYING	Special	60	95
+30	Bite	DARK	Physical	60	100
+35	Haze	ICE	Status	—	—
+40	Venoshock	POISON	Special	65	100
+45	Confuse Ray	GHOST	Status	—	100
+50	Air Slash	FLYING	Special	75	95
+55	Leech Life	BUG	Physical	80	100.1	Absorb	GRASS	Special	20	100
+1	Astonish	GHOST	Physical	30	100
+1	Mean Look	NORMAL	Status	—	—
+1	Screech	NORMAL	Status	—	85
+1	Supersonic	NORMAL	Status	—	55
+15	Poison Fang	POISON	Physical	50	100
+20	Quick Guard	FIGHTING	Status	—	—
+27	Air Cutter	FLYING	Special	60	95
+34	Bite	DARK	Physical	60	100
+41	Haze	ICE	Status	—	—
+48	Venoshock	POISON	Special	65	100
+55	Confuse Ray	GHOST	Status	—	100
+62	Air Slash	FLYING	Special	75	95
+69	Leech Life	BUG	Physical	80	100.1	Absorb	GRASS	Special	20	100
+1	Growth	NORMAL	Status	—	—
+4	Acid	POISON	Special	40	100
+8	Sweet Scent	NORMAL	Status	—	100
+12	Mega Drain	GRASS	Special	40	100
+14	Poison Powder	POISON	Status	—	75
+16	Stun Spore	GRASS	Status	—	75
+18	Sleep Powder	GRASS	Status	—	75
+20	Giga Drain	GRASS	Special	75	100
+24	Toxic	POISON	Status	—	90
+28	Moonblast	FAIRY	Special	95	100
+32	Grassy Terrain	GRASS	Status	—	—
+36	Moonlight	FAIRY	Status	—	—
+40	Petal Dance	GRASS	Special	120	100.1	Absorb	GRASS	Special	20	100
+1	Acid	POISON	Special	40	100
+1	Growth	NORMAL	Status	—	—
+1	Sweet Scent	NORMAL	Status	—	100
+12	Mega Drain	GRASS	Special	40	100
+14	Poison Powder	POISON	Status	—	75
+16	Stun Spore	GRASS	Status	—	75
+18	Sleep Powder	GRASS	Status	—	75
+20	Giga Drain	GRASS	Special	75	100
+26	Toxic	POISON	Status	—	90
+32	Moonblast	FAIRY	Special	95	100
+38	Grassy Terrain	GRASS	Status	—	—
+44	Moonlight	FAIRY	Status	—	—
+50	Petal Dance	GRASS	Special	120	100.1	Absorb	GRASS	Special	20	100
+1	Acid	POISON	Special	40	100
+1	Aromatherapy	GRASS	Status	—	—
+1	Giga Drain	GRASS	Special	75	100
+1	Grassy Terrain	GRASS	Status	—	—
+1	Growth	NORMAL	Status	—	—
+1	Mega Drain	GRASS	Special	40	100
+1	Moonblast	FAIRY	Special	95	100
+1	Moonlight	FAIRY	Status	—	—
+1	Petal Blizzard	GRASS	Physical	90	100
+1	Petal Dance	GRASS	Special	120	100
+1	Poison Powder	POISON	Status	—	75
+1	Sleep Powder	GRASS	Status	—	75
+1	Stun Spore	GRASS	Status	—	75
+1	Sweet Scent	NORMAL	Status	—	100
+1	Toxic	POISON	Status	—	90.1	Scratch	NORMAL	Physical	40	100
+6	Poison Powder	POISON	Status	—	75
+6	Stun Spore	GRASS	Status	—	75
+11	Absorb	GRASS	Special	20	100
+17	Fury Cutter	BUG	Physical	40	95
+22	Spore	GRASS	Status	—	100
+27	Slash	NORMAL	Physical	70	100
+33	Growth	NORMAL	Status	—	—
+38	Giga Drain	GRASS	Special	75	100
+43	Aromatherapy	GRASS	Status	—	—
+49	Rage Powder	BUG	Status	—	—
+54	X-Scissor	BUG	Physical	80	100.1	Absorb	GRASS	Special	20	100
+1	Cross Poison	POISON	Physical	70	100
+1	Poison Powder	POISON	Status	—	75
+1	Scratch	NORMAL	Physical	40	100
+1	Stun Spore	GRASS	Status	—	75
+6	Poison Powder	POISON	Status	—	75
+6	Stun Spore	GRASS	Status	—	75
+11	Absorb	GRASS	Special	20	100
+17	Fury Cutter	BUG	Physical	40	95
+22	Spore	GRASS	Status	—	100
+29	Slash	NORMAL	Physical	70	100
+37	Growth	NORMAL	Status	—	—
+44	Giga Drain	GRASS	Special	75	100
+51	Aromatherapy	GRASS	Status	—	—
+59	Rage Powder	BUG	Status	—	—
+66	X-Scissor	BUG	Physical	80	100.1	Disable	NORMAL	Status	—	100
+1	Struggle Bug	BUG	Special	50	100
+1	Tackle	NORMAL	Physical	40	100
+5	Supersonic	NORMAL	Status	—	55
+11	Confusion	PSYCHIC	Special	50	100
+13	Poison Powder	POISON	Status	—	75
+17	Psybeam	PSYCHIC	Special	65	100
+23	Stun Spore	GRASS	Status	—	75
+25	Mega Drain	GRASS	Special	40	100
+29	Sleep Powder	GRASS	Status	—	75
+35	Leech Life	BUG	Physical	80	100
+37	Zen Headbutt	PSYCHIC	Physical	80	90
+41	Poison Fang	POISON	Physical	50	100
+47	Psychic	PSYCHIC	Special	90	100.1	Bug Buzz	BUG	Special	90	100
+1	Disable	NORMAL	Status	—	100
+1	Gust	FLYING	Special	40	100
+1	Quiver Dance	BUG	Status	—	—
+1	Struggle Bug	BUG	Special	50	100
+1	Supersonic	NORMAL	Status	—	55
+1	Tackle	NORMAL	Physical	40	100
+1	Whirlwind	NORMAL	Status	—	—
+5	Supersonic	NORMAL	Status	—	55
+11	Confusion	PSYCHIC	Special	50	100
+13	Poison Powder	POISON	Status	—	75
+17	Psybeam	PSYCHIC	Special	65	100
+23	Stun Spore	GRASS	Status	—	75
+25	Mega Drain	GRASS	Special	40	100
+29	Sleep Powder	GRASS	Status	—	75
+37	Leech Life	BUG	Physical	80	100
+41	Zen Headbutt	PSYCHIC	Physical	80	90
+47	Poison Fang	POISON	Physical	50	100
+55	Psychic	PSYCHIC	Special	90	100
+59	Bug Buzz	BUG	Special	90	100
+63	Quiver Dance	BUG	Status	—	—.1	Sand Attack	GROUND	Status	—	100
+1	Scratch	NORMAL	Physical	40	100
+4	Growl	NORMAL	Status	—	100
+8	Astonish	GHOST	Physical	30	100
+12	Mud-Slap	GROUND	Special	20	100
+16	Bulldoze	GROUND	Physical	60	100
+20	Sucker Punch	DARK	Physical	70	100
+24	Slash	NORMAL	Physical	70	100
+28	Sandstorm	ROCK	Status	—	—
+32	Dig	GROUND	Physical	80	100
+36	Earth Power	GROUND	Special	90	100
+40	Earthquake	GROUND	Physical	100	100
+44	Fissure	GROUND	Physical	—	30.1	Astonish	GHOST	Physical	30	100
+1	Growl	NORMAL	Status	—	100
+1	Night Slash	DARK	Physical	70	100
+1	Sand Attack	GROUND	Status	—	100
+1	Sand Tomb	GROUND	Physical	35	85
+1	Scratch	NORMAL	Physical	40	100
+1	Tri Attack	NORMAL	Special	80	100
+12	Mud-Slap	GROUND	Special	20	100
+16	Bulldoze	GROUND	Physical	60	100
+20	Sucker Punch	DARK	Physical	70	100
+24	Slash	NORMAL	Physical	70	100
+30	Sandstorm	ROCK	Status	—	—
+36	Dig	GROUND	Physical	80	100
+42	Earth Power	GROUND	Special	90	100
+48	Earthquake	GROUND	Physical	100	100
+54	Fissure	GROUND	Physical	—	30.1	Fake Out	NORMAL	Physical	40	100
+1	Growl	NORMAL	Status	—	100
+4	Feint	NORMAL	Physical	30	100
+8	Scratch	NORMAL	Physical	40	100
+12	Pay Day	NORMAL	Physical	40	100
+16	Bite	DARK	Physical	60	100
+20	Taunt	DARK	Status	—	100
+24	Assurance	DARK	Physical	60	100
+29	Fury Swipes	NORMAL	Physical	18	80
+32	Screech	NORMAL	Status	—	85
+36	Slash	NORMAL	Physical	70	100
+40	Nasty Plot	DARK	Status	—	—
+44	Play Rough	FAIRY	Physical	90	90.1	Fake Out	NORMAL	Physical	40	100
+1	Feint	NORMAL	Physical	30	100
+1	Growl	NORMAL	Status	—	100
+1	Power Gem	ROCK	Special	80	100
+1	Scratch	NORMAL	Physical	40	100
+1	Switcheroo	DARK	Status	—	100
+12	Pay Day	NORMAL	Physical	40	100
+16	Bite	DARK	Physical	60	100
+20	Taunt	DARK	Status	—	100
+24	Assurance	DARK	Physical	60	100
+31	Fury Swipes	NORMAL	Physical	18	80
+36	Screech	NORMAL	Status	—	85
+42	Slash	NORMAL	Physical	70	100
+48	Nasty Plot	DARK	Status	—	—
+54	Play Rough	FAIRY	Physical	90	90.1	Scratch	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+3	Water Gun	WATER	Special	40	100
+6	Confusion	PSYCHIC	Special	50	100
+9	Fury Swipes	NORMAL	Physical	18	80
+12	Water Pulse	WATER	Special	60	100
+15	Disable	NORMAL	Status	—	100
+18	Zen Headbutt	PSYCHIC	Physical	80	90
+21	Screech	NORMAL	Status	—	85
+24	Aqua Tail	WATER	Physical	90	90
+27	Soak	WATER	Status	—	100
+30	Psych Up	NORMAL	Status	—	—
+34	Amnesia	PSYCHIC	Status	—	—
+36	Hydro Pump	WATER	Special	110	80
+39	Wonder Room	PSYCHIC	Status	—	—.1	Aqua Jet	WATER	Physical	40	100
+1	Confusion	PSYCHIC	Special	50	100
+1	Scratch	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Water Gun	WATER	Special	40	100
+9	Fury Swipes	NORMAL	Physical	18	80
+12	Water Pulse	WATER	Special	60	100
+15	Disable	NORMAL	Status	—	100
+18	Zen Headbutt	PSYCHIC	Physical	80	90
+21	Screech	NORMAL	Status	—	85
+24	Aqua Tail	WATER	Physical	90	90
+27	Soak	WATER	Status	—	100
+30	Psych Up	NORMAL	Status	—	—
+36	Amnesia	PSYCHIC	Status	—	—
+40	Hydro Pump	WATER	Special	110	80
+45	Wonder Room	PSYCHIC	Status	—	—.1	Covet	NORMAL	Physical	60	100
+1	Focus Energy	NORMAL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Low Kick	FIGHTING	Physical	—	100
+1	Scratch	NORMAL	Physical	40	100
+5	Fury Swipes	NORMAL	Physical	18	80
+8	Mud-Slap	GROUND	Special	20	100
+12	Seismic Toss	FIGHTING	Physical	—	100
+15	Retaliate	NORMAL	Physical	70	100
+19	Swagger	NORMAL	Status	—	85
+22	Cross Chop	FIGHTING	Physical	100	80
+26	Assurance	DARK	Physical	60	100
+29	Skull Bash	NORMAL	Physical	130	100
+33	Thrash	NORMAL	Physical	120	100
+36	Close Combat	FIGHTING	Physical	120	100
+40	Screech	NORMAL	Status	—	85
+43	Stomping Tantrum	GROUND	Physical	75	100
+47	Outrage	DRAGON	Physical	120	100
+50	Final Gambit	FIGHTING	Special	—	100.1	Covet	NORMAL	Physical	60	100
+1	Final Gambit	FIGHTING	Special	—	100
+1	Fling	DARK	Physical	—	100
+1	Focus Energy	NORMAL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Low Kick	FIGHTING	Physical	—	100
+1	Scratch	NORMAL	Physical	40	100
+5	Fury Swipes	NORMAL	Physical	18	80
+8	Mud-Slap	GROUND	Special	20	100
+12	Seismic Toss	FIGHTING	Physical	—	100
+15	Retaliate	NORMAL	Physical	70	100
+19	Swagger	NORMAL	Status	—	85
+22	Cross Chop	FIGHTING	Physical	100	80
+26	Assurance	DARK	Physical	60	100
+30	Skull Bash	NORMAL	Physical	130	100
+35	Thrash	NORMAL	Physical	120	100
+39	Close Combat	FIGHTING	Physical	120	100
+44	Screech	NORMAL	Status	—	85
+48	Stomping Tantrum	GROUND	Physical	75	100
+53	Outrage	DRAGON	Physical	120	100
+57	Final Gambit	FIGHTING	Special	—	100.1	Ember	FIRE	Special	40	100
+1	Leer	NORMAL	Status	—	100
+4	Howl	NORMAL	Status	—	—
+8	Bite	DARK	Physical	60	100
+12	Flame Wheel	FIRE	Physical	60	100
+16	Helping Hand	NORMAL	Status	—	—
+20	Agility	PSYCHIC	Status	—	—
+24	Fire Fang	FIRE	Physical	65	95
+28	Retaliate	NORMAL	Physical	70	100
+32	Crunch	DARK	Physical	80	100
+36	Take Down	NORMAL	Physical	90	85
+40	Flamethrower	FIRE	Special	90	100
+44	Roar	NORMAL	Status	—	—
+48	Play Rough	FAIRY	Physical	90	90
+52	Reversal	FIGHTING	Physical	—	100
+56	Flare Blitz	FIRE	Physical	120	100.1	Agility	PSYCHIC	Status	—	—
+1	Bite	DARK	Physical	60	100
+1	Burn Up	FIRE	Special	130	100
+1	Crunch	DARK	Physical	80	100
+1	Ember	FIRE	Special	40	100
+1	Extreme Speed	NORMAL	Physical	80	100
+1	Fire Fang	FIRE	Physical	65	95
+1	Flame Wheel	FIRE	Physical	60	100
+1	Flamethrower	FIRE	Special	90	100
+1	Flare Blitz	FIRE	Physical	120	100
+1	Helping Hand	NORMAL	Status	—	—
+1	Howl	NORMAL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Play Rough	FAIRY	Physical	90	90
+1	Retaliate	NORMAL	Physical	70	100
+1	Reversal	FIGHTING	Physical	—	100
+1	Roar	NORMAL	Status	—	—
+1	Take Down	NORMAL	Physical	90	85.1	Hypnosis	PSYCHIC	Status	—	60
+1	Water Gun	WATER	Special	40	100
+6	Pound	NORMAL	Physical	40	100
+12	Mud Shot	GROUND	Special	55	95
+18	Bubble Beam	WATER	Special	65	100
+24	Rain Dance	WATER	Status	—	—
+30	Body Slam	NORMAL	Physical	85	100
+36	Earth Power	GROUND	Special	90	100
+42	Hydro Pump	WATER	Special	110	80
+48	Belly Drum	NORMAL	Status	—	—
+54	Double-Edge	NORMAL	Physical	120	100.1	Hypnosis	PSYCHIC	Status	—	60
+1	Mud Shot	GROUND	Special	55	95
+1	Pound	NORMAL	Physical	40	100
+1	Water Gun	WATER	Special	40	100
+18	Bubble Beam	WATER	Special	65	100
+24	Rain Dance	WATER	Status	—	—
+32	Body Slam	NORMAL	Physical	85	100
+40	Earth Power	GROUND	Special	90	100
+48	Hydro Pump	WATER	Special	110	80
+56	Belly Drum	NORMAL	Status	—	—
+66	Double-Edge	NORMAL	Physical	120	100.1	Belly Drum	NORMAL	Status	—	—
+1	Body Slam	NORMAL	Physical	85	100
+1	Bubble Beam	WATER	Special	65	100
+1	Circle Throw	FIGHTING	Physical	60	90
+1	Double-Edge	NORMAL	Physical	120	100
+1	Dynamic Punch	FIGHTING	Physical	100	50
+1	Earth Power	GROUND	Special	90	100
+1	Hydro Pump	WATER	Special	110	80
+1	Hypnosis	PSYCHIC	Status	—	60
+1	Mind Reader	NORMAL	Status	—	—
+1	Mud Shot	GROUND	Special	55	95
+1	Pound	NORMAL	Physical	40	100
+1	Rain Dance	WATER	Status	—	—
+1	Submission	FIGHTING	Physical	80	80
+1	Water Gun	WATER	Special	40	100.1	Teleport	PSYCHIC	Status	—	—.1	Confusion	PSYCHIC	Special	50	100
+1	Disable	NORMAL	Status	—	100
+1	Kinesis	PSYCHIC	Status	—	80
+1	Teleport	PSYCHIC	Status	—	—
+5	Psybeam	PSYCHIC	Special	65	100
+10	Reflect	PSYCHIC	Status	—	—
+15	Ally Switch	PSYCHIC	Status	—	—
+20	Psycho Cut	PSYCHIC	Physical	70	100
+25	Recover	NORMAL	Status	—	—
+30	Psyshock	PSYCHIC	Special	80	100
+35	Psychic	PSYCHIC	Special	90	100
+40	Role Play	PSYCHIC	Status	—	—
+45	Future Sight	PSYCHIC	Special	120	100
+50	Calm Mind	PSYCHIC	Status	—	—.1	Confusion	PSYCHIC	Special	50	100
+1	Disable	NORMAL	Status	—	100
+1	Kinesis	PSYCHIC	Status	—	80
+1	Teleport	PSYCHIC	Status	—	—
+5	Psybeam	PSYCHIC	Special	65	100
+10	Reflect	PSYCHIC	Status	—	—
+15	Ally Switch	PSYCHIC	Status	—	—
+20	Psycho Cut	PSYCHIC	Physical	70	100
+25	Recover	NORMAL	Status	—	—
+30	Psyshock	PSYCHIC	Special	80	100
+35	Psychic	PSYCHIC	Special	90	100
+40	Role Play	PSYCHIC	Status	—	—
+45	Future Sight	PSYCHIC	Special	120	100
+50	Calm Mind	PSYCHIC	Status	—	—.1	Leer	NORMAL	Status	—	100
+1	Low Kick	FIGHTING	Physical	—	100
+4	Focus Energy	NORMAL	Status	—	—
+8	Revenge	FIGHTING	Physical	60	100
+12	Low Sweep	FIGHTING	Physical	65	100
+16	Knock Off	DARK	Physical	65	100
+20	Scary Face	NORMAL	Status	—	100
+24	Vital Throw	FIGHTING	Physical	70	∞
+29	Strength	NORMAL	Physical	80	100
+32	Dual Chop	DRAGON	Physical	40	90
+36	Bulk Up	FIGHTING	Status	—	—
+40	Seismic Toss	FIGHTING	Physical	—	100
+44	Dynamic Punch	FIGHTING	Physical	100	50
+48	Cross Chop	FIGHTING	Physical	100	80
+52	Double-Edge	NORMAL	Physical	120	100.1	Focus Energy	NORMAL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Low Kick	FIGHTING	Physical	—	100
+1	Revenge	FIGHTING	Physical	60	100
+12	Low Sweep	FIGHTING	Physical	65	100
+16	Knock Off	DARK	Physical	65	100
+20	Scary Face	NORMAL	Status	—	100
+24	Vital Throw	FIGHTING	Physical	70	∞
+31	Strength	NORMAL	Physical	80	100
+36	Dual Chop	DRAGON	Physical	40	90
+42	Bulk Up	FIGHTING	Status	—	—
+48	Seismic Toss	FIGHTING	Physical	—	100
+54	Dynamic Punch	FIGHTING	Physical	100	50
+60	Cross Chop	FIGHTING	Physical	100	80
+66	Double-Edge	NORMAL	Physical	120	100.1	Focus Energy	NORMAL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Low Kick	FIGHTING	Physical	—	100
+1	Revenge	FIGHTING	Physical	60	100
+1	Wide Guard	ROCK	Status	—	—
+12	Low Sweep	FIGHTING	Physical	65	100
+16	Knock Off	DARK	Physical	65	100
+20	Scary Face	NORMAL	Status	—	100
+24	Vital Throw	FIGHTING	Physical	70	∞
+31	Strength	NORMAL	Physical	80	100
+36	Dual Chop	DRAGON	Physical	40	90
+42	Bulk Up	FIGHTING	Status	—	—
+48	Seismic Toss	FIGHTING	Physical	—	100
+54	Dynamic Punch	FIGHTING	Physical	100	50
+60	Cross Chop	FIGHTING	Physical	100	80
+66	Double-Edge	NORMAL	Physical	120	100.1	Vine Whip	GRASS	Physical	45	100
+7	Growth	NORMAL	Status	—	—
+11	Wrap	NORMAL	Physical	15	90
+13	Sleep Powder	GRASS	Status	—	75
+15	Poison Powder	POISON	Status	—	75
+17	Stun Spore	GRASS	Status	—	75
+23	Acid	POISON	Special	40	100
+27	Knock Off	DARK	Physical	65	100
+29	Sweet Scent	NORMAL	Status	—	100
+35	Gastro Acid	POISON	Status	—	100
+39	Razor Leaf	GRASS	Physical	55	95
+41	Poison Jab	POISON	Physical	80	100
+47	Slam	NORMAL	Physical	80	75.1	Growth	NORMAL	Status	—	—
+1	Vine Whip	GRASS	Physical	45	100
+1	Wrap	NORMAL	Physical	15	90
+7	Growth	NORMAL	Status	—	—
+11	Wrap	NORMAL	Physical	15	90
+13	Sleep Powder	GRASS	Status	—	75
+15	Poison Powder	POISON	Status	—	75
+17	Stun Spore	GRASS	Status	—	75
+24	Acid	POISON	Special	40	100
+29	Knock Off	DARK	Physical	65	100
+32	Sweet Scent	NORMAL	Status	—	100
+39	Gastro Acid	POISON	Status	—	100
+44	Razor Leaf	GRASS	Physical	55	95
+47	Poison Jab	POISON	Physical	80	100
+54	Slam	NORMAL	Physical	80	75.1	Acid	POISON	Special	40	100
+1	Gastro Acid	POISON	Status	—	100
+1	Growth	NORMAL	Status	—	—
+1	Knock Off	DARK	Physical	65	100
+1	Leaf Tornado	GRASS	Special	65	90
+1	Poison Jab	POISON	Physical	80	100
+1	Poison Powder	POISON	Status	—	75
+1	Razor Leaf	GRASS	Physical	55	95
+1	Slam	NORMAL	Physical	80	75
+1	Sleep Powder	GRASS	Status	—	75
+1	Spit Up	NORMAL	Special	—	100
+1	Stockpile	NORMAL	Status	—	—
+1	Stun Spore	GRASS	Status	—	75
+1	Swallow	NORMAL	Status	—	—
+1	Sweet Scent	NORMAL	Status	—	100
+1	Vine Whip	GRASS	Physical	45	100
+1	Wrap	NORMAL	Physical	15	90
+32	Leaf Storm	GRASS	Special	130	90
+44	Leaf Blade	GRASS	Physical	90	100.1	Poison Sting	POISON	Physical	15	100
+1	Water Gun	WATER	Special	40	100
+4	Acid	POISON	Special	40	100
+8	Wrap	NORMAL	Physical	15	90
+12	Supersonic	NORMAL	Status	—	55
+16	Water Pulse	WATER	Special	60	100
+20	Screech	NORMAL	Status	—	85
+24	Bubble Beam	WATER	Special	65	100
+28	Hex	GHOST	Special	65	100
+32	Acid Armor	POISON	Status	—	—
+36	Poison Jab	POISON	Physical	80	100
+40	Surf	WATER	Special	90	100
+44	Sludge Wave	POISON	Special	95	100
+48	Hydro Pump	WATER	Special	110	80.1	Acid	POISON	Special	40	100
+1	Poison Sting	POISON	Physical	15	100
+1	Reflect Type	NORMAL	Status	—	—
+1	Water Gun	WATER	Special	40	100
+1	Wrap	NORMAL	Physical	15	90
+12	Supersonic	NORMAL	Status	—	55
+16	Water Pulse	WATER	Special	60	100
+20	Screech	NORMAL	Status	—	85
+24	Bubble Beam	WATER	Special	65	100
+28	Hex	GHOST	Special	65	100
+34	Acid Armor	POISON	Status	—	—
+40	Poison Jab	POISON	Physical	80	100
+46	Surf	WATER	Special	90	100
+52	Sludge Wave	POISON	Special	95	100
+58	Hydro Pump	WATER	Special	110	80.1	Defense Curl	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+4	Sandstorm	ROCK	Status	—	—
+6	Rock Polish	ROCK	Status	—	—
+10	Rollout	ROCK	Physical	30	90
+12	Harden	NORMAL	Status	—	—
+16	Rock Throw	ROCK	Physical	50	90
+18	Smack Down	ROCK	Physical	50	100
+22	Bulldoze	GROUND	Physical	60	100
+24	Self-Destruct	NORMAL	Physical	200	100
+28	Stealth Rock	ROCK	Status	—	—
+30	Rock Blast	ROCK	Physical	25	90
+34	Earthquake	GROUND	Physical	100	100
+36	Explosion	NORMAL	Physical	250	100
+40	Double-Edge	NORMAL	Physical	120	100
+42	Stone Edge	ROCK	Physical	100	80.1	Defense Curl	NORMAL	Status	—	—
+1	Rock Polish	ROCK	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+4	Sandstorm	ROCK	Status	—	—
+6	Rock Polish	ROCK	Status	—	—
+10	Rollout	ROCK	Physical	30	90
+12	Harden	NORMAL	Status	—	—
+16	Rock Throw	ROCK	Physical	50	90
+18	Smack Down	ROCK	Physical	50	100
+22	Bulldoze	GROUND	Physical	60	100
+24	Self-Destruct	NORMAL	Physical	200	100
+30	Stealth Rock	ROCK	Status	—	—
+34	Rock Blast	ROCK	Physical	25	90
+40	Earthquake	GROUND	Physical	100	100
+44	Explosion	NORMAL	Physical	250	100
+50	Double-Edge	NORMAL	Physical	120	100
+54	Stone Edge	ROCK	Physical	100	80.1	Defense Curl	NORMAL	Status	—	—
+1	Heavy Slam	STEEL	Physical	—	100
+1	Rock Polish	ROCK	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+4	Sandstorm	ROCK	Status	—	—
+6	Rock Polish	ROCK	Status	—	—
+10	Rollout	ROCK	Physical	30	90
+12	Harden	NORMAL	Status	—	—
+16	Rock Throw	ROCK	Physical	50	90
+18	Smack Down	ROCK	Physical	50	100
+22	Bulldoze	GROUND	Physical	60	100
+24	Self-Destruct	NORMAL	Physical	200	100
+30	Stealth Rock	ROCK	Status	—	—
+34	Rock Blast	ROCK	Physical	25	90
+40	Earthquake	GROUND	Physical	100	100
+44	Explosion	NORMAL	Physical	250	100
+50	Double-Edge	NORMAL	Physical	120	100
+54	Stone Edge	ROCK	Physical	100	80
+60	Heavy Slam	STEEL	Physical	—	100.1	Growl	NORMAL	Status	—	100
+1	Tackle	NORMAL	Physical	40	100
+5	Tail Whip	NORMAL	Status	—	100
+10	Ember	FIRE	Special	40	100
+15	Flame Charge	FIRE	Physical	50	100
+20	Agility	PSYCHIC	Status	—	—
+25	Flame Wheel	FIRE	Physical	60	100
+30	Stomp	NORMAL	Physical	65	100
+35	Fire Spin	FIRE	Special	35	85
+41	Take Down	NORMAL	Physical	90	85
+45	Inferno	FIRE	Special	100	50
+50	Fire Blast	FIRE	Special	110	85
+55	Flare Blitz	FIRE	Physical	120	100.1	Ember	FIRE	Special	40	100
+1	Growl	NORMAL	Status	—	100
+1	Megahorn	BUG	Physical	120	85
+1	Poison Jab	POISON	Physical	80	100
+1	Quick Attack	NORMAL	Physical	40	100
+1	Smart Strike	STEEL	Physical	70	—
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+15	Flame Charge	FIRE	Physical	50	100
+20	Agility	PSYCHIC	Status	—	—
+25	Flame Wheel	FIRE	Physical	60	100
+30	Stomp	NORMAL	Physical	65	100
+35	Fire Spin	FIRE	Special	35	85
+43	Take Down	NORMAL	Physical	90	85
+49	Inferno	FIRE	Special	100	50
+56	Fire Blast	FIRE	Special	110	85
+63	Flare Blitz	FIRE	Physical	120	100.1	Curse	GHOST	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+3	Growl	NORMAL	Status	—	100
+6	Water Gun	WATER	Special	40	100
+9	Yawn	NORMAL	Status	—	—
+12	Confusion	PSYCHIC	Special	50	100
+15	Disable	NORMAL	Status	—	100
+18	Water Pulse	WATER	Special	60	100
+21	Headbutt	NORMAL	Physical	70	100
+24	Zen Headbutt	PSYCHIC	Physical	80	90
+27	Amnesia	PSYCHIC	Status	—	—
+30	Surf	WATER	Special	90	100
+33	Slack Off	NORMAL	Status	—	—
+36	Psychic	PSYCHIC	Special	90	100
+39	Psych Up	NORMAL	Status	—	—
+42	Rain Dance	WATER	Status	—	—
+45	Heal Pulse	PSYCHIC	Status	—	—.1	Curse	GHOST	Status	—	—
+1	Growl	NORMAL	Status	—	100
+1	Tackle	NORMAL	Physical	40	100
+1	Water Gun	WATER	Special	40	100
+1	Withdraw	WATER	Status	—	—
+9	Yawn	NORMAL	Status	—	—
+12	Confusion	PSYCHIC	Special	50	100
+15	Disable	NORMAL	Status	—	100
+18	Water Pulse	WATER	Special	60	100
+21	Headbutt	NORMAL	Physical	70	100
+24	Zen Headbutt	PSYCHIC	Physical	80	90
+27	Amnesia	PSYCHIC	Status	—	—
+30	Surf	WATER	Special	90	100
+33	Slack Off	NORMAL	Status	—	—
+36	Psychic	PSYCHIC	Special	90	100
+41	Psych Up	NORMAL	Status	—	—
+46	Rain Dance	WATER	Status	—	—
+51	Heal Pulse	PSYCHIC	Status	—	—.1	Tackle	NORMAL	Physical	40	100
+1	Thunder Shock	ELECTRIC	Special	40	100
+4	Supersonic	NORMAL	Status	—	55
+8	Thunder Wave	ELECTRIC	Status	—	90
+12	Electro Ball	ELECTRIC	Special	—	100
+16	Gyro Ball	STEEL	Physical	—	100
+20	Spark	ELECTRIC	Physical	65	100
+24	Screech	NORMAL	Status	—	85
+28	Magnet Rise	ELECTRIC	Status	—	—
+32	Flash Cannon	STEEL	Special	80	100
+36	Discharge	ELECTRIC	Special	80	100
+40	Metal Sound	STEEL	Status	—	85
+44	Light Screen	PSYCHIC	Status	—	—
+48	Lock-On	NORMAL	Status	—	—
+52	Zap Cannon	ELECTRIC	Special	120	50.1	Electric Terrain	ELECTRIC	Status	—	—
+1	Supersonic	NORMAL	Status	—	55
+1	Tackle	NORMAL	Physical	40	100
+1	Thunder Shock	ELECTRIC	Special	40	100
+1	Thunder Wave	ELECTRIC	Status	—	90
+1	Tri Attack	NORMAL	Special	80	100
+12	Electro Ball	ELECTRIC	Special	—	100
+16	Gyro Ball	STEEL	Physical	—	100
+20	Spark	ELECTRIC	Physical	65	100
+24	Screech	NORMAL	Status	—	85
+28	Magnet Rise	ELECTRIC	Status	—	—
+34	Flash Cannon	STEEL	Special	80	100
+40	Discharge	ELECTRIC	Special	80	100
+46	Metal Sound	STEEL	Status	—	85
+52	Light Screen	PSYCHIC	Status	—	—
+58	Lock-On	NORMAL	Status	—	—
+64	Zap Cannon	ELECTRIC	Special	120	50.1	Peck	FLYING	Physical	35	100
+1	Sand Attack	GROUND	Status	—	100
+5	Leer	NORMAL	Status	—	100
+10	Fury Cutter	BUG	Physical	40	95
+15	Cut	NORMAL	Physical	50	95
+20	Aerial Ace	FLYING	Physical	60	∞
+25	Air Cutter	FLYING	Special	60	95
+30	Knock Off	DARK	Physical	65	100
+35	False Swipe	NORMAL	Physical	40	100
+40	Slash	NORMAL	Physical	70	100
+45	Swords Dance	NORMAL	Status	—	—
+50	Air Slash	FLYING	Special	75	95
+55	Leaf Blade	GRASS	Physical	90	100
+60	Agility	PSYCHIC	Status	—	—
+65	Brave Bird	FLYING	Physical	120	100.1	Growl	NORMAL	Status	—	100
+1	Peck	FLYING	Physical	35	100
+5	Quick Attack	NORMAL	Physical	40	100
+8	Leer	NORMAL	Status	—	100
+12	Fury Attack	NORMAL	Physical	15	85
+15	Wing Attack	FLYING	Physical	60	100
+19	Pluck	FLYING	Physical	60	100
+22	Double Hit	NORMAL	Physical	35	90
+26	Agility	PSYCHIC	Status	—	—
+29	Uproar	NORMAL	Special	90	100
+33	Acupressure	NORMAL	Status	—	—
+36	Swords Dance	NORMAL	Status	—	—
+40	Lunge	BUG	Physical	80	100
+43	Drill Peck	FLYING	Physical	80	100
+47	Endeavor	NORMAL	Physical	—	100
+50	Thrash	NORMAL	Physical	120	100.1	Growl	NORMAL	Status	—	100
+1	Peck	FLYING	Physical	35	100
+1	Quick Attack	NORMAL	Physical	40	100
+1	Tri Attack	NORMAL	Special	80	100
+5	Quick Attack	NORMAL	Physical	40	100
+8	Leer	NORMAL	Status	—	100
+12	Fury Attack	NORMAL	Physical	15	85
+15	Wing Attack	FLYING	Physical	60	100
+19	Pluck	FLYING	Physical	60	100
+22	Double Hit	NORMAL	Physical	35	90
+26	Agility	PSYCHIC	Status	—	—
+29	Uproar	NORMAL	Special	90	100
+34	Acupressure	NORMAL	Status	—	—
+38	Swords Dance	NORMAL	Status	—	—
+43	Lunge	BUG	Physical	80	100
+47	Drill Peck	FLYING	Physical	80	100
+52	Endeavor	NORMAL	Physical	—	100
+56	Thrash	NORMAL	Physical	120	100.1	Headbutt	NORMAL	Physical	70	100
+3	Growl	NORMAL	Status	—	100
+7	Water Gun	WATER	Special	40	100
+11	Icy Wind	ICE	Special	55	95
+13	Encore	NORMAL	Status	—	100
+17	Ice Shard	ICE	Physical	40	100
+21	Rest	PSYCHIC	Status	—	—
+23	Aqua Ring	WATER	Status	—	—
+27	Aurora Beam	ICE	Special	65	100
+31	Aqua Jet	WATER	Physical	40	100
+33	Brine	WATER	Special	65	100
+37	Take Down	NORMAL	Physical	90	85
+41	Dive	WATER	Physical	80	100
+43	Aqua Tail	WATER	Physical	90	90
+47	Ice Beam	ICE	Special	90	100
+51	Safeguard	NORMAL	Status	—	—
+53	Hail	ICE	Status	—	—.1	Bubble Beam	WATER	Special	65	100
+1	Growl	NORMAL	Status	—	100
+1	Headbutt	NORMAL	Physical	70	100
+1	Icy Wind	ICE	Special	55	95
+1	Sheer Cold	ICE	Special	—	30
+1	Water Gun	WATER	Special	40	100
+3	Growl	NORMAL	Status	—	100
+7	Bubble Beam	WATER	Special	65	100
+11	Icy Wind	ICE	Special	55	95
+13	Encore	NORMAL	Status	—	100
+17	Ice Shard	ICE	Physical	40	100
+21	Rest	PSYCHIC	Status	—	—
+23	Aqua Ring	WATER	Status	—	—
+27	Aurora Beam	ICE	Special	65	100
+31	Aqua Jet	WATER	Physical	40	100
+33	Brine	WATER	Special	65	100
+39	Take Down	NORMAL	Physical	90	85
+45	Dive	WATER	Physical	80	100
+49	Aqua Tail	WATER	Physical	90	90
+55	Ice Beam	ICE	Special	90	100
+61	Safeguard	NORMAL	Status	—	—
+65	Hail	ICE	Status	—	—.1	Poison Gas	POISON	Status	—	90
+1	Pound	NORMAL	Physical	40	100
+4	Harden	NORMAL	Status	—	—
+7	Mud-Slap	GROUND	Special	20	100
+12	Disable	NORMAL	Status	—	100
+15	Sludge	POISON	Special	65	100
+18	Smog	POISON	Special	30	70
+21	Minimize	NORMAL	Status	—	—
+26	Fling	DARK	Physical	—	100
+29	Sludge Bomb	POISON	Special	90	100
+32	Sludge Wave	POISON	Special	95	100
+37	Screech	NORMAL	Status	—	85
+40	Gunk Shot	POISON	Physical	120	80
+43	Acid Armor	POISON	Status	—	—
+46	Belch	POISON	Special	120	90
+48	Memento	DARK	Status	—	100.1	Harden	NORMAL	Status	—	—
+1	Mud-Slap	GROUND	Special	20	100
+1	Poison Gas	POISON	Status	—	90
+1	Pound	NORMAL	Physical	40	100
+1	Venom Drench	POISON	Status	—	100
+4	Harden	NORMAL	Status	—	—
+7	Mud-Slap	GROUND	Special	20	100
+12	Disable	NORMAL	Status	—	100
+15	Sludge	POISON	Special	65	100
+18	Smog	POISON	Special	30	70
+21	Minimize	NORMAL	Status	—	—
+26	Fling	DARK	Physical	—	100
+29	Sludge Bomb	POISON	Special	90	100
+32	Sludge Wave	POISON	Special	95	100
+37	Screech	NORMAL	Status	—	85
+40	Gunk Shot	POISON	Physical	120	80
+46	Acid Armor	POISON	Status	—	—
+52	Belch	POISON	Special	120	90
+57	Memento	DARK	Status	—	100.1	Tackle	NORMAL	Physical	40	100
+1	Water Gun	WATER	Special	40	100
+4	Withdraw	WATER	Status	—	—
+8	Ice Shard	ICE	Physical	40	100
+12	Leer	NORMAL	Status	—	100
+16	Whirlpool	WATER	Special	35	85
+20	Supersonic	NORMAL	Status	—	55
+24	Aurora Beam	ICE	Special	65	100
+28	Protect	NORMAL	Status	—	—
+32	Razor Shell	WATER	Physical	75	95
+36	Iron Defense	STEEL	Status	—	—
+40	Ice Beam	ICE	Special	90	100
+44	Shell Smash	NORMAL	Status	—	—
+48	Hydro Pump	WATER	Special	110	80.1	Aurora Beam	ICE	Special	65	100
+1	Hydro Pump	WATER	Special	110	80
+1	Ice Beam	ICE	Special	90	100
+1	Ice Shard	ICE	Physical	40	100
+1	Icicle Crash	ICE	Physical	85	90
+1	Icicle Spear	ICE	Physical	25	100
+1	Iron Defense	STEEL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Protect	NORMAL	Status	—	—
+1	Razor Shell	WATER	Physical	75	95
+1	Shell Smash	NORMAL	Status	—	—
+1	Spikes	GROUND	Status	—	—
+1	Supersonic	NORMAL	Status	—	55
+1	Tackle	NORMAL	Physical	40	100
+1	Toxic Spikes	POISON	Status	—	—
+1	Water Gun	WATER	Special	40	100
+1	Whirlpool	WATER	Special	35	85
+1	Withdraw	WATER	Status	—	—.1	Confuse Ray	GHOST	Status	—	100
+1	Lick	GHOST	Physical	30	100
+4	Hypnosis	PSYCHIC	Status	—	60
+8	Mean Look	NORMAL	Status	—	—
+12	Payback	DARK	Physical	50	100
+16	Spite	GHOST	Status	—	100
+20	Curse	GHOST	Status	—	—
+24	Hex	GHOST	Special	65	100
+28	Night Shade	GHOST	Special	—	100
+32	Sucker Punch	DARK	Physical	70	100
+36	Dark Pulse	DARK	Special	80	100
+40	Shadow Ball	GHOST	Special	80	100
+44	Destiny Bond	GHOST	Status	—	—
+48	Dream Eater	PSYCHIC	Special	100	100.1	Confuse Ray	GHOST	Status	—	100
+1	Hypnosis	PSYCHIC	Status	—	60
+1	Lick	GHOST	Physical	30	100
+1	Mean Look	NORMAL	Status	—	—
+1	Shadow Punch	GHOST	Physical	60	∞
+12	Payback	DARK	Physical	50	100
+16	Spite	GHOST	Status	—	100
+20	Curse	GHOST	Status	—	—
+24	Hex	GHOST	Special	65	100
+30	Night Shade	GHOST	Special	—	100
+36	Sucker Punch	DARK	Physical	70	100
+42	Dark Pulse	DARK	Special	80	100
+48	Shadow Ball	GHOST	Special	80	100
+54	Destiny Bond	GHOST	Status	—	—
+60	Dream Eater	PSYCHIC	Special	100	100.1	Confuse Ray	GHOST	Status	—	100
+1	Hypnosis	PSYCHIC	Status	—	60
+1	Lick	GHOST	Physical	30	100
+1	Mean Look	NORMAL	Status	—	—
+1	Perish Song	NORMAL	Status	—	—
+1	Reflect Type	NORMAL	Status	—	—
+1	Shadow Punch	GHOST	Physical	60	∞
+12	Payback	DARK	Physical	50	100
+16	Spite	GHOST	Status	—	100
+20	Curse	GHOST	Status	—	—
+24	Hex	GHOST	Special	65	100
+30	Night Shade	GHOST	Special	—	100
+36	Sucker Punch	DARK	Physical	70	100
+42	Dark Pulse	DARK	Special	80	100
+48	Shadow Ball	GHOST	Special	80	100
+54	Destiny Bond	GHOST	Status	—	—
+60	Dream Eater	PSYCHIC	Special	100	100.1	Bind	NORMAL	Physical	15	85
+1	Harden	NORMAL	Status	—	—
+1	Rock Throw	ROCK	Physical	50	90
+1	Tackle	NORMAL	Physical	40	100
+4	Smack Down	ROCK	Physical	50	100
+8	Rock Polish	ROCK	Status	—	—
+12	Dragon Breath	DRAGON	Special	60	100
+16	Curse	GHOST	Status	—	—
+20	Rock Slide	ROCK	Physical	75	90
+24	Screech	NORMAL	Status	—	85
+28	Sand Tomb	GROUND	Physical	35	85
+32	Stealth Rock	ROCK	Status	—	—
+36	Slam	NORMAL	Physical	80	75
+40	Sandstorm	ROCK	Status	—	—
+44	Dig	GROUND	Physical	80	100
+48	Iron Tail	STEEL	Physical	100	75
+52	Stone Edge	ROCK	Physical	100	80
+56	Double-Edge	NORMAL	Physical	120	100.1	Hypnosis	PSYCHIC	Status	—	60
+1	Pound	NORMAL	Physical	40	100
+5	Disable	NORMAL	Status	—	100
+9	Confusion	PSYCHIC	Special	50	100
+13	Headbutt	NORMAL	Physical	70	100
+17	Poison Gas	POISON	Status	—	90
+21	Hypnosis	PSYCHIC	Status	—	60
+25	Psybeam	PSYCHIC	Special	65	100
+29	Mind Reader	NORMAL	Status	—	—
+33	Psych Up	NORMAL	Status	—	—
+37	Hypnosis	PSYCHIC	Status	—	60
+41	Zen Headbutt	PSYCHIC	Physical	80	90
+45	Swagger	NORMAL	Status	—	85
+49	Psychic	PSYCHIC	Special	90	100
+53	Nasty Plot	DARK	Status	—	—
+57	Psyshock	PSYCHIC	Special	80	100
+61	Future Sight	PSYCHIC	Special	120	100.1	Confusion	PSYCHIC	Special	50	100
+1	Disable	NORMAL	Status	—	100
+1	Future Sight	PSYCHIC	Special	120	100
+1	Hypnosis	PSYCHIC	Status	—	60
+1	Nasty Plot	DARK	Status	—	—
+1	Pound	NORMAL	Physical	40	100
+1	Switcheroo	DARK	Status	—	100
+5	Disable	NORMAL	Status	—	100
+9	Confusion	PSYCHIC	Special	50	100
+13	Headbutt	NORMAL	Physical	70	100
+17	Poison Gas	POISON	Status	—	90
+21	Hypnosis	PSYCHIC	Status	—	60
+25	Psybeam	PSYCHIC	Special	65	100
+29	Mind Reader	NORMAL	Status	—	—
+33	Psych Up	NORMAL	Status	—	—
+37	Hypnosis	PSYCHIC	Status	—	60
+41	Zen Headbutt	PSYCHIC	Physical	80	90
+45	Swagger	NORMAL	Status	—	85
+49	Psychic	PSYCHIC	Special	90	100
+53	Nasty Plot	DARK	Status	—	—
+57	Psyshock	PSYCHIC	Special	80	100
+61	Future Sight	PSYCHIC	Special	120	100.1	Leer	NORMAL	Status	—	100
+1	Water Gun	WATER	Special	40	100
+4	Harden	NORMAL	Status	—	—
+8	Metal Claw	STEEL	Physical	50	95
+12	Mud Shot	GROUND	Special	55	95
+16	Protect	NORMAL	Status	—	—
+20	Bubble Beam	WATER	Special	65	100
+24	Stomp	NORMAL	Physical	65	100
+29	Flail	NORMAL	Physical	—	100
+32	Razor Shell	WATER	Physical	75	95
+36	Slam	NORMAL	Physical	80	75
+40	Swords Dance	NORMAL	Status	—	—
+44	Crabhammer	WATER	Physical	100	90
+48	Guillotine	NORMAL	Physical	—	30.1	Hammer Arm	FIGHTING	Physical	100	90
+1	Harden	NORMAL	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Metal Claw	STEEL	Physical	50	95
+1	Water Gun	WATER	Special	40	100
+1	Wide Guard	ROCK	Status	—	—
+12	Mud Shot	GROUND	Special	55	95
+16	Protect	NORMAL	Status	—	—
+20	Bubble Beam	WATER	Special	65	100
+24	Stomp	NORMAL	Physical	65	100
+31	Flail	NORMAL	Physical	—	100
+36	Razor Shell	WATER	Physical	75	95
+42	Slam	NORMAL	Physical	80	75
+48	Swords Dance	NORMAL	Status	—	—
+54	Crabhammer	WATER	Physical	100	90
+60	Guillotine	NORMAL	Physical	—	30.1	Charge	ELECTRIC	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+4	Thunder Shock	ELECTRIC	Special	40	100
+6	Eerie Impulse	ELECTRIC	Status	—	100
+9	Spark	ELECTRIC	Physical	65	100
+11	Rollout	ROCK	Physical	30	90
+13	Screech	NORMAL	Status	—	85
+16	Charge Beam	ELECTRIC	Special	50	90
+20	Swift	NORMAL	Special	60	∞
+22	Electro Ball	ELECTRIC	Special	—	100
+26	Self-Destruct	NORMAL	Physical	200	100
+29	Light Screen	PSYCHIC	Status	—	—
+34	Magnet Rise	ELECTRIC	Status	—	—
+37	Discharge	ELECTRIC	Special	80	100
+41	Explosion	NORMAL	Physical	250	100
+46	Gyro Ball	STEEL	Physical	—	100
+48	Mirror Coat	PSYCHIC	Special	—	100.1	Charge	ELECTRIC	Status	—	—
+1	Eerie Impulse	ELECTRIC	Status	—	100
+1	Magnetic Flux	ELECTRIC	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+4	Thunder Shock	ELECTRIC	Special	40	100
+6	Eerie Impulse	ELECTRIC	Status	—	100
+9	Spark	ELECTRIC	Physical	65	100
+11	Rollout	ROCK	Physical	30	90
+13	Screech	NORMAL	Status	—	85
+16	Charge Beam	ELECTRIC	Special	50	90
+20	Swift	NORMAL	Special	60	∞
+22	Electro Ball	ELECTRIC	Special	—	100
+26	Self-Destruct	NORMAL	Physical	200	100
+29	Light Screen	PSYCHIC	Status	—	—
+36	Magnet Rise	ELECTRIC	Status	—	—
+41	Discharge	ELECTRIC	Special	80	100
+47	Explosion	NORMAL	Physical	250	100
+54	Gyro Ball	STEEL	Physical	—	100
+58	Mirror Coat	PSYCHIC	Special	—	100.1	Absorb	GRASS	Special	20	100
+1	Hypnosis	PSYCHIC	Status	—	60
+5	Reflect	PSYCHIC	Status	—	—
+10	Leech Seed	GRASS	Status	—	90
+15	Mega Drain	GRASS	Special	40	100
+20	Confusion	PSYCHIC	Special	50	100
+25	Synthesis	GRASS	Status	—	—
+30	Bullet Seed	GRASS	Physical	25	100
+35	Giga Drain	GRASS	Special	75	100
+40	Extrasensory	PSYCHIC	Special	80	100
+45	Uproar	NORMAL	Special	90	100
+50	Worry Seed	GRASS	Status	—	100
+55	Solar Beam	GRASS	Special	120	100.1	Absorb	GRASS	Special	20	100
+1	Bullet Seed	GRASS	Physical	25	100
+1	Confusion	PSYCHIC	Special	50	100
+1	Extrasensory	PSYCHIC	Special	80	100
+1	Giga Drain	GRASS	Special	75	100
+1	Hypnosis	PSYCHIC	Status	—	60
+1	Leaf Storm	GRASS	Special	130	90
+1	Leech Seed	GRASS	Status	—	90
+1	Mega Drain	GRASS	Special	40	100
+1	Psyshock	PSYCHIC	Special	80	100
+1	Reflect	PSYCHIC	Status	—	—
+1	Seed Bomb	GRASS	Physical	80	100
+1	Solar Beam	GRASS	Special	120	100
+1	Stomp	NORMAL	Physical	65	100
+1	Synthesis	GRASS	Status	—	—
+1	Uproar	NORMAL	Special	90	100
+1	Wood Hammer	GRASS	Physical	120	100
+1	Worry Seed	GRASS	Status	—	100.1	Growl	NORMAL	Status	—	100
+1	Mud-Slap	GROUND	Special	20	100
+4	Tail Whip	NORMAL	Status	—	100
+8	False Swipe	NORMAL	Physical	40	100
+12	Headbutt	NORMAL	Physical	70	100
+16	Retaliate	NORMAL	Physical	70	100
+20	Fling	DARK	Physical	—	100
+24	Stomping Tantrum	GROUND	Physical	75	100
+29	Bone Rush	GROUND	Physical	25	90
+32	Focus Energy	NORMAL	Status	—	—
+36	Endeavor	NORMAL	Physical	—	100
+40	Bonemerang	GROUND	Physical	50	90
+44	Thrash	NORMAL	Physical	120	100
+48	Double-Edge	NORMAL	Physical	120	100.1	False Swipe	NORMAL	Physical	40	100
+1	Growl	NORMAL	Status	—	100
+1	Mud-Slap	GROUND	Special	20	100
+1	Tail Whip	NORMAL	Status	—	100
+12	Headbutt	NORMAL	Physical	70	100
+16	Retaliate	NORMAL	Physical	70	100
+20	Fling	DARK	Physical	—	100
+24	Stomping Tantrum	GROUND	Physical	75	100
+31	Bone Rush	GROUND	Physical	25	90
+36	Focus Energy	NORMAL	Status	—	—
+42	Endeavor	NORMAL	Physical	—	100
+48	Bonemerang	GROUND	Physical	50	90
+54	Thrash	NORMAL	Physical	120	100
+60	Double-Edge	NORMAL	Physical	120	100.1	Brick Break	FIGHTING	Physical	75	100
+1	Fake Out	NORMAL	Physical	40	100
+1	Feint	NORMAL	Physical	30	100
+1	Focus Energy	NORMAL	Status	—	—
+1	Helping Hand	NORMAL	Status	—	—
+1	Low Sweep	FIGHTING	Physical	65	100
+1	Tackle	NORMAL	Physical	40	100
+4	Double Kick	FIGHTING	Physical	30	100
+8	Low Kick	FIGHTING	Physical	—	100
+12	Endure	NORMAL	Status	—	—
+16	Revenge	FIGHTING	Physical	60	100
+21	Wide Guard	ROCK	Status	—	—
+24	Blaze Kick	FIRE	Physical	85	90
+28	Mind Reader	NORMAL	Status	—	—
+32	Mega Kick	NORMAL	Physical	120	75
+36	Close Combat	FIGHTING	Physical	120	100
+40	Reversal	FIGHTING	Physical	—	100
+44	High Jump Kick	FIGHTING	Physical	130	90.1	Bullet Punch	STEEL	Physical	40	100
+1	Drain Punch	FIGHTING	Physical	75	100
+1	Fake Out	NORMAL	Physical	40	100
+1	Feint	NORMAL	Physical	30	100
+1	Focus Energy	NORMAL	Status	—	—
+1	Helping Hand	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+1	Vacuum Wave	FIGHTING	Special	40	100
+4	Mach Punch	FIGHTING	Physical	40	100
+8	Power-Up Punch	FIGHTING	Physical	40	100
+12	Detect	FIGHTING	Status	—	—
+16	Revenge	FIGHTING	Physical	60	100
+21	Quick Guard	FIGHTING	Status	—	—
+24	Fire Punch	FIRE	Physical	75	100
+24	Ice Punch	ICE	Physical	75	100
+24	Thunder Punch	ELECTRIC	Physical	75	100
+28	Agility	PSYCHIC	Status	—	—
+32	Mega Punch	NORMAL	Physical	80	85
+36	Close Combat	FIGHTING	Physical	120	100
+40	Counter	FIGHTING	Physical	—	100
+44	Focus Punch	FIGHTING	Physical	150	100.1	Defense Curl	NORMAL	Status	—	—
+1	Lick	GHOST	Physical	30	100
+6	Rollout	ROCK	Physical	30	90
+12	Supersonic	NORMAL	Status	—	55
+18	Wrap	NORMAL	Physical	15	90
+24	Disable	NORMAL	Status	—	100
+30	Stomp	NORMAL	Physical	65	100
+36	Knock Off	DARK	Physical	65	100
+42	Screech	NORMAL	Status	—	85
+48	Slam	NORMAL	Physical	80	75
+54	Power Whip	GRASS	Physical	120	85
+60	Belly Drum	NORMAL	Status	—	—.1	Poison Gas	POISON	Status	—	90
+1	Tackle	NORMAL	Physical	40	100
+4	Smog	POISON	Special	30	70
+8	Smokescreen	NORMAL	Status	—	100
+12	Clear Smog	POISON	Special	50	—
+16	Assurance	DARK	Physical	60	100
+20	Sludge	POISON	Special	65	100
+24	Haze	ICE	Status	—	—
+28	Self-Destruct	NORMAL	Physical	200	100
+32	Sludge Bomb	POISON	Special	90	100
+36	Toxic	POISON	Status	—	90
+40	Belch	POISON	Special	120	90
+44	Explosion	NORMAL	Physical	250	100
+48	Memento	DARK	Status	—	100
+52	Destiny Bond	GHOST	Status	—	—.1	Double Hit	NORMAL	Physical	35	90
+1	Heat Wave	FIRE	Special	95	90
+1	Poison Gas	POISON	Status	—	90
+1	Smog	POISON	Special	30	70
+1	Smokescreen	NORMAL	Status	—	100
+1	Tackle	NORMAL	Physical	40	100
+12	Clear Smog	POISON	Special	50	—
+16	Assurance	DARK	Physical	60	100
+20	Sludge	POISON	Special	65	100
+24	Haze	ICE	Status	—	—
+28	Self-Destruct	NORMAL	Physical	200	100
+32	Sludge Bomb	POISON	Special	90	100
+38	Toxic	POISON	Status	—	90
+44	Belch	POISON	Special	120	90
+50	Explosion	NORMAL	Physical	250	100
+56	Memento	DARK	Status	—	100
+62	Destiny Bond	GHOST	Status	—	—.1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+5	Smack Down	ROCK	Physical	50	100
+10	Bulldoze	GROUND	Physical	60	100
+15	Horn Attack	NORMAL	Physical	65	100
+20	Scary Face	NORMAL	Status	—	100
+25	Stomp	NORMAL	Physical	65	100
+30	Rock Blast	ROCK	Physical	25	90
+35	Drill Run	GROUND	Physical	80	95
+40	Take Down	NORMAL	Physical	90	85
+45	Earthquake	GROUND	Physical	100	100
+50	Stone Edge	ROCK	Physical	100	80
+55	Megahorn	BUG	Physical	120	85
+60	Horn Drill	NORMAL	Physical	—	30.1	Bulldoze	GROUND	Physical	60	100
+1	Hammer Arm	FIGHTING	Physical	100	90
+1	Smack Down	ROCK	Physical	50	100
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+15	Horn Attack	NORMAL	Physical	65	100
+20	Scary Face	NORMAL	Status	—	100
+25	Stomp	NORMAL	Physical	65	100
+30	Rock Blast	ROCK	Physical	25	90
+35	Drill Run	GROUND	Physical	80	95
+40	Take Down	NORMAL	Physical	90	85
+47	Earthquake	GROUND	Physical	100	100
+54	Stone Edge	ROCK	Physical	100	80
+61	Megahorn	BUG	Physical	120	85
+68	Horn Drill	NORMAL	Physical	—	30.1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Covet	NORMAL	Physical	60	100
+1	Defense Curl	NORMAL	Status	—	—
+1	Disarming Voice	FAIRY	Special	40	∞
+1	Minimize	NORMAL	Status	—	—
+1	Pound	NORMAL	Physical	40	100
+1	Sweet Kiss	FAIRY	Status	—	75
+4	Tail Whip	NORMAL	Status	—	100
+8	Echoed Voice	NORMAL	Special	40	100
+12	Life Dew	WATER	Status	—	—
+16	Sing	NORMAL	Status	—	55
+20	Fling	DARK	Physical	—	100
+24	Take Down	NORMAL	Physical	90	85
+28	Heal Pulse	PSYCHIC	Status	—	—
+32	Helping Hand	NORMAL	Status	—	—
+36	Light Screen	PSYCHIC	Status	—	—
+40	Double-Edge	NORMAL	Physical	120	100
+44	Soft-Boiled	NORMAL	Status	—	—
+48	Last Resort	NORMAL	Physical	140	100
+52	Healing Wish	PSYCHIC	Status	—	—.1	Absorb	GRASS	Special	20	100
+1	Bind	NORMAL	Physical	15	85
+4	Stun Spore	GRASS	Status	—	75
+8	Growth	NORMAL	Status	—	—
+12	Mega Drain	GRASS	Special	40	100
+16	Vine Whip	GRASS	Physical	45	100
+20	Poison Powder	POISON	Status	—	75
+24	Ancient Power	ROCK	Special	60	100
+28	Knock Off	DARK	Physical	65	100
+32	Giga Drain	GRASS	Special	75	100
+36	Sleep Powder	GRASS	Status	—	75
+40	Slam	NORMAL	Physical	80	75
+44	Tickle	NORMAL	Status	—	100
+48	Power Whip	GRASS	Physical	120	85
+52	Ingrain	GRASS	Status	—	—
+56	Grassy Terrain	GRASS	Status	—	—.1	Pound	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+4	Growl	NORMAL	Status	—	100
+8	Fake Out	NORMAL	Physical	40	100
+12	Bite	DARK	Physical	60	100
+16	Stomp	NORMAL	Physical	65	100
+20	Focus Energy	NORMAL	Status	—	—
+24	Headbutt	NORMAL	Physical	70	100
+28	Sucker Punch	DARK	Physical	70	100
+32	Double Hit	NORMAL	Physical	35	90
+36	Crunch	DARK	Physical	80	100
+40	Endure	NORMAL	Status	—	—
+44	Reversal	FIGHTING	Physical	—	100
+48	Outrage	DRAGON	Physical	120	100
+52	Last Resort	NORMAL	Physical	140	100.1	Leer	NORMAL	Status	—	100
+1	Water Gun	WATER	Special	40	100
+5	Smokescreen	NORMAL	Status	—	100
+10	Twister	DRAGON	Special	40	100
+15	Focus Energy	NORMAL	Status	—	—
+20	Dragon Breath	DRAGON	Special	60	100
+25	Bubble Beam	WATER	Special	65	100
+30	Agility	PSYCHIC	Status	—	—
+35	Laser Focus	NORMAL	Status	—	—
+40	Dragon Pulse	DRAGON	Special	85	100
+45	Hydro Pump	WATER	Special	110	80
+50	Dragon Dance	DRAGON	Status	—	—
+55	Rain Dance	WATER	Status	—	—.1	Leer	NORMAL	Status	—	100
+1	Smokescreen	NORMAL	Status	—	100
+1	Twister	DRAGON	Special	40	100
+1	Water Gun	WATER	Special	40	100
+15	Focus Energy	NORMAL	Status	—	—
+20	Dragon Breath	DRAGON	Special	60	100
+25	Bubble Beam	WATER	Special	65	100
+30	Agility	PSYCHIC	Status	—	—
+37	Laser Focus	NORMAL	Status	—	—
+44	Dragon Pulse	DRAGON	Special	85	100
+51	Hydro Pump	WATER	Special	110	80
+58	Dragon Dance	DRAGON	Status	—	—
+65	Rain Dance	WATER	Status	—	—.1	Peck	FLYING	Physical	35	100
+1	Tail Whip	NORMAL	Status	—	100
+5	Supersonic	NORMAL	Status	—	55
+10	Water Pulse	WATER	Special	60	100
+15	Horn Attack	NORMAL	Physical	65	100
+20	Agility	PSYCHIC	Status	—	—
+25	Aqua Ring	WATER	Status	—	—
+30	Flail	NORMAL	Physical	—	100
+35	Waterfall	WATER	Physical	80	100
+40	Soak	WATER	Status	—	100
+45	Megahorn	BUG	Physical	120	85
+50	Horn Drill	NORMAL	Physical	—	30.1	Peck	FLYING	Physical	35	100
+1	Supersonic	NORMAL	Status	—	55
+1	Tail Whip	NORMAL	Status	—	100
+1	Water Pulse	WATER	Special	60	100
+15	Horn Attack	NORMAL	Physical	65	100
+20	Agility	PSYCHIC	Status	—	—
+25	Aqua Ring	WATER	Status	—	—
+30	Flail	NORMAL	Physical	—	100
+37	Waterfall	WATER	Physical	80	100
+44	Soak	WATER	Status	—	100
+51	Megahorn	BUG	Physical	120	85
+58	Horn Drill	NORMAL	Physical	—	30.1	Harden	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+4	Water Gun	WATER	Special	40	100
+8	Confuse Ray	GHOST	Status	—	100
+12	Rapid Spin	NORMAL	Physical	50	100
+16	Minimize	NORMAL	Status	—	—
+20	Swift	NORMAL	Special	60	∞
+24	Psybeam	PSYCHIC	Special	65	100
+28	Brine	WATER	Special	65	100
+32	Light Screen	PSYCHIC	Status	—	—
+36	Power Gem	ROCK	Special	80	100
+40	Psychic	PSYCHIC	Special	90	100
+44	Surf	WATER	Special	90	100
+48	Recover	NORMAL	Status	—	—
+52	Cosmic Power	PSYCHIC	Status	—	—
+56	Hydro Pump	WATER	Special	110	80.1	Brine	WATER	Special	65	100
+1	Confuse Ray	GHOST	Status	—	100
+1	Cosmic Power	PSYCHIC	Status	—	—
+1	Harden	NORMAL	Status	—	—
+1	Hydro Pump	WATER	Special	110	80
+1	Light Screen	PSYCHIC	Status	—	—
+1	Minimize	NORMAL	Status	—	—
+1	Power Gem	ROCK	Special	80	100
+1	Psybeam	PSYCHIC	Special	65	100
+1	Psychic	PSYCHIC	Special	90	100
+1	Rapid Spin	NORMAL	Physical	50	100
+1	Recover	NORMAL	Status	—	—
+1	Surf	WATER	Special	90	100
+1	Swift	NORMAL	Special	60	∞
+1	Tackle	NORMAL	Physical	40	100
+1	Water Gun	WATER	Special	40	100.1	Baton Pass	NORMAL	Status	—	—
+1	Copycat	NORMAL	Status	—	—
+1	Encore	NORMAL	Status	—	100
+1	Guard Swap	PSYCHIC	Status	—	—
+1	Pound	NORMAL	Physical	40	100
+1	Power Swap	PSYCHIC	Status	—	—
+1	Quick Guard	FIGHTING	Status	—	—
+1	Wide Guard	ROCK	Status	—	—
+12	Confusion	PSYCHIC	Special	50	100
+16	Role Play	PSYCHIC	Status	—	—
+20	Protect	NORMAL	Status	—	—
+24	Recycle	NORMAL	Status	—	—
+28	Psybeam	PSYCHIC	Special	65	100
+32	Mimic	NORMAL	Status	—	—
+36	Light Screen	PSYCHIC	Status	—	—
+36	Reflect	PSYCHIC	Status	—	—
+36	Safeguard	NORMAL	Status	—	—
+40	Sucker Punch	DARK	Physical	70	100
+44	Dazzling Gleam	FAIRY	Special	80	100
+48	Psychic	PSYCHIC	Special	90	100
+52	Teeter Dance	NORMAL	Status	—	100.1	Leer	NORMAL	Status	—	100
+1	Quick Attack	NORMAL	Physical	40	100
+4	Fury Cutter	BUG	Physical	40	95
+8	False Swipe	NORMAL	Physical	40	100
+12	Wing Attack	FLYING	Physical	60	100
+16	Double Team	NORMAL	Status	—	—
+20	Double Hit	NORMAL	Physical	35	90
+24	Slash	NORMAL	Physical	70	100
+28	Focus Energy	NORMAL	Status	—	—
+32	Agility	PSYCHIC	Status	—	—
+36	Air Slash	FLYING	Special	75	95
+40	X-Scissor	BUG	Physical	80	100
+44	Laser Focus	NORMAL	Status	—	—
+48	Swords Dance	NORMAL	Status	—	—.1	Copycat	NORMAL	Status	—	—
+1	Lick	GHOST	Physical	30	100
+1	Pound	NORMAL	Physical	40	100
+1	Powder Snow	ICE	Special	40	100
+1	Sweet Kiss	FAIRY	Status	—	75
+12	Confusion	PSYCHIC	Special	50	100
+16	Covet	NORMAL	Physical	60	100
+20	Sing	NORMAL	Status	—	55
+24	Fake Tears	DARK	Status	—	100
+28	Ice Punch	ICE	Physical	75	100
+34	Psychic	PSYCHIC	Special	90	100
+40	Lovely Kiss	NORMAL	Status	—	75
+46	Mean Look	NORMAL	Status	—	—
+52	Perish Song	NORMAL	Status	—	—
+58	Blizzard	ICE	Special	110	70.1	Charge	ELECTRIC	Status	—	—
+1	Leer	NORMAL	Status	—	100
+1	Quick Attack	NORMAL	Physical	40	100
+1	Thunder Shock	ELECTRIC	Special	40	100
+12	Swift	NORMAL	Special	60	∞
+16	Shock Wave	ELECTRIC	Special	60	∞
+20	Thunder Wave	ELECTRIC	Status	—	90
+24	Screech	NORMAL	Status	—	85
+28	Thunder Punch	ELECTRIC	Physical	75	100
+34	Discharge	ELECTRIC	Special	80	100
+40	Low Kick	FIGHTING	Physical	—	100
+46	Thunderbolt	ELECTRIC	Special	90	100
+52	Light Screen	PSYCHIC	Status	—	—
+58	Thunder	ELECTRIC	Special	110	70
+64	Giga Impact	NORMAL	Physical	150	90.1	Ember	FIRE	Special	40	100
+1	Leer	NORMAL	Status	—	100
+1	Smog	POISON	Special	30	70
+1	Smokescreen	NORMAL	Status	—	100
+12	Clear Smog	POISON	Special	50	—
+16	Flame Wheel	FIRE	Physical	60	100
+20	Confuse Ray	GHOST	Status	—	100
+24	Scary Face	NORMAL	Status	—	100
+28	Fire Punch	FIRE	Physical	75	100
+34	Lava Plume	FIRE	Special	80	100
+40	Low Kick	FIGHTING	Physical	—	100
+46	Flamethrower	FIRE	Special	90	100
+52	Sunny Day	FIRE	Status	—	—
+58	Fire Blast	FIRE	Special	110	85
+64	Hyper Beam	NORMAL	Special	150	90.1	Harden	NORMAL	Status	—	—
+1	Vise Grip	NORMAL	Physical	55	100
+4	Focus Energy	NORMAL	Status	—	—
+8	Bind	NORMAL	Physical	15	85
+12	Seismic Toss	FIGHTING	Physical	—	100
+16	Bug Bite	BUG	Physical	60	100
+20	Storm Throw	FIGHTING	Physical	60	100
+24	Double Hit	NORMAL	Physical	35	90
+28	Vital Throw	FIGHTING	Physical	70	∞
+32	X-Scissor	BUG	Physical	80	100
+36	Strength	NORMAL	Physical	80	100
+40	Swords Dance	NORMAL	Status	—	—
+44	Submission	FIGHTING	Physical	80	80
+48	Guillotine	NORMAL	Physical	—	30
+52	Superpower	FIGHTING	Physical	120	100.1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+5	Work Up	NORMAL	Status	—	—
+10	Payback	DARK	Physical	50	100
+15	Assurance	DARK	Physical	60	100
+20	Horn Attack	NORMAL	Physical	65	100
+25	Scary Face	NORMAL	Status	—	100
+30	Zen Headbutt	PSYCHIC	Physical	80	90
+35	Take Down	NORMAL	Physical	90	85
+40	Rest	PSYCHIC	Status	—	—
+45	Swagger	NORMAL	Status	—	85
+50	Thrash	NORMAL	Physical	120	100
+55	Double-Edge	NORMAL	Physical	120	100
+60	Giga Impact	NORMAL	Physical	150	90.1	Splash	NORMAL	Status	—	—
+15	Tackle	NORMAL	Physical	40	100
+25	Flail	NORMAL	Physical	—	100.1	Bite	DARK	Physical	60	100
+1	Flail	NORMAL	Physical	—	100
+1	Leer	NORMAL	Status	—	100
+1	Splash	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+1	Twister	DRAGON	Special	40	100
+4	Whirlpool	WATER	Special	35	85
+8	Ice Fang	ICE	Physical	65	95
+12	Brine	WATER	Special	65	100
+16	Scary Face	NORMAL	Status	—	100
+21	Waterfall	WATER	Physical	80	100
+24	Crunch	DARK	Physical	80	100
+28	Rain Dance	WATER	Status	—	—
+32	Aqua Tail	WATER	Physical	90	90
+36	Dragon Dance	DRAGON	Status	—	—
+40	Hydro Pump	WATER	Special	110	80
+44	Hurricane	FLYING	Special	110	70
+48	Thrash	NORMAL	Physical	120	100
+52	Hyper Beam	NORMAL	Special	150	90.1	Growl	NORMAL	Status	—	100
+1	Water Gun	WATER	Special	40	100
+5	Sing	NORMAL	Status	—	55
+10	Mist	ICE	Status	—	—
+15	Life Dew	WATER	Status	—	—
+20	Ice Shard	ICE	Physical	40	100
+25	Confuse Ray	GHOST	Status	—	100
+30	Water Pulse	WATER	Special	60	100
+35	Brine	WATER	Special	65	100
+40	Body Slam	NORMAL	Physical	85	100
+45	Ice Beam	ICE	Special	90	100
+50	Rain Dance	WATER	Status	—	—
+55	Hydro Pump	WATER	Special	110	80
+60	Perish Song	NORMAL	Status	—	—
+65	Sheer Cold	ICE	Special	—	30.1	Transform	NORMAL	Status	—	—.1	Covet	NORMAL	Physical	60	100
+1	Growl	NORMAL	Status	—	100
+1	Helping Hand	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+5	Sand Attack	GROUND	Status	—	100
+10	Quick Attack	NORMAL	Physical	40	100
+15	Baby-Doll Eyes	FAIRY	Status	—	100
+20	Swift	NORMAL	Special	60	∞
+25	Bite	DARK	Physical	60	100
+30	Copycat	NORMAL	Status	—	—
+35	Baton Pass	NORMAL	Status	—	—
+40	Take Down	NORMAL	Physical	90	85
+45	Charm	FAIRY	Status	—	100
+50	Double-Edge	NORMAL	Physical	120	100
+55	Last Resort	NORMAL	Physical	140	100.1	Baton Pass	NORMAL	Status	—	—
+1	Bite	DARK	Physical	60	100
+1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Covet	NORMAL	Physical	60	100
+1	Double-Edge	NORMAL	Physical	120	100
+1	Growl	NORMAL	Status	—	100
+1	Helping Hand	NORMAL	Status	—	—
+1	Swift	NORMAL	Special	60	∞
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Take Down	NORMAL	Physical	90	85
+1	Water Gun	WATER	Special	40	100
+5	Sand Attack	GROUND	Status	—	100
+10	Quick Attack	NORMAL	Physical	40	100
+15	Baby-Doll Eyes	FAIRY	Status	—	100
+20	Haze	ICE	Status	—	—
+25	Water Pulse	WATER	Special	60	100
+30	Aurora Beam	ICE	Special	65	100
+35	Aqua Ring	WATER	Status	—	—
+40	Muddy Water	WATER	Special	90	85
+45	Acid Armor	POISON	Status	—	—
+50	Hydro Pump	WATER	Special	110	80
+55	Last Resort	NORMAL	Physical	140	100.1	Baton Pass	NORMAL	Status	—	—
+1	Bite	DARK	Physical	60	100
+1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Covet	NORMAL	Physical	60	100
+1	Double-Edge	NORMAL	Physical	120	100
+1	Growl	NORMAL	Status	—	100
+1	Helping Hand	NORMAL	Status	—	—
+1	Swift	NORMAL	Special	60	∞
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Take Down	NORMAL	Physical	90	85
+1	Thunder Shock	ELECTRIC	Special	40	100
+5	Sand Attack	GROUND	Status	—	100
+10	Quick Attack	NORMAL	Physical	40	100
+15	Baby-Doll Eyes	FAIRY	Status	—	100
+20	Thunder Wave	ELECTRIC	Status	—	90
+25	Double Kick	FIGHTING	Physical	30	100
+30	Thunder Fang	ELECTRIC	Physical	65	95
+35	Pin Missile	BUG	Physical	25	95
+40	Discharge	ELECTRIC	Special	80	100
+45	Agility	PSYCHIC	Status	—	—
+50	Thunder	ELECTRIC	Special	110	70
+55	Last Resort	NORMAL	Physical	140	100.1	Baton Pass	NORMAL	Status	—	—
+1	Charm	FAIRY	Status	—	100
+1	Copycat	NORMAL	Status	—	—
+1	Covet	NORMAL	Physical	60	100
+1	Double-Edge	NORMAL	Physical	120	100
+1	Ember	FIRE	Special	40	100
+1	Growl	NORMAL	Status	—	100
+1	Helping Hand	NORMAL	Status	—	—
+1	Swift	NORMAL	Special	60	∞
+1	Tackle	NORMAL	Physical	40	100
+1	Tail Whip	NORMAL	Status	—	100
+1	Take Down	NORMAL	Physical	90	85
+5	Sand Attack	GROUND	Status	—	100
+10	Quick Attack	NORMAL	Physical	40	100
+15	Baby-Doll Eyes	FAIRY	Status	—	100
+20	Smog	POISON	Special	30	70
+25	Bite	DARK	Physical	60	100
+30	Fire Fang	FIRE	Physical	65	95
+35	Fire Spin	FIRE	Special	35	85
+40	Lava Plume	FIRE	Special	80	100
+45	Scary Face	NORMAL	Status	—	100
+50	Flare Blitz	FIRE	Physical	120	100
+55	Last Resort	NORMAL	Physical	140	100.1	Conversion	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+5	Recycle	NORMAL	Status	—	—
+10	Magnet Rise	ELECTRIC	Status	—	—
+15	Thunder Shock	ELECTRIC	Special	40	100
+20	Psybeam	PSYCHIC	Special	65	100
+25	Conversion 2	NORMAL	Status	—	—
+30	Agility	PSYCHIC	Status	—	—
+35	Recover	NORMAL	Status	—	—
+40	Discharge	ELECTRIC	Special	80	100
+45	Tri Attack	NORMAL	Special	80	100
+50	Magic Coat	PSYCHIC	Status	—	—
+55	Lock-On	NORMAL	Status	—	—
+60	Zap Cannon	ELECTRIC	Special	120	50.1	Bind	NORMAL	Physical	15	85
+1	Withdraw	WATER	Status	—	—
+5	Rollout	ROCK	Physical	30	90
+10	Sand Attack	GROUND	Status	—	100
+15	Water Gun	WATER	Special	40	100
+20	Leer	NORMAL	Status	—	100
+25	Mud Shot	GROUND	Special	55	95
+30	Ancient Power	ROCK	Special	60	100
+35	Brine	WATER	Special	65	100
+41	Protect	NORMAL	Status	—	—
+45	Rock Blast	ROCK	Physical	25	90
+50	Surf	WATER	Special	90	100
+55	Shell Smash	NORMAL	Status	—	—
+60	Hydro Pump	WATER	Special	110	80.1	Bind	NORMAL	Physical	15	85
+1	Crunch	DARK	Physical	80	100
+1	Rollout	ROCK	Physical	30	90
+1	Sand Attack	GROUND	Status	—	100
+1	Withdraw	WATER	Status	—	—
+15	Water Gun	WATER	Special	40	100
+20	Leer	NORMAL	Status	—	100
+25	Mud Shot	GROUND	Special	55	95
+30	Ancient Power	ROCK	Special	60	100
+35	Brine	WATER	Special	65	100
+43	Protect	NORMAL	Status	—	—
+49	Rock Blast	ROCK	Physical	25	90
+56	Surf	WATER	Special	90	100
+63	Shell Smash	NORMAL	Status	—	—
+70	Hydro Pump	WATER	Special	110	80.1	Absorb	GRASS	Special	20	100
+1	Harden	NORMAL	Status	—	—
+5	Scratch	NORMAL	Physical	40	100
+10	Sand Attack	GROUND	Status	—	100
+15	Aqua Jet	WATER	Physical	40	100
+20	Leer	NORMAL	Status	—	100
+25	Mud Shot	GROUND	Special	55	95
+30	Ancient Power	ROCK	Special	60	100
+35	Brine	WATER	Special	65	100
+41	Protect	NORMAL	Status	—	—
+45	Leech Life	BUG	Physical	80	100
+50	Liquidation	WATER	Physical	85	100
+55	Metal Sound	STEEL	Status	—	85
+60	Stone Edge	ROCK	Physical	100	80.1	Absorb	GRASS	Special	20	100
+1	Feint	NORMAL	Physical	30	100
+1	Harden	NORMAL	Status	—	—
+1	Night Slash	DARK	Physical	70	100
+1	Sand Attack	GROUND	Status	—	100
+1	Scratch	NORMAL	Physical	40	100
+1	Slash	NORMAL	Physical	70	100
+15	Aqua Jet	WATER	Physical	40	100
+20	Leer	NORMAL	Status	—	100
+25	Mud Shot	GROUND	Special	55	95
+30	Ancient Power	ROCK	Special	60	100
+35	Brine	WATER	Special	65	100
+43	Protect	NORMAL	Status	—	—
+49	Leech Life	BUG	Physical	80	100
+56	Liquidation	WATER	Physical	85	100
+63	Metal Sound	STEEL	Status	—	85
+70	Stone Edge	ROCK	Physical	100	80.1	Ancient Power	ROCK	Special	60	100
+1	Bite	DARK	Physical	60	100
+5	Supersonic	NORMAL	Status	—	55
+10	Wing Attack	FLYING	Physical	60	100
+15	Scary Face	NORMAL	Status	—	100
+20	Rock Slide	ROCK	Physical	75	90
+25	Roar	NORMAL	Status	—	—
+30	Crunch	DARK	Physical	80	100
+35	Iron Head	STEEL	Physical	80	100
+40	Take Down	NORMAL	Physical	90	85
+45	Stone Edge	ROCK	Physical	100	80
+50	Agility	PSYCHIC	Status	—	—
+55	Hyper Beam	NORMAL	Special	150	90
+60	Giga Impact	NORMAL	Physical	150	90.1	Block	NORMAL	Status	—	—
+1	Covet	NORMAL	Physical	60	100
+1	Defense Curl	NORMAL	Status	—	—
+1	Flail	NORMAL	Physical	—	100
+1	Fling	DARK	Physical	—	100
+1	Last Resort	NORMAL	Physical	140	100
+1	Lick	GHOST	Physical	30	100
+1	Metronome	NORMAL	Status	—	—
+1	Recycle	NORMAL	Status	—	—
+1	Screech	NORMAL	Status	—	85
+1	Stockpile	NORMAL	Status	—	—
+1	Swallow	NORMAL	Status	—	—
+1	Tackle	NORMAL	Physical	40	100
+12	Yawn	NORMAL	Status	—	—
+16	Bite	DARK	Physical	60	100
+20	Rest	PSYCHIC	Status	—	—
+20	Sleep Talk	NORMAL	Status	—	—
+20	Snore	NORMAL	Special	50	100
+24	Crunch	DARK	Physical	80	100
+28	Body Slam	NORMAL	Physical	85	100
+32	Heavy Slam	STEEL	Physical	—	100
+36	Amnesia	PSYCHIC	Status	—	—
+40	High Horsepower	GROUND	Physical	95	95
+44	Hammer Arm	FIGHTING	Physical	100	90
+48	Belly Drum	NORMAL	Status	—	—
+52	Belch	POISON	Special	120	90
+56	Giga Impact	NORMAL	Physical	150	90.1	Gust	FLYING	Special	40	100
+1	Mist	ICE	Status	—	—
+5	Powder Snow	ICE	Special	40	100
+10	Reflect	PSYCHIC	Status	—	—
+15	Ice Shard	ICE	Physical	40	100
+20	Agility	PSYCHIC	Status	—	—
+25	Ancient Power	ROCK	Special	60	100
+30	Tailwind	FLYING	Status	—	—
+35	Freeze-Dry	ICE	Special	70	100
+40	Roost	FLYING	Status	—	—
+45	Ice Beam	ICE	Special	90	100
+50	Hail	ICE	Status	—	—
+55	Hurricane	FLYING	Special	110	70
+60	Mind Reader	NORMAL	Status	—	—
+65	Blizzard	ICE	Special	110	70
+70	Sheer Cold	ICE	Special	—	30.1	Peck	FLYING	Physical	35	100
+1	Thunder Wave	ELECTRIC	Status	—	90
+5	Thunder Shock	ELECTRIC	Special	40	100
+10	Light Screen	PSYCHIC	Status	—	—
+15	Pluck	FLYING	Physical	60	100
+20	Agility	PSYCHIC	Status	—	—
+25	Ancient Power	ROCK	Special	60	100
+30	Charge	ELECTRIC	Status	—	—
+35	Drill Peck	FLYING	Physical	80	100
+40	Roost	FLYING	Status	—	—
+45	Discharge	ELECTRIC	Special	80	100
+50	Rain Dance	WATER	Status	—	—
+55	Thunder	ELECTRIC	Special	110	70
+60	Detect	FIGHTING	Status	—	—
+65	Magnetic Flux	ELECTRIC	Status	—	—
+70	Zap Cannon	ELECTRIC	Special	120	50.1	Gust	FLYING	Special	40	100
+1	Leer	NORMAL	Status	—	100
+5	Ember	FIRE	Special	40	100
+10	Safeguard	NORMAL	Status	—	—
+15	Wing Attack	FLYING	Physical	60	100
+20	Agility	PSYCHIC	Status	—	—
+25	Ancient Power	ROCK	Special	60	100
+30	Incinerate	FIRE	Special	60	100
+35	Air Slash	FLYING	Special	75	95
+40	Roost	FLYING	Status	—	—
+45	Heat Wave	FIRE	Special	95	90
+50	Sunny Day	FIRE	Status	—	—
+55	Hurricane	FLYING	Special	110	70
+60	Endure	NORMAL	Status	—	—
+65	Burn Up	FIRE	Special	130	100
+70	Sky Attack	FLYING	Physical	140	90.1	Leer	NORMAL	Status	—	100
+1	Wrap	NORMAL	Physical	15	90
+5	Twister	DRAGON	Special	40	100
+10	Thunder Wave	ELECTRIC	Status	—	90
+15	Dragon Tail	DRAGON	Physical	60	90
+20	Agility	PSYCHIC	Status	—	—
+25	Slam	NORMAL	Physical	80	75
+31	Aqua Tail	WATER	Physical	90	90
+35	Dragon Rush	DRAGON	Physical	100	75
+40	Safeguard	NORMAL	Status	—	—
+45	Rain Dance	WATER	Status	—	—
+50	Dragon Dance	DRAGON	Status	—	—
+55	Outrage	DRAGON	Physical	120	100
+60	Hyper Beam	NORMAL	Special	150	90.1	Leer	NORMAL	Status	—	100
+1	Thunder Wave	ELECTRIC	Status	—	90
+1	Twister	DRAGON	Special	40	100
+1	Wrap	NORMAL	Physical	15	90
+15	Dragon Tail	DRAGON	Physical	60	90
+20	Agility	PSYCHIC	Status	—	—
+25	Slam	NORMAL	Physical	80	75
+33	Aqua Tail	WATER	Physical	90	90
+39	Dragon Rush	DRAGON	Physical	100	75
+46	Safeguard	NORMAL	Status	—	—
+53	Rain Dance	WATER	Status	—	—
+60	Dragon Dance	DRAGON	Status	—	—
+67	Outrage	DRAGON	Physical	120	100
+74	Hyper Beam	NORMAL	Special	150	90.1	Extreme Speed	NORMAL	Physical	80	100
+1	Fire Punch	FIRE	Physical	75	100
+1	Hurricane	FLYING	Special	110	70
+1	Leer	NORMAL	Status	—	100
+1	Roost	FLYING	Status	—	—
+1	Thunder Punch	ELECTRIC	Physical	75	100
+1	Thunder Wave	ELECTRIC	Status	—	90
+1	Twister	DRAGON	Special	40	100
+1	Wing Attack	FLYING	Physical	60	100
+1	Wrap	NORMAL	Physical	15	90
+15	Dragon Tail	DRAGON	Physical	60	90
+20	Agility	PSYCHIC	Status	—	—
+25	Slam	NORMAL	Physical	80	75
+33	Aqua Tail	WATER	Physical	90	90
+39	Dragon Rush	DRAGON	Physical	100	75
+41	Outrage	DRAGON	Physical	120	100
+46	Safeguard	NORMAL	Status	—	—
+53	Rain Dance	WATER	Status	—	—
+62	Dragon Dance	DRAGON	Status	—	—
+80	Hyper Beam	NORMAL	Special	150	90.1	Confusion	PSYCHIC	Special	50	100
+1	Disable	NORMAL	Status	—	100
+1	Laser Focus	NORMAL	Status	—	—
+1	Life Dew	WATER	Status	—	—
+1	Swift	NORMAL	Special	60	∞
+8	Ancient Power	ROCK	Special	60	100
+16	Psycho Cut	PSYCHIC	Physical	70	100
+24	Safeguard	NORMAL	Status	—	—
+32	Amnesia	PSYCHIC	Status	—	—
+40	Aura Sphere	FIGHTING	Special	80	∞
+48	Psychic	PSYCHIC	Special	90	100
+56	Guard Swap	PSYCHIC	Status	—	—
+56	Power Swap	PSYCHIC	Status	—	—
+64	Mist	ICE	Status	—	—
+72	Psystrike	PSYCHIC	Special	100	100
+80	Recover	NORMAL	Status	—	—
+88	Future Sight	PSYCHIC	Special	120	100.1	Pound	NORMAL	Physical	40	100
+1	Reflect Type	NORMAL	Status	—	—
+10	Amnesia	PSYCHIC	Status	—	—
+20	Baton Pass	NORMAL	Status	—	—
+30	Ancient Power	ROCK	Special	60	100
+40	Life Dew	WATER	Status	—	—
+50	Nasty Plot	DARK	Status	—	—
+60	Metronome	NORMAL	Status	—	—
+70	Imprison	PSYCHIC	Status	—	—
+80	Transform	NORMAL	Status	—	—
+90	Aura Sphere	FIGHTING	Special	80	∞
+100	Psychic	PSYCHIC	Special	90	100
