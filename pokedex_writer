@@ -1,0 +1,81 @@
+from move_database import *
+import random
+from pokemon_functions import Trainer_Battle, Trainer, gen_poke
+
+trainer = Trainer("computer_file")
+trainer.name = "agatha"
+trainer.bag.bag = {"full restore": 20}
+trainer.bag.money = 0
+trainer.add_to_box(gen_poke("gengar", 54))
+trainer.add_to_box(gen_poke("golbat", 54))
+trainer.add_to_box(gen_poke("haunter", 53))
+trainer.add_to_box(gen_poke("arbok", 56))
+trainer.add_to_box(gen_poke("gengar", 58))
+trainer.level = 9
+trainer.encoder()
+"""
+file_name = input("File name: ")
+file = open(file_name, "x")
+file.close()
+file = open(file_name, "w")
+file.write(""{}
+\split
+0
+\split
+1000
+\split
+potion:5
+\split"".format(input("Player Name: ")))
+file.close()
+temp_trainer = Trainer(file_name)
+temp_trainer.add_to_box(gen_poke(input("Charmander, Bulbasaur, Squirtle").lower(), 5))
+temp_trainer.encoder()"""
+
+"""
+file = open("computer_file", "r")
+txt = file.read()
+return_string = ""
+for line in txt.split("\n"):
+    if line[0] != " ":
+        return_string += "."
+    return_string += line + "\n"
+
+move_lst = []
+move_dict = {}
+#"x" not in temp_list[3] and
+for item in return_string.split(".")[1:]:
+    temp_list = item.split("\n")
+    if temp_list[3] not in ['    category:'] and temp_list[0][:-1] not in move_list:
+        move_lst.append(temp_list[0])
+        c_type = {'    category: s': "special", '    category: p': "physical", '    category: x': "status"}
+        try:
+            move_dict[temp_list[0][:-1].replace("-", " ")] = {"name": temp_list[0][:-1].replace("-", " "), "power": int(temp_list[4][10:]), "c_type": c_type[temp_list[3]], "type": temp_list[2][10:], "accuracy": int(temp_list[5][14:]), "stat change": {}, "priority": int(temp_list[7][14:]), "heal": 0}
+        except:
+            move_dict[temp_list[0][:-1].replace("-", " ")] = {"name": temp_list[0][:-1].replace("-", " "), "power": 0,
+                                            "c_type": c_type[temp_list[3]], "type": temp_list[2][10:],
+                                            "accuracy": 100, "stat change": {},
+                                            "priority": int(temp_list[7][14:]), "heal": 0}
+
+moves_in_151 = []
+for item in pokedex:
+    if "move list" in pokedex[item]:
+        for move in pokedex[item]["move list"]:
+            moves_in_151.append(move)
+
+#print(moves_in_151)
+#print(move_dict)
+#print("\n" * 100)
+#for item in move_dict:
+#    if item in moves_in_151 and item not in move_list:
+#        print("move_dict['{}'] = {}".format( item, move_dict[item]))
+
+#trainer = Trainer("vablaziken_file")
+#trainer.pokemon_box[0].level_up(trainer.pokemon_box[0])
+#trainer.encoder()
+
+
+for item in move_dict:
+    if item not in move_list and item in moves_in_151:
+        print("move_list['{}'] = {}".format( item, move_dict[item]))
+
+"""
